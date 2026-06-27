@@ -1,0 +1,587 @@
+[
+  {
+    "id": "N-Q01",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "What are the functions of MAC?",
+    "question_zh": "MAC 的功能是什麼？",
+    "answer_en": "The MAC sublayer resolves contention for shared media. It includes synchronization, flag, flow control, error control specifications, and the physical address information needed to move frames to the next station.",
+    "answer_zh": "MAC 子層主要負責解決共享媒介的競爭問題，並包含同步、旗標、流量控制、錯誤控制，以及下一站實體位址等資訊，讓資料能正確傳送。",
+    "exam_focus": [
+      "MAC resolves contention for shared media",
+      "重點字：synchronization、flow control、error control",
+      "MAC 屬於資料鏈結層中的子層"
+    ]
+  },
+  {
+    "id": "N-Q02",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "What are the functions of LLC?",
+    "question_zh": "LLC 的功能是什麼？",
+    "answer_en": "The LLC layer handles the end-user portion of the HDLC-like frame, including logical address, control information, and data. In IEEE 802 models, this is handled by IEEE 802.2 LLC.",
+    "answer_zh": "LLC 負責處理類似 HDLC 訊框中的終端使用者部分，包括邏輯位址、控制資訊與資料。在 IEEE 802 模型中，這些功能由 IEEE 802.2 LLC 處理。",
+    "exam_focus": [
+      "LLC = Logical Link Control",
+      "IEEE 802.2 負責 LLC",
+      "常考 MAC 與 LLC 的功能差異"
+    ]
+  },
+  {
+    "id": "N-Q03",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "What is Ethernet?",
+    "question_zh": "什麼是 Ethernet？",
+    "answer_en": "Ethernet is a multiple-access network in which a set of nodes send and receive frames over a shared link.",
+    "answer_zh": "Ethernet 是一種多重存取網路，多個節點會在共享連結上傳送與接收訊框。",
+    "exam_focus": [
+      "Ethernet = multiple-access network",
+      "共享連結 shared link",
+      "多個節點共同競爭媒介"
+    ]
+  },
+  {
+    "id": "N-Q04",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "Define the term carrier sense in CSMA/CD.",
+    "question_zh": "請定義 CSMA/CD 中的 carrier sense。",
+    "answer_en": "Carrier sense means that nodes can distinguish whether a link is idle or busy. Collision detection means a node listens while transmitting so it can detect if its frame collides with another frame.",
+    "answer_zh": "Carrier sense 是指節點能判斷連結目前是閒置還是忙碌。Collision detection 是指節點在傳送時同時監聽媒介，以偵測自己的訊框是否與其他訊框發生碰撞。",
+    "exam_focus": [
+      "Carrier sense = detect idle/busy link",
+      "Collision detection = listen while transmitting",
+      "CSMA/CD 常考兩個關鍵：carrier sense 與 collision detect"
+    ]
+  },
+  {
+    "id": "N-Q05",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "Define Repeater.",
+    "question_zh": "請定義 Repeater。",
+    "answer_en": "A repeater forwards digital signals, similar to how an amplifier forwards analog signals. In Ethernet, no more than four repeaters may be placed between any pair of hosts.",
+    "answer_zh": "Repeater 是用來轉送數位訊號的設備，作用類似放大器轉送類比訊號。在 Ethernet 中，任兩台主機之間最多只能有四個 repeater。",
+    "exam_focus": [
+      "Repeater forwards digital signals",
+      "類比放大器 vs 數位 repeater",
+      "考試可能問最多四個 repeaters"
+    ]
+  },
+  {
+    "id": "N-Q06",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "Define collision detection.",
+    "question_zh": "請定義 collision detection。",
+    "answer_en": "In Ethernet, all hosts compete for access to the same link; therefore, they are in the same collision domain and must detect collisions during transmission.",
+    "answer_zh": "在 Ethernet 中，所有主機會競爭同一條連結，因此它們處於同一個碰撞區域，需要在傳輸時偵測是否發生碰撞。",
+    "exam_focus": [
+      "Collision detection 與 Ethernet 相關",
+      "共同競爭同一 link",
+      "注意 collision domain 的概念"
+    ]
+  },
+  {
+    "id": "N-Q07",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "Why is Ethernet said to be a 1-persistent protocol?",
+    "question_zh": "為什麼 Ethernet 被稱為 1-persistent protocol？",
+    "answer_en": "An adapter with a frame to send transmits with probability 1 whenever a busy line becomes idle.",
+    "answer_zh": "當網路線路由忙碌變成閒置時，若網路卡有訊框要傳送，就會以機率 1 立即傳送，因此稱為 1-persistent protocol。",
+    "exam_focus": [
+      "1-persistent = probability 1",
+      "busy line goes idle 就傳送",
+      "常與 CSMA/CD 一起考"
+    ]
+  },
+  {
+    "id": "N-Q08",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "What is exponential backoff?",
+    "question_zh": "什麼是 exponential backoff？",
+    "answer_en": "After detecting a collision and stopping transmission, an adapter waits for a period of time and tries again. Each time transmission fails, the waiting interval is doubled.",
+    "answer_zh": "當網路卡偵測到碰撞並停止傳輸後，會等待一段時間再嘗試重傳。每次傳輸失敗，等待時間就加倍，這種策略稱為 exponential backoff。",
+    "exam_focus": [
+      "Exponential backoff = delay doubles after each failure",
+      "碰撞後停止傳送並等待",
+      "Ethernet CSMA/CD 常考重點"
+    ]
+  },
+  {
+    "id": "N-Q09",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "What is token holding time (THT)?",
+    "question_zh": "什麼是 Token Holding Time (THT)？",
+    "answer_en": "Token Holding Time defines how much data a node may transmit, or how long a node may hold the token, each time it possesses the token.",
+    "answer_zh": "THT 定義節點每次取得 token 時可以傳送多少資料，或可以持有 token 多久。",
+    "exam_focus": [
+      "THT = how long node can hold token",
+      "與 token ring / FDDI 相關",
+      "常考 token 使用時間限制"
+    ]
+  },
+  {
+    "id": "N-Q10",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "What are the two classes of traffic in FDDI?",
+    "question_zh": "FDDI 的兩種流量類別是什麼？",
+    "answer_en": "The two classes of FDDI traffic are synchronous and asynchronous.",
+    "answer_zh": "FDDI 的兩種流量類別是同步流量（Synchronous）與非同步流量（Asynchronous）。",
+    "exam_focus": [
+      "FDDI traffic classes: synchronous / asynchronous",
+      "同步通常與即時需求相關",
+      "記住兩個英文名詞"
+    ]
+  },
+  {
+    "id": "N-Q11",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "What are the four prominent wireless technologies?",
+    "question_zh": "四種主要的無線技術是什麼？",
+    "answer_en": "The four prominent wireless technologies are Bluetooth, Wi-Fi (802.11), WiMAX (802.16), and third-generation or 3G cellular wireless.",
+    "answer_zh": "四種主要無線技術為 Bluetooth、Wi-Fi（802.11）、WiMAX（802.16）以及第三代行動通訊 3G cellular wireless。",
+    "exam_focus": [
+      "Bluetooth、Wi-Fi、WiMAX、3G",
+      "Wi-Fi = 802.11；WiMAX = 802.16",
+      "可能考配對題或列舉題"
+    ]
+  },
+  {
+    "id": "N-Q12",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "Define Bluetooth.",
+    "question_zh": "請定義 Bluetooth。",
+    "answer_en": "Bluetooth provides very short-range communication between mobile phones, PDAs, notebook computers, and peripheral devices such as headsets or printers.",
+    "answer_zh": "Bluetooth 提供非常短距離的通訊，常用於手機、PDA、筆記型電腦與周邊設備，例如耳機或印表機之間的連接。",
+    "exam_focus": [
+      "Bluetooth = very short-range communication",
+      "常用於個人裝置與周邊設備",
+      "考試可能問應用場景"
+    ]
+  },
+  {
+    "id": "N-Q13",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "What are the four steps involved in scanning?",
+    "question_zh": "Scanning 包含哪四個步驟？",
+    "answer_en": "1. The node sends a Probe frame. 2. All reachable APs reply with Probe Response frames. 3. The node selects an AP and sends an Association Request frame. 4. The AP replies with an Association Response frame.",
+    "answer_zh": "1. 節點送出 Probe frame。2. 範圍內的 AP 回覆 Probe Response frame。3. 節點選擇一個 AP，並送出 Association Request frame。4. AP 回覆 Association Response frame。",
+    "exam_focus": [
+      "Probe frame → Probe Response",
+      "Association Request → Association Response",
+      "四步驟順序很可能出題"
+    ]
+  },
+  {
+    "id": "N-Q14",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "Explain the term handoff.",
+    "question_zh": "請解釋 handoff。",
+    "answer_en": "Handoff occurs when a mobile phone involved in a call must transfer the call to a new base station.",
+    "answer_zh": "Handoff 是指行動電話通話中移動到新的基地台範圍時，通話必須轉移到新的基地台。",
+    "exam_focus": [
+      "Handoff = transfer to new base station",
+      "常見於行動通訊系統",
+      "重點是不中斷通話的切換"
+    ]
+  },
+  {
+    "id": "N-Q15",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "Define satphones.",
+    "question_zh": "請定義 satphones。",
+    "answer_en": "Satphones use communication satellites as base stations and communicate on internationally reserved satellite frequency bands.",
+    "answer_zh": "Satphones 是衛星電話，使用通訊衛星作為基地台，並在國際保留的衛星頻段上通訊。",
+    "exam_focus": [
+      "Satphone = satellite phone",
+      "Satellite as base station",
+      "保留頻段 reserved frequency bands"
+    ]
+  },
+  {
+    "id": "N-Q16",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "How to mediate access to a shared link?",
+    "question_zh": "如何協調共享連結的存取？",
+    "answer_en": "Shared-link access can be mediated by Ethernet, token ring, and wireless protocols. Ethernet and token ring do not use a central arbitrator, while wireless media access is complicated by hidden nodes due to radio range limitations.",
+    "answer_zh": "共享連結的存取可透過 Ethernet、Token Ring 與多種無線協定來協調。Ethernet 與 Token Ring 沒有中央仲裁者，而無線網路因為無線傳輸距離限制，可能出現 hidden node 問題，使媒介存取更複雜。",
+    "exam_focus": [
+      "Ethernet、Token Ring、wireless protocols",
+      "無線網路有 hidden node 問題",
+      "沒有 central arbitrator 是重點"
+    ]
+  },
+  {
+    "id": "N-Q17",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "Define aggregation points.",
+    "question_zh": "請定義 aggregation points。",
+    "answer_en": "Aggregation points collect and process data received from neighboring nodes and then transmit the processed data, reducing the amount of raw traffic sent to the base station.",
+    "answer_zh": "Aggregation points 會收集並處理來自鄰近節點的資料，再傳送處理後的資料。透過逐步處理資料，而非將所有原始資料直接送到基地台，可以降低網路流量。",
+    "exam_focus": [
+      "Aggregation = collect + process + transmit",
+      "目的：reduce traffic",
+      "常見於感測網路資料彙整"
+    ]
+  },
+  {
+    "id": "N-Q18",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "Define beacons.",
+    "question_zh": "請定義 beacons。",
+    "answer_en": "Beacons provide absolute location information based on GPS or manual configuration. Other nodes can derive their locations using relative position estimates and the absolute location information from beacons.",
+    "answer_zh": "Beacons 可透過 GPS 或手動設定取得絕對位置資訊。其他節點可結合自己與 beacon 的相對位置估計，以及 beacon 提供的絕對位置資訊，推導自身位置。",
+    "exam_focus": [
+      "Beacon 可提供位置資訊",
+      "GPS or manual configuration",
+      "考試可能問定位用途"
+    ]
+  },
+  {
+    "id": "N-Q19",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "What is the use of a switch?",
+    "question_zh": "Switch 的用途是什麼？",
+    "answer_en": "A switch forwards packets between shared-media LANs such as Ethernet. These devices are often called LAN switches.",
+    "answer_zh": "Switch 用來在共享媒介 LAN（例如 Ethernet）之間轉送封包，也常被稱為 LAN switch。",
+    "exam_focus": [
+      "Switch forwards packets",
+      "LAN switch",
+      "與 bridge / hub 差異可能考"
+    ]
+  },
+  {
+    "id": "N-Q20",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "Explain bridge.",
+    "question_zh": "請解釋 Bridge。",
+    "answer_en": "A bridge connects multiple LANs to form an extended LAN. In simple forms, bridges accept LAN frames on their inputs and forward them out on other outputs.",
+    "answer_zh": "Bridge 可連接多個 LAN，形成延伸 LAN。最簡單的 bridge 會接收輸入端的 LAN frame，並從其他輸出端轉送出去。",
+    "exam_focus": [
+      "Bridge connects LANs",
+      "Extended LAN",
+      "forward frames 是核心功能"
+    ]
+  },
+  {
+    "id": "N-Q21",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "What is spanning tree?",
+    "question_zh": "什麼是 Spanning Tree？",
+    "answer_en": "Spanning tree is used by bridges to select the ports over which they will forward frames.",
+    "answer_zh": "Spanning Tree 是 bridge 用來選擇哪些 port 要用來轉送 frame 的機制。",
+    "exam_focus": [
+      "Spanning tree prevents loop conceptually",
+      "Bridge selects forwarding ports",
+      "與 bridge 網路拓樸相關"
+    ]
+  },
+  {
+    "id": "N-Q22",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "What are the three pieces of information in configuration messages?",
+    "question_zh": "Configuration messages 中包含哪三項資訊？",
+    "answer_en": "The three pieces of information are: 1. the ID of the bridge sending the message, 2. the ID of what the sending bridge believes is the root bridge, and 3. the distance in hops from the sending bridge to the root bridge.",
+    "answer_zh": "Configuration messages 包含三項資訊：1. 傳送訊息的 bridge ID，2. 傳送 bridge 認為的 root bridge ID，3. 從傳送 bridge 到 root bridge 的距離（以 hop 計算）。",
+    "exam_focus": [
+      "bridge ID",
+      "root bridge ID",
+      "distance in hops to root bridge"
+    ]
+  },
+  {
+    "id": "N-Q23",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "What is broadcast?",
+    "question_zh": "什麼是 Broadcast？",
+    "answer_en": "Broadcast means that each bridge forwards a frame with a broadcast destination address out on every active selected port except the port on which the frame was received.",
+    "answer_zh": "Broadcast 是指當 frame 的目的位址為廣播位址時，bridge 會將該 frame 從所有啟用且被選定的 port 送出，但不包含接收到該 frame 的原 port。",
+    "exam_focus": [
+      "Broadcast destination address",
+      "forward to active ports except incoming port",
+      "Bridge 處理 broadcast 的方式常考"
+    ]
+  },
+  {
+    "id": "N-Q24",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "What is multicast?",
+    "question_zh": "什麼是 Multicast？",
+    "answer_en": "Multicast can be implemented by allowing each host to decide whether or not to accept the message.",
+    "answer_zh": "Multicast 可透過讓每台主機自行決定是否接收該訊息來實作。",
+    "exam_focus": [
+      "Multicast = group-oriented delivery",
+      "host decides whether to accept",
+      "和 broadcast / unicast 差異可能考"
+    ]
+  },
+  {
+    "id": "N-Q25",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "How does a given bridge learn whether it should forward a multicast frame over a given port?",
+    "question_zh": "Bridge 如何學習是否應該將 multicast frame 從某個 port 轉送出去？",
+    "answer_en": "A bridge learns this the same way it learns whether to forward a unicast frame over a port: by observing the source addresses received on that port.",
+    "answer_zh": "Bridge 學習 multicast frame 是否要從某個 port 轉送的方法，與學習 unicast frame 的方法相同，都是透過觀察從該 port 收到的來源位址來判斷。",
+    "exam_focus": [
+      "Learn by observing source addresses",
+      "與 unicast learning 類似",
+      "Bridge learning mechanism 是重點"
+    ]
+  },
+  {
+    "id": "N-Q26",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question_en": "What are the limitations of bridges?",
+    "question_zh": "Bridge 的限制是什麼？",
+    "answer_en": "The main limitations of bridges are scale and heterogeneity.",
+    "answer_zh": "Bridge 的主要限制是規模（scale）與異質性（heterogeneity）。",
+    "exam_focus": [
+      "Bridge limitations: scale, heterogeneity",
+      "這題常被直接問答或選擇題考",
+      "記住兩個關鍵字"
+    ]
+  },
+  {
+    "id": "Q-Q001",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "What is the primary pair key?",
+    "question_zh": "什麼是主要配對金鑰？",
+    "answer_en": "The primary pairwise key is the Pairwise Master Key (PMK). In the 802.11i RSN architecture, after authentication, the master key can generate the PMK, and the AP and workstation later use the PMK to derive the Pairwise Transient Key (PTK).",
+    "answer_zh": "主要配對金鑰是 Pairwise Master Key（PMK）。在 802.11i RSN 架構中，工作站完成身分驗證後，Master Key 可用來產生 PMK，之後 AP 與工作站再根據 PMK 產生 PTK。",
+    "exam_focus": [
+      "PMK = Pairwise Master Key",
+      "PMK 可進一步產生 PTK",
+      "802.11i / RSN / EAPoL-PRF 是相關重點"
+    ]
+  },
+  {
+    "id": "Q-Q002",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "Please explain the WEP operation process.",
+    "question_zh": "請說明 WEP 的運作流程。",
+    "answer_en": "WEP mainly uses the RC4 algorithm. The transmitter generates a keystream and performs XOR with the data to create encrypted data. The receiver uses the same keystream and XOR operation to restore the original data.",
+    "answer_zh": "WEP 主要使用 RC4 演算法。傳送端產生 keystream，並與資料內容進行 XOR 運算產生密文；接收端使用相同 keystream 與密文做 XOR，即可還原原始資料。",
+    "exam_focus": [
+      "WEP uses RC4",
+      "Encryption/decryption uses XOR",
+      "Keystream 是核心名詞"
+    ]
+  },
+  {
+    "id": "Q-Q003",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "What is the decryption process on WEP?",
+    "question_zh": "WEP 的解密流程是什麼？",
+    "answer_en": "The receiver obtains the unencrypted IV from the frame, uses the Key ID to select the WEP key, combines the IV and WEP key to generate a 64-bit RC4 key, generates a keystream with RC4, and restores the original data through XOR.",
+    "answer_zh": "接收端先從未加密的 IV header 取得初始向量，利用 Key ID 判斷傳送端使用哪一組 WEP key，再用 IV 與 WEP key 產生 64-bit RC4 key，透過 RC4 產生 keystream，最後用 XOR 還原原始資料。",
+    "exam_focus": [
+      "IV header is not encrypted",
+      "Key ID selects WEP key",
+      "IV + WEP key → 64-bit RC4 key → keystream → XOR"
+    ]
+  },
+  {
+    "id": "Q-Q004",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "What are the disadvantages of using WEP?",
+    "question_zh": "使用 WEP 有哪些缺點？",
+    "answer_en": "The disadvantages include keystream reuse, RC4 algorithm problems, data integrity issues, key management issues, and the lack of a complete identity authentication mechanism.",
+    "answer_zh": "WEP 的缺點包含 keystream 重複使用、RC4 演算法問題、資料完整性不足、金鑰管理問題，以及缺乏完整的身分認證機制。",
+    "exam_focus": [
+      "All listed disadvantages are correct",
+      "WEP security weaknesses 常考",
+      "記住：RC4、keystream reuse、integrity、key management、authentication"
+    ]
+  },
+  {
+    "id": "Q-Q005",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "What is a transmission opportunity?",
+    "question_zh": "什麼是 Transmission Opportunity（TXOP）？",
+    "answer_en": "In IEEE 802.11e HCF, a Transmission Opportunity (TXOP) is a period of time granted to a station or AP after it obtains channel access. During this time, it may transmit one or more frames until the time expires.",
+    "answer_zh": "在 IEEE 802.11e HCF 中，TXOP 是指工作站或 AP 取得通道傳輸權後所獲得的一段傳輸時間。在這段時間內，可以連續傳送一個或多個 frames，直到時間用完。",
+    "exam_focus": [
+      "TXOP = period of time, not just one frame",
+      "802.11e / HCF / QoS",
+      "SIFS + NAV help continuous transmission"
+    ]
+  },
+  {
+    "id": "Q-Q006",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "What is priority QoS?",
+    "question_zh": "什麼是 Priority QoS？",
+    "answer_en": "Priority QoS determines which data is transmitted first according to the priority of the data flow. IEEE 802.11e defines eight user priorities, and higher-priority frames are transmitted first.",
+    "answer_zh": "Priority QoS 是依照資料流的優先權決定哪些資料先傳送。IEEE 802.11e 定義八種 user priorities，高優先權的 QoS data frame 會先被送出。",
+    "exam_focus": [
+      "Priority-based QoS",
+      "IEEE 802.11e defines 8 user priorities",
+      "高優先權資料優先傳送"
+    ]
+  },
+  {
+    "id": "Q-Q007",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "To identify data flow types for media access competition and transmission scheduling, what four important definitions were added by 802.11e?",
+    "question_zh": "為了依資料流類型進行媒介存取競爭與傳輸排程，802.11e 新增哪四個重要定義？",
+    "answer_en": "802.11e added User Priority (UP), Access Category (AC), Traffic Specification (TSPEC), and Traffic Classification (TCLAS).",
+    "answer_zh": "802.11e 新增四個重要定義：User Priority（UP）、Access Category（AC）、Traffic Specification（TSPEC）與 Traffic Classification（TCLAS）。",
+    "exam_focus": [
+      "UP、AC、TSPEC、TCLAS 四個都要記",
+      "常考列舉題或複選題",
+      "802.11e QoS 核心名詞"
+    ]
+  },
+  {
+    "id": "Q-Q008",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "Please explain why PCF cannot achieve QoS.",
+    "question_zh": "請說明為什麼 PCF 無法有效達成 QoS。",
+    "answer_en": "Although PCF lets the access point poll stations to avoid contention, the AP cannot know the characteristics of audio and video streams, and each station can transmit at most one frame each turn, so delay and jitter requirements cannot be well guaranteed.",
+    "answer_zh": "雖然 PCF 由 AP 統一輪詢工作站以避免競爭，但 AP 無法掌握音訊與視訊資料流的特性，而且每次輪到某工作站時最多只能傳送一個 frame，因此對 delay 與 jitter 的保障有限，無法有效達成 QoS。",
+    "exam_focus": [
+      "PCF uses AP polling",
+      "AP does not know audio/video stream characteristics",
+      "One frame per turn limits QoS"
+    ]
+  },
+  {
+    "id": "Q-Q009",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "What is the biggest difference between EDCA and DCF?",
+    "question_zh": "EDCA 與 DCF 最大的差異是什麼？",
+    "answer_en": "EDCA changes channel competitors from stations to Access Categories, allowing classified data flows to compete for channel access. It also introduces TXOP so a station can transmit one or more frames during a granted time period.",
+    "answer_zh": "EDCA 將通道競爭者由工作站改為 Access Category（AC），使不同分類的資料流能競爭傳輸權，讓高即時性與高優先權資料較容易先取得通道。此外，EDCA 引入 TXOP，讓取得傳輸權的工作站可在一段時間內傳送一個或多個 frames。",
+    "exam_focus": [
+      "DCF competitor = station；EDCA competitor = AC",
+      "EDCA supports TXOP",
+      "高優先權資料流較容易先傳送"
+    ]
+  },
+  {
+    "id": "Q-Q010",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "Please describe the power saving mode automatic transmission of 802.11e.",
+    "question_zh": "請描述 802.11e 的省電模式自動傳輸。",
+    "answer_en": "Automatic Power-Save Delivery (APSD) lets an access point transmit buffered frames directly to a power-saving station at a pre-arranged time, while the station returns to normal mode to receive them. This reduces periodic Beacon/TIM checking and PS-Poll overhead.",
+    "answer_zh": "Automatic Power-Save Delivery（APSD）允許 AP 在預先安排的時間，直接將暫存 frame 傳送給處於省電模式的工作站；工作站也會在該時間回到正常模式接收。這可減少定期讀取 Beacon/TIM 與傳送 PS-Poll 的負擔。",
+    "exam_focus": [
+      "APSD = Automatic Power-Save Delivery",
+      "減少 Beacon/TIM 與 PS-Poll 負擔",
+      "802.11e power saving 重點"
+    ]
+  },
+  {
+    "id": "Q-Q011",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "What is Source Coding?",
+    "question_zh": "什麼是 Source Coding？",
+    "answer_en": "Source coding removes redundant information from a source signal and generates a more compact digital data sequence, commonly known as data compression.",
+    "answer_zh": "Source Coding 的主要目的是移除來源訊號中的冗餘資訊，產生更精簡的數位資料序列，也就是常見的資料壓縮。",
+    "exam_focus": [
+      "Source coding = remove redundancy",
+      "Data compression",
+      "目標：節省頻寬"
+    ]
+  },
+  {
+    "id": "Q-Q012",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "What is Channel Coding?",
+    "question_zh": "什麼是 Channel Coding？",
+    "answer_en": "Channel coding adds extra information to the input digital data so the receiver can increase the probability of correct decoding and reduce the error rate.",
+    "answer_zh": "Channel Coding 會根據輸入的數位資料再進行編碼，輸出資料除了原始訊息外，還包含額外資訊，使接收端能提高正確解碼機率並降低錯誤率。",
+    "exam_focus": [
+      "Channel coding = add extra information",
+      "目的：error detection/correction",
+      "和 Source Coding 的差異常考"
+    ]
+  },
+  {
+    "id": "Q-Q013",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "What is Frequency-hopping Transmission?",
+    "question_zh": "什麼是 Frequency-hopping Transmission？",
+    "answer_en": "Frequency-hopping spread spectrum uses different carrier frequencies over time. The available band is divided into frequency slots, and a pseudo-noise sequence determines which slot is used, making eavesdropping difficult.",
+    "answer_zh": "跳頻展頻傳輸會隨時間使用不同的載波頻率。可用頻帶會被分成多個 frequency slots，並透過 pseudo-noise sequence 決定使用哪個頻槽，因此較不容易被竊聽。",
+    "exam_focus": [
+      "FHSS = hopping among frequencies",
+      "PN sequence determines frequency slot",
+      "抗干擾與不易竊聽是重點"
+    ]
+  },
+  {
+    "id": "Q-Q014",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "What is Cyclic Prefix Extension?",
+    "question_zh": "什麼是 Cyclic Prefix Extension？",
+    "answer_en": "In OFDM, cyclic prefix extension copies part of the previous modulation symbol into the guard time so delayed signals still maintain an integer number of cycles within one symbol period, reducing ISI and ICI and allowing FFT to work correctly.",
+    "answer_zh": "在 OFDM 中，Cyclic Prefix Extension 會在 guard time 中延續前一個調變符號的訊號，使延遲訊號在一個 symbol period 內仍維持整數倍週期，藉此降低 ISI 與 ICI，讓接收端 FFT 能正常運作。",
+    "exam_focus": [
+      "OFDM + Guard Time",
+      "減少 ISI 與 ICI",
+      "Cyclic prefix 幫助 FFT 正常解調"
+    ]
+  },
+  {
+    "id": "Q-Q015",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "What is Convolution Coding?",
+    "question_zh": "什麼是 Convolution Coding？",
+    "answer_en": "Convolution coding uses shift registers and predefined linear functions. In each shift cycle, selected register bits are used to generate encoded output bits.",
+    "answer_zh": "Convolution Coding 會使用 shift register 搭配預先定義的線性函數，在每次 shift cycle 中，將特定暫存器的 bit 值帶入函數運算，產生編碼後的輸出 bits。",
+    "exam_focus": [
+      "Shift register 是核心結構",
+      "Predefined linear function",
+      "用於錯誤控制 / channel coding"
+    ]
+  },
+  {
+    "id": "Q-Q016",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "What is Multipath Interference?",
+    "question_zh": "什麼是 Multipath Interference？",
+    "answer_en": "Multipath interference occurs when electromagnetic signals from the same source are reflected by objects such as buildings or trees and arrive at the receiver through different paths, causing additive or canceling effects and possible reception errors.",
+    "answer_zh": "Multipath Interference 是指同一訊號源發出的電磁波，經由建築物、樹木等物體反射後，透過不同路徑到達接收端，造成訊號相加或抵消，可能導致接收錯誤。",
+    "exam_focus": [
+      "Same source, different paths",
+      "Reflection by buildings/trees",
+      "可能造成 additive/canceling effects"
+    ]
+  },
+  {
+    "id": "Q-Q017",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "What is Whitening?",
+    "question_zh": "什麼是 Whitening？",
+    "answer_en": "Whitening scrambles the bit order in the original data sequence so the transmitted sequence appears closer to a randomly generated sequence.",
+    "answer_zh": "Whitening 會打亂原始資料序列中的 bit 順序，使傳輸資料序列看起來更接近隨機產生的序列。",
+    "exam_focus": [
+      "Whitening = scramble bit order",
+      "讓資料更隨機化",
+      "常考定義題"
+    ]
+  },
+  {
+    "id": "Q-Q018",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "What is Direct Sequence Transmission?",
+    "question_zh": "什麼是 Direct Sequence Transmission？",
+    "answer_en": "Direct sequence spread spectrum converts an original data sequence with rate R into a higher-rate pseudo-random code sequence with rate W, where W is much greater than R, then modulates and transmits it.",
+    "answer_zh": "Direct Sequence Transmission 的原理是將原始資料率 R 的資料序列，轉換為資料率 W 的 pseudo-random code sequence，其中 W 遠大於 R，然後再進行調變與傳送。",
+    "exam_focus": [
+      "DSSS = Direct Sequence Spread Spectrum",
+      "Original rate R → pseudo-random code rate W",
+      "W >> R 是常考關係"
+    ]
+  },
+  {
+    "id": "Q-Q019",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question_en": "Assume that the input bit sequence is 10100. Using convolution coding, what is the output bit sequence after encoding?",
+    "question_zh": "假設輸入 bit sequence 為 10100，使用 convolution coding 後的輸出 bit sequence 是什麼？",
+    "answer_en": "Using the convolution encoder example, the output sequence is 1101010110. In the trellis diagram, the encoding path is ACFINP.",
+    "answer_zh": "根據題目中的 convolution encoder 範例，若輸入 bit sequence 為 10100，編碼後輸出為 1101010110；若對照 trellis diagram，其路徑為 ACFINP。",
+    "exam_focus": [
+      "Input 10100 → output 1101010110",
+      "Trellis path = ACFINP",
+      "這題可能直接考輸出序列"
+    ]
+  }
+]

@@ -1,0 +1,2366 @@
+[
+  {
+    "id": "Q01",
+    "category": "Appendix-A: Information Technology",
+    "question": "What is the authoritative source for an address lookup?",
+    "options": {
+      "A": "a recursive DNS search",
+      "B": "the operating system cache",
+      "C": "the ISP local cache",
+      "D": "the browser cache"
+    },
+    "answer": "A",
+    "explanation": "位址查詢的權威來源是遞迴 DNS 搜尋。"
+  },
+  {
+    "id": "Q02",
+    "category": "Appendix-A: Information Technology",
+    "question": "Which feature builds a FIB and an adjacency table to expedite packet forwarding?",
+    "options": {
+      "A": "cut through",
+      "B": "fast switching",
+      "C": "process switching",
+      "D": "Cisco Express Forwarding"
+    },
+    "answer": "D",
+    "explanation": "Cisco Express Forwarding (CEF) 透過建立 FIB 與相鄰表來優化轉發效率。"
+  },
+  {
+    "id": "Q03",
+    "category": "Appendix-A: Information Technology",
+    "question": "Which two statements about late collisions are true? (Choose two)",
+    "options": {
+      "A": "They may indicate a duplex mismatch.",
+      "B": "By definition, they occur after the 512th bit of the frame has been transmitted.",
+      "C": "They indicate received frames that did not pass the FCS match.",
+      "D": "They are frames that exceed 1518 bytes.",
+      "E": "They occur when CRC errors and interference occur on the cable."
+    },
+    "answer": "A B",
+    "explanation": "延遲碰撞發生在傳輸 512 bit 之後，通常暗示雙工模式不匹配。"
+  },
+  {
+    "id": "Q04",
+    "category": "Appendix-A: Information Technology",
+    "question": "Which option describes the purpose of traffic policing?",
+    "options": {
+      "A": "It prioritizes routing protocol traffic.",
+      "B": "It remarks traffic that is below the CIR",
+      "C": "It drops traffic that exceeds the CIR.",
+      "D": "It queues and then transmits traffic that exceeds the CIR."
+    },
+    "answer": "C",
+    "explanation": "流量監控 (Traffic Policing) 會直接丟棄超過 CIR 的流量。"
+  },
+  {
+    "id": "Q05",
+    "category": "Appendix-A: Information Technology",
+    "question": "Which option is the benefit of implementing an intelligent DNS for a cloud computing solution?",
+    "options": {
+      "A": "It reduces the need for a backup data center.",
+      "B": "It can redirect user requests to locations that are using fewer network resources.",
+      "C": "It enables the ISP to maintain DNS records automatically.",
+      "D": "It eliminates the need for a GSS."
+    },
+    "answer": "B",
+    "explanation": "智慧 DNS 能將請求導向資源負擔較輕的地點。"
+  },
+  {
+    "id": "Q06",
+    "category": "Appendix-A: Information Technology",
+    "question": "Which statement about QoS default behavior is true?",
+    "options": {
+      "A": "Ports are untrusted by default.",
+      "B": "VoIP traffic is passed without being tagged.",
+      "C": "Video traffic is passed with a well-known DSCP value of 46.",
+      "D": "Packets are classified internally with an environment.",
+      "E": "Packets that arrive with a tag are untagged at the edge of an administrative domain."
+    },
+    "answer": "E",
+    "explanation": "帶有標籤的封包在到達管理網域邊界時，預設會被移除標籤。"
+  },
+  {
+    "id": "Q07",
+    "category": "Appendix-A: Information Technology",
+    "question": "What 8-bit field exists in IP packet for QoS?",
+    "options": {
+      "A": "Tos Field",
+      "B": "DSCP",
+      "C": "IP Precedence",
+      "D": "Cos",
+      "E": "?"
+    },
+    "answer": "A",
+    "explanation": "IP 標頭中使用 ToS (Type of Service) 欄位來處理 QoS。"
+  },
+  {
+    "id": "Q08",
+    "category": "Appendix-A: Information Technology",
+    "question": "What feature uses a random time to re-sent a frame?",
+    "options": {
+      "A": "CSMA/CA",
+      "B": "CSMA/CAC",
+      "C": "CSMA/CDC",
+      "D": "CSMA/CD"
+    },
+    "answer": "D",
+    "explanation": "CSMA/CD 在發生碰撞後會等待一段隨機時間再重傳。"
+  },
+  {
+    "id": "Q09",
+    "category": "Appendix-A: Information Technology",
+    "question": "Which command can you enter to verify echo request and echo reply?",
+    "options": {
+      "A": "ping",
+      "B": "traceroute",
+      "C": "tracert",
+      "D": "telnet"
+    },
+    "answer": "A",
+    "explanation": "Ping 命令用於驗證 ICMP 的 Echo Request 與 Reply。"
+  },
+  {
+    "id": "Q10",
+    "category": "Appendix-A: Information Technology",
+    "question": "End-to-end response time, what are the three major components of Cisco network virtualization? (Choose three)",
+    "options": {
+      "A": "network access control",
+      "B": "path isolation",
+      "C": "virtual network services",
+      "D": "policy enforcement"
+    },
+    "answer": "A B C",
+    "explanation": "Cisco 網路虛擬化的三大支柱為存取控制、路徑隔離與虛擬服務。"
+  },
+  {
+    "id": "Q11",
+    "category": "Appendix-A: Information Technology",
+    "question": "Two features of the extended ping command? (Choose two)",
+    "options": {
+      "A": "It can send a specific number of packet",
+      "B": "It can send packet from specified interface of IP address",
+      "C": "It can resolve the destination host name",
+      "D": "It can ping multiple host at the same time"
+    },
+    "answer": "A B",
+    "explanation": "擴展 ping 可以指定發送封包的數量，以及指定發送的來源介面或 IP。"
+  },
+  {
+    "id": "Q12",
+    "category": "Appendix-A: Information Technology",
+    "question": "What utility is used for shadowed rules?",
+    "options": {
+      "A": "Create an action plan",
+      "B": "Implement an action plan",
+      "C": "Gather facts",
+      "D": "None of the above"
+    },
+    "answer": "B",
+    "explanation": "對於影子規則（Shadowed Rules），所使用的公用程式流程包含執行行動計畫。"
+  },
+  {
+    "id": "Q13",
+    "category": "Appendix-A: Information Technology",
+    "question": "Which feature can you implement to reserve bandwidth for VoIP calls across the call path?",
+    "options": {
+      "A": "round robin",
+      "B": "CBWFQ",
+      "C": "PQ",
+      "D": "RSVP"
+    },
+    "answer": "D",
+    "explanation": "RSVP 用於在整個呼叫路徑上為 VoIP 預留頻寬。"
+  },
+  {
+    "id": "Q14",
+    "category": "Appendix-A: Information Technology",
+    "question": "Which option is a benefit of switch stacking?",
+    "options": {
+      "A": "It provides redundancy with no impact on resource usage.",
+      "B": "It simplifies adding and removing hosts.",
+      "C": "It supports better performance of high-needs applications.",
+      "D": "It provides higher port density with better resource usage."
+    },
+    "answer": "D",
+    "explanation": "交換器堆疊能提供更高的連接埠密度並優化資源利用。"
+  },
+  {
+    "id": "Q15",
+    "category": "Appendix-A: Information Technology",
+    "question": "Frame relay networks offer an option called",
+    "options": {
+      "A": "Voice Over for Relay",
+      "B": "Voice Over Fin Relay",
+      "C": "Voice On frame Relay",
+      "D": "Voice Over frame Relay"
+    },
+    "answer": "D",
+    "explanation": "訊框中繼提供 Voice Over frame Relay (VoFR) 選項，用於在網絡上傳輸語音及語音頻帶數據 [cite: 68, 69-70]。"
+  },
+  {
+    "id": "Q16",
+    "category": "Appendix-A: Information Technology",
+    "question": "Frame is cheaper than other",
+    "options": {
+      "A": "LANS",
+      "B": "WANS",
+      "C": "MANs",
+      "D": "Multipoint Networks"
+    },
+    "answer": "B",
+    "explanation": "訊框中繼是一種廣域網路技術，因比租用線路便宜且配置簡單而受到歡迎 [cite: 73, 74-76]。"
+  },
+  {
+    "id": "Q17",
+    "category": "Appendix-A: Information Technology",
+    "question": "There are total features of Frame Relays.",
+    "options": {
+      "A": "Five",
+      "B": "Seven",
+      "C": "Nine",
+      "D": "Ten"
+    },
+    "answer": "C",
+    "explanation": "訊框中繼（Frame Relay）共有九個主要的特徵 [cite: 80]。"
+  },
+  {
+    "id": "Q18",
+    "category": "Appendix-A: Information Technology",
+    "question": "Which device allows users to connect to the network using a single or double radio?",
+    "options": {
+      "A": "access point",
+      "B": "switch",
+      "C": "wireless controller",
+      "D": "firewall"
+    },
+    "answer": "A",
+    "explanation": "無線存取點（AP）允許設備透過射頻連接到有線網路 [cite: 83]。"
+  },
+  {
+    "id": "Q19",
+    "category": "Appendix-A: Information Technology",
+    "question": "Which two statements about wireless LAN controllers are true? (Choose two)",
+    "options": {
+      "A": "They can simplify the management and deployment of wireless LANs.",
+      "B": "They rely on external firewalls for WLAN security.",
+      "C": "They are best suited to smaller wireless networks.",
+      "D": "They must be configured through a GUI over HTTP or HTTPS.",
+      "E": "They can manage mobility policies at a system wide level."
+    },
+    "answer": "A E",
+    "explanation": "無線區域網路控制器（WLC）能簡化部署並在全系統層級管理移動性策略 [cite: 92, 87, 91]。"
+  },
+  {
+    "id": "Q20",
+    "category": "Appendix-A: Information Technology",
+    "question": "Which WAN topology is most appropriate for a centrally located server farm with several satellite branches?",
+    "options": {
+      "A": "star",
+      "B": "hub and spoke",
+      "C": "point-to-point",
+      "D": "full mesh"
+    },
+    "answer": "B",
+    "explanation": "Hub and Spoke 拓樸最適合中心伺服器與多個衛星分支機構的連線架構 [cite: 95, 93]。"
+  },
+  {
+    "id": "Q21",
+    "category": "Appendix-A: Information Technology",
+    "question": "What are three broadband wireless technologies? (Choose three)",
+    "options": {
+      "A": "WiMax",
+      "B": "satellite Internet",
+      "C": "municipal Wi-Fi",
+      "D": "site-to-site VPN",
+      "E": "DSLAM"
+    },
+    "answer": "A B C",
+    "explanation": "寬頻無線技術包含 WiMax、衛星網路及城市 Wi-Fi [cite: 97, 96]。"
+  },
+  {
+    "id": "Q22",
+    "category": "Appendix-A: Information Technology",
+    "question": "What the three characteristics are satellite Internet connections? (Choose three)?",
+    "options": {
+      "A": "Their upload speed is about 10 percent of their download speed.",
+      "B": "They are frequently used by rural users without access to other high-speed connections.",
+      "C": "They are usually at least 10 times faster than analog modem connections.",
+      "D": "They are usually faster than cable and DSL connections.",
+      "E": "They require a WiMax tower within 30 miles of the user location.",
+      "F": "They use radio waves to communicate with cellular phone towers."
+    },
+    "answer": "A B C",
+    "explanation": "衛星網路特性：上傳約為下載速的 10%、偏鄉常用、速度比模擬數據機快 10 倍以上 [cite: 105, 99-101]。"
+  },
+  {
+    "id": "Q23",
+    "category": "Appendix-A: Information Technology",
+    "question": "Which Cisco platform can verify ACLs?",
+    "options": {
+      "A": "Cisco Prime Infrastructure",
+      "B": "Cisco Wireless LAN Controller",
+      "C": "Cisco APIC-EM",
+      "D": "Cisco IOS-XE"
+    },
+    "answer": "B",
+    "explanation": "Cisco 無線區域網路控制器（WLC）平台可以用於驗證 ACL 規則 [cite: 107, 106]。"
+  },
+  {
+    "id": "Q001",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "Military vehicles on battlefield with no existing infrastructure will deploy",
+    "options": {
+      "A": "LAN",
+      "B": "Wi-Fi",
+      "C": "Cell Network",
+      "D": "MANET"
+    },
+    "answer": "D",
+    "explanation": "在缺乏基礎設施的戰場環境中，行動隨機網路 (MANET) 是最佳部署方案。"
+  },
+  {
+    "id": "Q002",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "IEEE 802.11 have three categories of",
+    "options": {
+      "A": "Field",
+      "B": "Frames",
+      "C": "Signals",
+      "D": "Sequences"
+    },
+    "answer": "B",
+    "explanation": "IEEE 802.11 定義了三種主要訊框類型：資料 (Data)、管理 (Management) 與控制 (Control)。"
+  },
+  {
+    "id": "Q003",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "Each channel in Bluetooth layer is _______ C",
+    "options": {
+      "A": "1MHz",
+      "B": "2MHz",
+      "C": "3MHz",
+      "D": "4MHz",
+      "E": "5MHz"
+    },
+    "answer": "A",
+    "explanation": "傳統藍牙層的每個頻道頻寬為 1 MHz。"
+  },
+  {
+    "id": "Q004",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "In IEEE 802,11 frames, To DS and from DS define the value of the two flags in the ________ ",
+    "options": {
+      "A": "Sequence field",
+      "B": "Data field",
+      "C": "Frame control field",
+      "D": "Duration field"
+    },
+    "answer": "C",
+    "explanation": "To DS 與 From DS 標誌位元定義在 802.11 訊框的訊框控制欄位中。"
+  },
+  {
+    "id": "Q005",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "On wireless networks, ______ filtering is the security measure.",
+    "options": {
+      "A": "OUI",
+      "B": "IP",
+      "C": "NIC",
+      "D": "MAC"
+    },
+    "answer": "D",
+    "explanation": "MAC 過濾是無線網路中用來限制特定設備存取的安全措施。"
+  },
+  {
+    "id": "Q006",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "Which multiple access technique is used by IEEE 802.11 standard for wireless LAN?",
+    "options": {
+      "A": "CDMA",
+      "B": "CSMA/CA",
+      "C": "ALOHA",
+      "D": "CSMA/CD"
+    },
+    "answer": "B",
+    "explanation": "802.11 無線區域網路使用 CSMA/CA 技術來避免碰撞。"
+  },
+  {
+    "id": "Q007",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "______ scheme is used by Bluetooth for multiple access among co located devices in different piconets.",
+    "options": {
+      "A": "Frequency hopping TDD Scheme",
+      "B": "Frequency hopping FDD scheme",
+      "C": "DSSS TDD scheme",
+      "D": "DSSS FDD scheme"
+    },
+    "answer": "A",
+    "explanation": "藍牙使用頻率跳頻 TDD 方案來處理多個微網 (Piconet) 間的存取。"
+  },
+  {
+    "id": "Q008",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "Wi-Max provides ______ ",
+    "options": {
+      "A": "IPTV",
+      "B": "VoIP",
+      "C": "Both VoIP and IPTV",
+      "D": "No IPTV services"
+    },
+    "answer": "C",
+    "explanation": "WiMAX 技術同時支援語音 (VoIP) 與數位電視 (IPTV) 服務。"
+  },
+  {
+    "id": "Q009",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "______ provides the connectivity to Wi-Max Networks.",
+    "options": {
+      "A": "Subscriber station",
+      "B": "Base station",
+      "C": "Gateway",
+      "D": "Switch Station"
+    },
+    "answer": "A",
+    "explanation": "用戶站 (Subscriber Station, SS) 是提供 WiMAX 網路連接的終端設備。"
+  },
+  {
+    "id": "Q010",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "What layer in the TCP/IP stack is equivalent to the Transport layer of the OSI model?",
+    "options": {
+      "A": "Application",
+      "B": "Host to host",
+      "C": "Internet",
+      "D": "Network Access"
+    },
+    "answer": "B",
+    "explanation": "TCP/IP 模型中的主機對主機層 (Host to Host) 等同於 OSI 的傳輸層。"
+  },
+  {
+    "id": "Q011",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "Which of the following protocols uses both TCP and UDP?",
+    "options": {
+      "A": "SMTP",
+      "B": "Telnet",
+      "C": "FTP",
+      "D": "DNS"
+    },
+    "answer": "D",
+    "explanation": "網域名稱系統 (DNS) 為了兼顧效率與大型資料傳輸，會同時使用 TCP 與 UDP。"
+  },
+  {
+    "id": "Q012",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "Which of the following is private IP address?",
+    "options": {
+      "A": "12.0.0.1",
+      "B": "168.172.19.39",
+      "C": "172.15.14.36",
+      "D": "192.168.24.43"
+    },
+    "answer": "D",
+    "explanation": "192.168.x.x 屬於標準的 Class C 私有 IP 位址範圍。"
+  },
+  {
+    "id": "Q013",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "Split TCP provides ________ ",
+    "options": {
+      "A": "Congestion control",
+      "B": "Flow Control",
+      "C": "Speedy transmission",
+      "D": "Delay"
+    },
+    "answer": "C",
+    "explanation": "Split-TCP 透過拆分路徑顯著提升了在行動網路環境下的傳輸效率。"
+  },
+  {
+    "id": "Q014",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "The use of ACTP in very large ad hoc wireless networks does not provide ________ ",
+    "options": {
+      "A": "Throughput",
+      "B": "Reliability",
+      "C": "Scalability",
+      "D": "Congestion control mechanism"
+    },
+    "answer": "D",
+    "explanation": "ACTP 在大型隨機網路中缺乏擁塞控制機制，容易導致網路過載。"
+  },
+  {
+    "id": "Q015",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "Throughput degradation in TCP is due to ________ ",
+    "options": {
+      "A": "Misinterpretation of packet loss",
+      "B": "Frequent path breaks",
+      "C": "Decrease of path length",
+      "D": "Misinterpretation of congestion window"
+    },
+    "answer": "A",
+    "explanation": "傳統 TCP 會將無線網路中的隨機斷路誤判為擁塞，導致吞吐量大幅下降。"
+  },
+  {
+    "id": "Q016",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "Since Ad-hoc network is already have a limited resources and processing power, to keep a confidentiality w.r.t. connectivity between two nodes which are in range of each other, it uses a simple secure protocol like ________ ",
+    "options": {
+      "A": "IEEE 802.15",
+      "B": "IEEE 802.11 WEP protocol",
+      "C": "IEEE 802.11a",
+      "D": "IEEE 802.17"
+    },
+    "answer": "B",
+    "explanation": "對於資源受限的隨機網路，常使用 WEP 這種簡單的協定來維持基本機密性。"
+  },
+  {
+    "id": "Q017",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "The network-layer security is concerned with securely delivering packets between mobile nodes through ________ ",
+    "options": {
+      "A": "Single hop forwarding",
+      "B": "No Forwarding",
+      "C": "Multi-hop ad hoc forwarding",
+      "D": "None of the above"
+    },
+    "answer": "C",
+    "explanation": "網路層安全主要關注如何在行動節點間透過多跳 (Multi-hop) 轉發來傳遞封包。"
+  },
+  {
+    "id": "Q018",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "Which of the following is not a hard-real-time application which require QoS guarantees?",
+    "options": {
+      "A": "Nuclear reactor control systems",
+      "B": "Air traffic control systems",
+      "C": "Missile control systems",
+      "D": "Online video lecture"
+    },
+    "answer": "D",
+    "explanation": "線上影片教學屬於對即時性要求較寬鬆的應用，非硬即時 (Hard-real-time) 系統。"
+  },
+  {
+    "id": "Q019",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "Which of the following is not a resource constraint of the nodes?",
+    "options": {
+      "A": "Battery charge",
+      "B": "Processing power",
+      "C": "Cost",
+      "D": "Memory"
+    },
+    "answer": "C",
+    "explanation": "電池、運算力與記憶體是典型的硬體資源限制，成本則是外部因素。"
+  },
+  {
+    "id": "Q020",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "Which one of the following is not a function of network layer?",
+    "options": {
+      "A": "Routing",
+      "B": "Inter-networking",
+      "C": "Congestion control",
+      "D": "Error control"
+    },
+    "answer": "B",
+    "explanation": "網路層主要負責路由與擁塞控制，根據題庫內容，互連 (Inter-networking) 被列為非核心功能。"
+  },
+  {
+    "id": "Q021",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "Which of these components is internal to a computer and is required to connect the computer to a network?",
+    "options": {
+      "A": "Wireless Access Point",
+      "B": "Network Interface card",
+      "C": "Switch",
+      "D": "Hub"
+    },
+    "answer": "B",
+    "explanation": "網路介面卡 (NIC) 是電腦內部連接網路所必須的硬體組件。"
+  },
+  {
+    "id": "Q022",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "______ occurs when both nodes transmit packets at the same time without knowing about the transmission of each other.",
+    "options": {
+      "A": "Intersection",
+      "B": "Collision",
+      "C": "Synchronization",
+      "D": "Error"
+    },
+    "answer": "B",
+    "explanation": "當兩個節點同時傳送資料而未察覺對方時，就會發生碰撞。"
+  },
+  {
+    "id": "Q023",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "Which multiple access technique is used by IEEE 802.11 standard for wireless LAN?",
+    "options": {
+      "A": "CDMA",
+      "B": "CSMA/CA",
+      "C": "ALOHA",
+      "D": "CSMA/CD"
+    },
+    "answer": "B",
+    "explanation": "重複強調：802.11 無線區域網路使用 CSMA/CA 存取技術。"
+  },
+  {
+    "id": "Q024",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "For centralized routing the decision is made by some designated node called ________ ",
+    "options": {
+      "A": "Designated center",
+      "B": "Control center",
+      "C": "Network center",
+      "D": "Network control center"
+    },
+    "answer": "D",
+    "explanation": "在集中式路由中，決策由網路控制中心 (Network Control Center) 負責。"
+  },
+  {
+    "id": "Q025",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "Route discovery process in AODV protocol is ________ ",
+    "options": {
+      "A": "Active",
+      "B": "Passive",
+      "C": "On Demand",
+      "D": "Frequent"
+    },
+    "answer": "C",
+    "explanation": "AODV 是一種隨選 (On Demand) 路由協定，僅在需要時進行路徑發現。"
+  },
+  {
+    "id": "Q026",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "User datagram protocol is called connectionless because ________ ",
+    "options": {
+      "A": "all UDP packets are treated independently by transport layer",
+      "B": "it sends data as a stream of related packets",
+      "C": "it is received in the same order as sent order",
+      "D": "it sends data very quickly"
+    },
+    "answer": "A",
+    "explanation": "UDP 被稱為無連線是因為它獨立處理每個封包，不需建立連線狀態。"
+  },
+  {
+    "id": "Q027",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "In ad hoc wireless networks the QoS requirements are more influenced by ________ ",
+    "options": {
+      "A": "User specification",
+      "B": "Routing Protocols",
+      "C": "Topology of the network",
+      "D": "Resource constraints of the nodes"
+    },
+    "answer": "D",
+    "explanation": "在隨機網路中，QoS 的需求深受節點硬體資源限制的影響。"
+  },
+  {
+    "id": "Q028",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "______ specifies the Logical Link Control (LLC) in VANET.",
+    "options": {
+      "A": "IEEE 802.2",
+      "B": "IEEE 802.5",
+      "C": "IEEE 802.11",
+      "D": "IEEE 802.8"
+    },
+    "answer": "A",
+    "explanation": "IEEE 802.2 標準規範了包括車載網路在內的邏輯鏈結控制功能。"
+  },
+  {
+    "id": "Q029",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "What is the type of network in which the topology changes from time to time?",
+    "options": {
+      "A": "Wi-Fi",
+      "B": "Cell network",
+      "C": "LAN",
+      "D": "MANET"
+    },
+    "answer": "D",
+    "explanation": "MANET 的主要特點就是節點具備移動性，導致網路拓樸頻繁變動。"
+  },
+  {
+    "id": "Q030",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "Hidden terminal problem is due to ________ ",
+    "options": {
+      "A": "Simultaneous transmission of nodes within the transmission range of each other.",
+      "B": "Simultaneous reception of by nodes within the transmission range of sender.",
+      "C": "Collision of packets at the receiving nodes due to simultaneous transmission of nodes which are not in the transmission range of each other but within the transmission range of the receiver.",
+      "D": "The sender and receiver are not in the line of sight or in the transmission range of each other."
+    },
+    "answer": "C",
+    "explanation": "隱藏終端問題發生於兩個傳送者互不可見，卻同時對同一接收者傳送資料導致碰撞。"
+  },
+  {
+    "id": "Q031",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "Sender initiated protocol is an example for ________ ",
+    "options": {
+      "A": "Asynchronous protocol",
+      "B": "Synchronous protocol",
+      "C": "Contention based protocol",
+      "D": "Contention based protocol with scheduling mechanism"
+    },
+    "answer": "C",
+    "explanation": "由發送者發起的協定（如 FAMA）是競爭型協定的一種範例。"
+  },
+  {
+    "id": "Q032",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "DSR typically imposes a higher routing overhead in bytes than AODV, due to ________ ",
+    "options": {
+      "A": "the cost of carrying destination routes in every packet.",
+      "B": "the cost of carrying source routes in every packet.",
+      "C": "the cost of carrying source routes in every Network.",
+      "D": "the cost of carrying destination routes in every Network."
+    },
+    "answer": "B",
+    "explanation": "DSR 在每個封包中攜帶完整的來源路徑，因此負擔比 AODV 重。"
+  },
+  {
+    "id": "Q033",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "A highly adaptive, efficient, loop-free and scalable routing protocol based on link reversal algorithm.",
+    "options": {
+      "A": "DSDV",
+      "B": "TORA",
+      "C": "AODV",
+      "D": "ZRP"
+    },
+    "answer": "B",
+    "explanation": "TORA 協定基於鏈結反轉演算法，具備高度適應性且無迴圈。"
+  },
+  {
+    "id": "Q034",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "In TCP_BUS upon the detection of a path break, an intermediate node called the ________ ",
+    "options": {
+      "A": "Pivot node (PN)",
+      "B": "Failure Node (FN)",
+      "C": "Active Node (AN)",
+      "D": "Distributing Node (DN)"
+    },
+    "answer": "A",
+    "explanation": "在 TCP_BUS 協定中，偵測到斷路的關鍵中間節點稱為樞紐節點 (Pivot Node)。"
+  },
+  {
+    "id": "Q035",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "______ is sent to TCP-F sender, If the broken links rejoins or intermediate node obtains a new path to destination.",
+    "options": {
+      "A": "Route reestablishment notification (RRN)",
+      "B": "Route Failure Notification (RFN)",
+      "C": "Explicit route disconnection notification (ERDN)",
+      "D": "Explicit route successful notification packet (ERSN)"
+    },
+    "answer": "D",
+    "explanation": "當路徑重新建立後，會發送 ERSN 封包通知發送者恢復傳輸。"
+  },
+  {
+    "id": "Q036",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "______ attack does not come under active attack.",
+    "options": {
+      "A": "Snooping",
+      "B": "Jamming",
+      "C": "black hole attack",
+      "D": "gray hole attack"
+    },
+    "answer": "A",
+    "explanation": "竊聽 (Snooping) 屬於被動攻擊，而干擾與黑洞攻擊則屬於主動攻擊。"
+  },
+  {
+    "id": "Q037",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "When fraud access points are created to access information such as passwords. Which type of Wireless network threat would you classify this under?",
+    "options": {
+      "A": "Identity Theft",
+      "B": "Network Injection",
+      "C": "Man in the middle attack",
+      "D": "Malicious Association"
+    },
+    "answer": "D",
+    "explanation": "透過偽造 AP 誘騙連線以獲取密碼的行為稱為惡意關聯 (Malicious Association)。"
+  },
+  {
+    "id": "Q038",
+    "category": "Appendix-B: Adhoc Wireless Network",
+    "question": "IVC stand for ________ ",
+    "options": {
+      "A": "Inter Vehicle Communication",
+      "B": "International Vehicle Circulation",
+      "C": "Inter Vehicle Circulation",
+      "D": "International Vehicle Communication"
+    },
+    "answer": "A",
+    "explanation": "IVC 的縮寫代表車間通訊 (Inter Vehicle Communication)。"
+  },
+  {
+    "id": "Q001",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "The IEEE 802.15.1 Bluetooth system has a typical frequency-hop rate of hops per second.",
+    "options": {
+      "A": "2.5",
+      "B": "1600",
+      "C": "3200",
+      "D": "800"
+    },
+    "answer": "B",
+    "explanation": "藍牙系統（IEEE 802.15.1）標準的跳頻速率為每秒 1600 次 [cite: 275-276]。"
+  },
+  {
+    "id": "Q002",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "Assuming each mobile node to be connected to exactly four adjacent mobile nodes in a MANET of 100 nodes, the total number of wireless links are ________ ",
+    "options": {
+      "A": "100",
+      "B": "200",
+      "C": "400",
+      "D": "800"
+    },
+    "answer": "B",
+    "explanation": "計算公式為 (100 節點 * 4 連線) / 2 = 200 條鏈結 [cite: 277-278]。"
+  },
+  {
+    "id": "Q003",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "Which layer in the Bluetooth protocol stack performs the connection establishment within a piconet?",
+    "options": {
+      "A": "Physical layer",
+      "B": "Application layer",
+      "C": "Logical link control adaptation layer",
+      "D": "Baseband layer"
+    },
+    "answer": "D",
+    "explanation": "在藍牙協定棧中，基頻層（Baseband layer）負責微網內的連接建立 [cite: 279-280]。"
+  },
+  {
+    "id": "Q004",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "IEEE 802.15.4 is to provide transfer data rates of ________ ",
+    "options": {
+      "A": "450",
+      "B": "350",
+      "C": "250",
+      "D": "150 KBPS"
+    },
+    "answer": "C",
+    "explanation": "IEEE 802.15.4 標準提供的資料傳輸速率為 250 KBPS [cite: 281-282]。"
+  },
+  {
+    "id": "Q005",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "There are Comparisons between Cellular network and Ad Hoc Wireless Networks? except:",
+    "options": {
+      "A": "High cost and time of deployment (cellular network) and Quick and cost-effective deployment (MANET).",
+      "B": "Reuse of frequency spectrum through geographical channel reuse (cellular network) and Dynamic frequency reuse based on carrier sense mechanism (MANET).",
+      "C": "Centralized routing (cellular network) and Distributed routing (MANET).",
+      "D": "Fixed infrastructure-based (MANET), and Infrastructureless (cellular network)."
+    },
+    "answer": "D",
+    "explanation": "選項 D 的描述錯誤，實際上 MANET 是無基礎設施的，而蜂巢式網路才是基於固定基礎設施 [cite: 283-288]。"
+  },
+  {
+    "id": "Q006",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "The size of a file transferred in 8 seconds in the IEEE 802.11 WLAN system operating at 2 Mbps data transmission rate is",
+    "options": {
+      "A": "2",
+      "B": "4",
+      "C": "16",
+      "D": "32 MB"
+    },
+    "answer": "A",
+    "explanation": "計算：2 Mbps * 8 秒 = 16 Mb = 2 MB [cite: 289-290]。"
+  },
+  {
+    "id": "Q007",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "Identify the spread spectrum techniques which were used in the original IEEE 802.11 standard",
+    "options": {
+      "A": "FHSS and DSSS",
+      "B": "THSS and FHSS",
+      "C": "THSS and DSSS",
+      "D": "Hybrid Technique"
+    },
+    "answer": "A",
+    "explanation": "原始的 802.11 標準使用了跳頻（FHSS）與直接序列（DSSS）展頻技術 [cite: 291-292]。"
+  },
+  {
+    "id": "Q008",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "The ______ in a wireless LAN consists of some number of stations executing the same MAC protocol and competing for access to the same shared wireless medium.",
+    "options": {
+      "A": "Basic Service Set (BSS)",
+      "B": "Extended Service Set (ESS)",
+      "C": "Distributed System (DS)",
+      "D": "Access Point (AP)"
+    },
+    "answer": "A",
+    "explanation": "基本服務集（BSS）是由執行相同 MAC 協定並競爭共享媒體的站點組成 [cite: 293-296]。"
+  },
+  {
+    "id": "Q009",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "Considering the end devices in LoRaWAN, Which end devices is the most energy-efficient and results in long battery life...",
+    "options": {
+      "A": "Class A",
+      "B": "Class B",
+      "C": "Class C",
+      "D": "Class D"
+    },
+    "answer": "A",
+    "explanation": "在 LoRaWAN 中，Class A 設備最為省電，電池壽命最長 [cite: 297-299]。"
+  },
+  {
+    "id": "Q010",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "When a mobile subscriber originates a call, a call initiation request is sent on the",
+    "options": {
+      "A": "forward control channel",
+      "B": "reverse control channel",
+      "C": "forward voice channel",
+      "D": "reverse voice channel"
+    },
+    "answer": "B",
+    "explanation": "手機發起通話請求時，是透過反向控制頻道發送 [cite: 300-301]。"
+  },
+  {
+    "id": "Q011",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "A network operator is planning to upgrade from GSM to GPRS. Identify the component that needs to be added/changed to deploy a GPRS architecture.",
+    "options": {
+      "A": "A whole new base station",
+      "B": "New transceiver at base station",
+      "C": "New channel cards",
+      "D": "New packet overlay including routers and gateway."
+    },
+    "answer": "D",
+    "explanation": "從 GSM 升級到 GPRS 需要新增封包覆蓋組件，包括路由器與閘道器 [cite: 302-307]。"
+  },
+  {
+    "id": "Q012",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "With wireless network management, what device is used to track more than one the device at a time?",
+    "options": {
+      "A": "WCS",
+      "B": "WCS Navigator",
+      "C": "Location Appliance",
+      "D": "Rogue AP detector"
+    },
+    "answer": "C",
+    "explanation": "Location Appliance 主要針對設備進行精確的地理位置定位"
+  },
+  {
+    "id": "Q013",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "What is the type of network in which the routers themselves are mobile?",
+    "options": {
+      "A": "Wide Area Network",
+      "B": "Mobile Ad hoc Network",
+      "C": "Mobile Network",
+      "D": "Local Area Network"
+    },
+    "answer": "B",
+    "explanation": "在行動隨機網路（MANET）中，路由器本身就是移動的節點 [cite: 310-311]。"
+  },
+  {
+    "id": "Q014",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "What kind of AP does a controller manage?",
+    "options": {
+      "A": "Lightweight AP",
+      "B": "Managed AP",
+      "C": "LDAP AP",
+      "D": "Autonomous AP"
+    },
+    "answer": "A",
+    "explanation": "無線控制器（WLC）管理的是輕量級存取點（Lightweight AP） [cite: 312-313]。"
+  },
+  {
+    "id": "Q015",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "Of all the Cisco Wireless LAN Controllers, what is the greatest number of APs you can support?",
+    "options": {
+      "A": "Upto 50",
+      "B": "Upto 150",
+      "C": "Upto 300",
+      "D": "Upto 3000"
+    },
+    "answer": "D",
+    "explanation": "Cisco 高階無線控制器最多可支援高達 3000 個存取點 [cite: 314-315]。"
+  },
+  {
+    "id": "Q016",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "What protocol is used for communication between an AP and a WLC?",
+    "options": {
+      "A": "STP",
+      "B": "LWAPP",
+      "C": "LDAP",
+      "D": "TCP"
+    },
+    "answer": "B",
+    "explanation": "AP 與 WLC 之間的溝通主要使用 LWAPP（或更新的 CAPWAP）協定 [cite: 316-317]。"
+  },
+  {
+    "id": "Q017",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "To which one of the following generations does OFDM belong?",
+    "options": {
+      "A": "Second generation",
+      "B": "Fourth generation",
+      "C": "First generation",
+      "D": "Third generation"
+    },
+    "answer": "B",
+    "explanation": "正交分頻多工（OFDM）技術主要應用於第四代（4G）移動網路 [cite: 318-319]。"
+  },
+  {
+    "id": "Q018",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "IEEE 802.11a standard provides for ______ non-overlapping channels.",
+    "options": {
+      "A": "2",
+      "B": "4",
+      "C": "8",
+      "D": "16"
+    },
+    "answer": "C",
+    "explanation": "根據早期 802.11a 標準規範，其在 5GHz 頻段提供 8 個不重疊頻道 [cite: 320-321]。"
+  },
+  {
+    "id": "Q019",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "IEEE ______ WLANs primarily operate on the 2.4 GHz Industrial, Scientific, and Medical (ISM) frequency band.",
+    "options": {
+      "A": "802.11",
+      "B": "802.13",
+      "C": "802.15",
+      "D": "802.23"
+    },
+    "answer": "A",
+    "explanation": "802.11 標準主要在 2.4 GHz ISM 頻段運作 [cite: 322-327]。"
+  },
+  {
+    "id": "Q020",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "______ scanning allows a wireless NIC to connect to an access point without needing to wait for a beacon from the access points within its range.",
+    "options": {
+      "A": "Passive",
+      "B": "Network",
+      "C": "Frame",
+      "D": "Active"
+    },
+    "answer": "D",
+    "explanation": "主動掃描（Active scanning）允許 NIC 主動發送探測請求，無需等待 Beacon 訊號 [cite: 328-330]。"
+  },
+  {
+    "id": "Q021",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "______ Coordination Function is a mandatory part of the MAC function in 802.11 and it operates much like the CSMA/CA protocol.",
+    "options": {
+      "A": "Navigation",
+      "B": "Point",
+      "C": "Distributed",
+      "D": "Data"
+    },
+    "answer": "C",
+    "explanation": "分散式協調功能（DCF）是 802.11 的必備功能，其運作方式類似 CSMA/CA [cite: 331-333]。"
+  },
+  {
+    "id": "Q022",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "Which Bluetooth protocol performs link setup, authentication, link configuration, and the discovery of other Bluetooth devices?",
+    "options": {
+      "A": "LMP",
+      "B": "L2CAP",
+      "C": "SIG",
+      "D": "Radio"
+    },
+    "answer": "A",
+    "explanation": "藍牙連結管理器協定（LMP）負責連結設定、認證與配置 [cite: 334-336]。"
+  },
+  {
+    "id": "Q023",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "A ______ is self-created when roaming wireless devices are connected over a wireless link.",
+    "options": {
+      "A": "NTDR",
+      "B": "WPAN",
+      "C": "DARPA",
+      "D": "MANET"
+    },
+    "answer": "D",
+    "explanation": "當移動中的設備相互連接時，會自動形成行動隨機網路（MANET） [cite: 337-339]。"
+  },
+  {
+    "id": "Q024",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "A Bluetooth scatternet is formed when two or up to ______ piconets are connected through one or more common devices.",
+    "options": {
+      "A": "4",
+      "B": "8",
+      "C": "6",
+      "D": "10"
+    },
+    "answer": "D",
+    "explanation": "藍牙散射網（Scatternet）最多可由 10 個微網組成 [cite: 340-341, 372]。"
+  },
+  {
+    "id": "Q025",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "TDMA allows the user to have ______ ",
+    "options": {
+      "A": "Use of same frequency channel for same time slot",
+      "B": "Use of same frequency channel for different time slot",
+      "C": "Use of same time slot for different frequency channel",
+      "D": "Use of different time slot for different frequency channels"
+    },
+    "answer": "B",
+    "explanation": "分時多工存取（TDMA）讓不同使用者在不同時段使用相同的頻率頻道 [cite: 342-346]。"
+  },
+  {
+    "id": "Q026",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "What is the frequency range of IEEE 802.11a standard?",
+    "options": {
+      "A": "2.4 Gbps",
+      "B": "5 Gbps",
+      "C": "2.4 Ghz",
+      "D": "5 GHz"
+    },
+    "answer": "D",
+    "explanation": "802.11a 標準運作於 5 GHz 頻段 [cite: 347-348]。"
+  },
+  {
+    "id": "Q027",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "UMTS use which multiple access technique?",
+    "options": {
+      "A": "CDMA",
+      "B": "TDMA",
+      "C": "FDMA",
+      "D": "SDMA"
+    },
+    "answer": "A",
+    "explanation": "通用移動通訊系統（UMTS）主要使用 CDMA 存取技術 [cite: 349-350]。"
+  },
+  {
+    "id": "Q028",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "WPA2 is used in security for ______ ",
+    "options": {
+      "A": "Ethernet",
+      "B": "Bluetooth",
+      "C": "Wi-Fi",
+      "D": "E-Mail"
+    },
+    "answer": "C",
+    "explanation": "WPA2 是目前最廣泛應用於 Wi-Fi 網路的安全標準 [cite: 351-352]。"
+  },
+  {
+    "id": "Q029",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "WPA uses ______ Algorithm to check integrity of the packets.",
+    "options": {
+      "A": "TKIP",
+      "B": "SAP",
+      "C": "DOA",
+      "D": "TKP"
+    },
+    "answer": "A",
+    "explanation": "WPA 使用臨時金鑰整合協定（TKIP）來確保封包完整性 [cite: 354-356]。"
+  },
+  {
+    "id": "Q030",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "VANET refers for ______ ",
+    "options": {
+      "A": "Inter vehicuar communication",
+      "B": "Communication between devices",
+      "C": "Communication between Aps",
+      "D": "Communication between Wired Network"
+    },
+    "answer": "A",
+    "explanation": "VANET 全名為車載隨機網路，專指車間通訊技術 [cite: 357-362]。"
+  },
+  {
+    "id": "Q031",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "An interconnected collection of piconet is called ______ ",
+    "options": {
+      "A": "scatternet",
+      "B": "mininet",
+      "C": "micronet",
+      "D": "none of these"
+    },
+    "answer": "A",
+    "explanation": "多個微網相互連接形成的網路稱為散射網（Scatternet） [cite: 363-364]。"
+  },
+  {
+    "id": "Q032",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "Bluetooth uses ______ ",
+    "options": {
+      "A": "orthogonal frequency division multiplexing",
+      "B": "time division multiplexing",
+      "C": "frequency hopping spread spectrum",
+      "D": "None of these"
+    },
+    "answer": "C",
+    "explanation": "藍牙技術使用跳頻展頻（FHSS）來減少干擾 [cite: 365-370]。"
+  },
+  {
+    "id": "Q033",
+    "category": "Appendix-C: Wireless Technology",
+    "question": "A scatternet can have maximum ______ piconQets.",
+    "options": {
+      "A": "10",
+      "B": "20",
+      "C": "30",
+      "D": "40"
+    },
+    "answer": "A",
+    "explanation": "散射網的最大微網容量上限為 10 個 [cite: 371-372]。"
+  },
+    {
+    "id": "Q001",
+    "category": "Appendix-D: Wireless LAN",
+    "question": "In wireless distribution system",
+    "options": {
+      "A": "there is no access point",
+      "B": "only one access point exists",
+      "C": "multiple access point are inter-connected with each other",
+      "D": "none of these"
+    },
+    "answer": "C",
+    "explanation": "無線分佈系統（WDS）是指多個存取點（AP）相互連接以擴展網路範圍。"
+  },
+  {
+    "id": "Q002",
+    "category": "Appendix-D: Wireless LAN",
+    "question": "What is WPA?",
+    "options": {
+      "A": "wired protected access",
+      "B": "wired access point",
+      "C": "wi-fi protected access",
+      "D": "wired process access",
+      "E": "wi-fi process access"
+    },
+    "answer": "C",
+    "explanation": "WPA 的全稱為 Wi-Fi Protected Access（Wi-Fi 保護存取）。"
+  },
+  {
+    "id": "Q003",
+    "category": "Appendix-D: Wireless LAN",
+    "question": "A wireless network interface controller can work in",
+    "options": {
+      "A": "infrastructure mode",
+      "B": "ad-hoc mode",
+      "C": "both (a) and (b)",
+      "D": "none of these"
+    },
+    "answer": "C",
+    "explanation": "無線網路介面控制器（WNIC）可運作於基礎設施模式（需要 AP）或隨機模式（不需要 AP）。"
+  },
+  {
+    "id": "Q004",
+    "category": "Appendix-D: Wireless LAN",
+    "question": "Which multiple access technique is used by IEEE 802.11 standard for wireless LAN?",
+    "options": {
+      "A": "CDMA",
+      "B": "CSMA/CA",
+      "C": "ALOHA",
+      "D": "none of these"
+    },
+    "answer": "B",
+    "explanation": "IEEE 802.11 無線區域網路使用 CSMA/CA 技術進行媒體存取控制。"
+  },
+  {
+    "id": "Q005",
+    "category": "Appendix-D: Wireless LAN",
+    "question": "Mostly ______ is used in wireless LAN.",
+    "options": {
+      "A": "time division multiplexing",
+      "B": "orthogonal frequency division multiplexing",
+      "C": "space division multiplexing",
+      "D": "none of these"
+    },
+    "answer": "B",
+    "explanation": "無線區域網路中廣泛使用正交分頻多工（OFDM）技術。"
+  },
+  {
+    "id": "Q006",
+    "category": "Appendix-D: Wireless LAN",
+    "question": "What is Wired Equivalent Privacy (WEP)?",
+    "options": {
+      "A": "security algorithm for ethernet",
+      "B": "security algorithm for wireless networks",
+      "C": "security algorithm for usb communication",
+      "D": "none of these"
+    },
+    "answer": "B",
+    "explanation": "WEP（有線等效加密）是專為無線網路設計的安全演算法。"
+  },
+  {
+    "id": "Q007",
+    "category": "Appendix-D: Wireless LAN",
+    "question": "In wireless distribution system",
+    "options": {
+      "A": "there is no access point",
+      "B": "only one access point exists",
+      "C": "multiple access point are inter-connected with each other",
+      "D": "none of these"
+    },
+    "answer": "C",
+    "explanation": "無線分佈系統允許將多個存取點連接在一起以擴展無線覆蓋。"
+  },
+  {
+    "id": "Q008",
+    "category": "Appendix-D: Wireless LAN",
+    "question": "In wireless ad-hoc network",
+    "options": {
+      "A": "access point is not required",
+      "B": "nodes are not required",
+      "C": "access point is must",
+      "D": "none of these"
+    },
+    "answer": "A",
+    "explanation": "隨機網路（Ad-hoc）是去中心化的網路，不需要中央存取點（AP）。"
+  },
+    {
+    "id": "Q01",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "An attempt to make a computer resource unavailable to its intended users is called",
+    "options": {
+      "A": "denial-of-service attack",
+      "B": "virus attack",
+      "C": "botnet process",
+      "D": "worms attack"
+    },
+    "answer": "A",
+    "explanation": "阻斷服務攻擊 (DoS) 旨在使電腦資源對其預期使用者不可用 [cite: 422-423]。"
+  },
+  {
+    "id": "Q02",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "Network layer firewall works as a",
+    "options": {
+      "A": "frame filter",
+      "B": "packet filter",
+      "C": "both (a) and (b)",
+      "D": "none of these"
+    },
+    "answer": "B",
+    "explanation": "網路層防火牆的主要運作方式是作為封包過濾器 (Packet filter) [cite: 425-426]。"
+  },
+  {
+    "id": "Q03",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "IPSec is designed to provide the security at the",
+    "options": {
+      "A": "transport layer",
+      "B": "network layer",
+      "C": "application layer",
+      "D": "session layer"
+    },
+    "answer": "B",
+    "explanation": "IPSec 是專為在網路層提供安全性而設計的協定 [cite: 427-428]。"
+  },
+  {
+    "id": "Q14",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "Network layer firewall has two sub-categories as ________ ",
+    "options": {
+      "A": "stateful firewall and stateless firewall",
+      "B": "bit-oriented firewall and byte-oriented firewall",
+      "C": "frame firewall and packet firewall",
+      "D": "none of these"
+    },
+    "answer": "A",
+    "explanation": "網路層防火牆分為狀態檢查 (Stateful) 與無狀態檢查 (Stateless) 兩種類別 [cite: 429-434]。"
+  },
+  {
+    "id": "Q15",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "When a DNS server accepts and uses incorrect information from a host that has no authority giving that information, then it is called ________ ",
+    "options": {
+      "A": "DNS lookup",
+      "B": "DNS hijacking",
+      "C": "DNS spoofing",
+      "D": "none of these"
+    },
+    "answer": "C",
+    "explanation": "當 DNS 伺服器接受並使用來自非權威主機的錯誤資訊時，稱為 DNS 欺騙 (Spoofing) [cite: 435-437]。"
+  },
+  {
+    "id": "Q16",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "PGP encrypts data by using a block cipher called ________ ",
+    "options": {
+      "A": "international data encryption algorithm",
+      "B": "intrenet data encryption algorithm",
+      "C": "private data encryption algorithm",
+      "D": "none of these"
+    },
+    "answer": "A",
+    "explanation": "PGP 使用稱為國際數據加密演算法 (IDEA) 的區塊加密法 [cite: 438-443]。"
+  },
+  {
+    "id": "Q17",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "In tunnel mode IPsec protects the ________ ",
+    "options": {
+      "A": "entire IP packet",
+      "B": "IP header",
+      "C": "IP payload",
+      "D": "none of these"
+    },
+    "answer": "A",
+    "explanation": "在隧道模式 (Tunnel mode) 下，IPsec 會保護整個 IP 封包 [cite: 444-446]。"
+  },
+  {
+    "id": "Q18",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "When a DNS server accepts and uses incorrect information from a host that has no authority giving that information, then it is called",
+    "options": {
+      "A": "DNS lookup",
+      "B": "DNS hijacking",
+      "C": "DNS spoofing",
+      "D": "none of these"
+    },
+    "answer": "C",
+    "explanation": "此題為重複題目，描述 DNS 欺騙之定義 [cite: 447-448]。"
+  },
+  {
+    "id": "Q19",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "WPA2 is used for security in",
+    "options": {
+      "A": "ethernet",
+      "B": "Bluetooth",
+      "C": "wi-fi",
+      "D": "none of these"
+    },
+    "answer": "C",
+    "explanation": "WPA2 是用於 Wi-Fi 網路安全保護的標準 [cite: 449-451]。"
+  },
+  {
+    "id": "Q20",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "Extensible authentication protocol is authentication framework frequently used in ________ ",
+    "options": {
+      "A": "wired personal area network",
+      "B": "wireless networks",
+      "C": "wired local area network",
+      "D": "none of these"
+    },
+    "answer": "B",
+    "explanation": "可擴充驗證協定 (EAP) 是一個常在無線網路中使用的認證框架 [cite: 452-454]。"
+  },
+  {
+    "id": "Q21",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "Which device allows users to connect to the network using a single or double radio?",
+    "options": {
+      "A": "access point",
+      "B": "switch",
+      "C": "wireless controller",
+      "D": "firewall"
+    },
+    "answer": "A",
+    "explanation": "存取點 (AP) 是允許使用者透過無線射頻連接到網路的設備 [cite: 455-457]。"
+  },
+  {
+    "id": "Q22",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "Which two statements about wireless LAN controllers are true? (Choose two)",
+    "options": {
+      "A": "They can simplify the management and deployment of wireless LANs.",
+      "B": "They rely on external firewalls for WLAN security.",
+      "C": "They are best suited to smaller wireless networks.",
+      "D": "They must be configured through a GUI over HTTP or HTTPS.",
+      "E": "They can manage mobility policies at a system wide level."
+    },
+    "answer": "A E",
+    "explanation": "無線區域網路控制器 (WLC) 能簡化管理並在系統範圍內管理移動策略 [cite: 460-466]。"
+  },
+  {
+    "id": "Q23",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "Which WAN topology is most appropriate for a centrally located server farm with several satellite branches?",
+    "options": {
+      "A": "star",
+      "B": "hub and spoke",
+      "C": "point-to-point",
+      "D": "full mesh"
+    },
+    "answer": "B",
+    "explanation": "輻輳式 (Hub and spoke) 拓樸最適合中心伺服器與多個衛星分支機構的架構 [cite: 467-469]。"
+  },
+  {
+    "id": "Q24",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "What are three broadband wireless technologies? (Choose three)",
+    "options": {
+      "A": "WiMax",
+      "B": "satellite Internet",
+      "C": "municipal Wi-Fi",
+      "D": "site-to-site VPN",
+      "E": "DSLAM"
+    },
+    "answer": "A B C",
+    "explanation": "WiMax、衛星網路與城市 Wi-Fi 均屬於寬頻無線技術 [cite: 470-471]。"
+  },
+  {
+    "id": "Q25",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "What are three characteristics of satellite Internet connections? (Choose three)?",
+    "options": {
+      "A": "Their upload speed is about 10 percent of their download speed.",
+      "B": "They are frequently used by rural users without access to other high-speed connections.",
+      "C": "They are usually at least 10 times faster than analog modem connections.",
+      "D": "They are usually faster than cable and DSL connections.",
+      "E": "They require a WiMax tower within 30 miles of the user location.",
+      "F": "They use radio waves to communicate with cellular phone towers."
+    },
+    "answer": "A B C",
+    "explanation": "衛星網路特性包括非對稱速、偏鄉適用及遠快於模擬數據機 [cite: 472-478]。"
+  },
+  {
+    "id": "Q26",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "Which Cisco platform can verify ACLs?",
+    "options": {
+      "A": "Cisco Prime Infrastructure",
+      "B": "Cisco Wireless LAN Controller",
+      "C": "Cisco APIC-EM",
+      "D": "Cisco IOS-XE"
+    },
+    "answer": "B",
+    "explanation": "Cisco 無線控制器 (WLC) 可用於驗證存取控制列表 (ACL) [cite: 479-480]。"
+  },
+  {
+    "id": "Q27",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "What is the access point (AP) in a wireless LAN?",
+    "options": {
+      "A": "device that allows wireless devices to connect to a wired network",
+      "B": "wireless devices itself",
+      "C": "both device that allows wireless devices to connect to a wired network and wireless devices itself",
+      "D": "all the nodes in the network"
+    },
+    "answer": "A",
+    "explanation": "存取點是允許無線設備連接到有線網路的橋接設備 [cite: 481-486]。"
+  },
+  {
+    "id": "Q28",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "In wireless ad-hoc network ________ ",
+    "options": {
+      "A": "access point is not required",
+      "B": "access point is must",
+      "C": "nodes are not required",
+      "D": "all nodes are access points"
+    },
+    "answer": "A",
+    "explanation": "在隨機 (Ad-hoc) 網路中不需要存取點設備 [cite: 489-491]。"
+  },
+  {
+    "id": "Q29",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "In wireless distribution system, ________  ",
+    "options": {
+      "A": "multiple access point are inter-connected with each other",
+      "B": "there is no access point",
+      "C": "only one access point exists",
+      "D": "access points are not required"
+    },
+    "answer": "A",
+    "explanation": "無線分佈系統中，多個存取點會相互連接 [cite: 495-500]。"
+  },
+  {
+    "id": "Q30",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "A wireless network interface controller can work in",
+    "options": {
+      "A": "infrastructure mode",
+      "B": "ad-hoc mode",
+      "C": "both infrastructure mode and ad-hoc mode",
+      "D": "WDS mode"
+    },
+    "answer": "C",
+    "explanation": "無線網卡可同時支援基礎設施模式與隨機模式 [cite: 503-504]。"
+  },
+  {
+    "id": "Q31",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "In wireless network an extended service set is a set of",
+    "options": {
+      "A": "connected basic service sets",
+      "B": "all stations",
+      "C": "all access points",
+      "D": "connected access points"
+    },
+    "answer": "A",
+    "explanation": "延伸服務集 (ESS) 是由多個相連的基本服務集 (BSS) 組成 [cite: 507-508]。"
+  },
+  {
+    "id": "Q32",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "Mostly ______ is used in wireless LAN.",
+    "options": {
+      "A": "time division multiplexing",
+      "B": "orthogonal frequency division multiplexing",
+      "C": "space division multiplexing",
+      "D": "channel division multiplexing"
+    },
+    "answer": "B",
+    "explanation": "無線區域網路主要使用正交分頻多工 (OFDM) 技術 [cite: 510-517]。"
+  },
+  {
+    "id": "Q33",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "Which one of the following event is not possible in wireless LAN?",
+    "options": {
+      "A": "collision detection",
+      "B": "acknowledgement of data frames",
+      "C": "multi-mode data transmission",
+      "D": "connection to wired networks"
+    },
+    "answer": "A",
+    "explanation": "無線區域網路中無法直接進行碰撞偵測 (Collision detection) [cite: 520-525]。"
+  },
+  {
+    "id": "Q34",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "What is Wired Equivalent Privacy (WEP)?",
+    "options": {
+      "A": "security algorithm for ethernet",
+      "B": "security algorithm for wireless networks",
+      "C": "security algorithm for usb communication",
+      "D": "security algorithm for emails"
+    },
+    "answer": "B",
+    "explanation": "WEP 是專為無線網路設計的安全性加密演算法 [cite: 528-533]。"
+  },
+  {
+    "id": "Q35",
+    "category": "Appendix-E: Security in the Internet",
+    "question": "What is WPA?",
+    "options": {
+      "A": "wi-fi protected access",
+      "B": "wired protected access",
+      "C": "wired process access",
+      "D": "wi-fi process access"
+    },
+    "answer": "A",
+    "explanation": "WPA 代表 Wi-Fi 保護存取協定 [cite: 536-537]。"
+  },
+  {
+    "id": "Q01",
+    "category": "Appendix-G: ATM & Frame Relay",
+    "question": "Virtual circuit identifier in frame relay is called",
+    "options": {
+      "A": "data link connection identifier",
+      "B": "frame relay identifier",
+      "C": "cell relay identifier",
+      "D": "none of these"
+    },
+    "answer": "A",
+    "explanation": "在訊框中繼（Frame Relay）中，虛擬電路識別碼稱為數據鏈路連接識別碼（DLCI） [cite: 2497, 2498]。"
+  },
+  {
+    "id": "Q02",
+    "category": "Appendix-G: ATM & Frame Relay",
+    "question": "ATM and frame relay are",
+    "options": {
+      "A": "datagram networks",
+      "B": "virtual circuit networks",
+      "C": "both (a) and (b)",
+      "D": "None of these"
+    },
+    "answer": "B",
+    "explanation": "ATM 與訊框中繼皆屬於虛擬電路網路（Virtual circuit networks） [cite: 2499, 2500]。"
+  },
+  {
+    "id": "Q03",
+    "category": "Appendix-G: ATM & Frame Relay",
+    "question": "Frame relay has only",
+    "options": {
+      "A": "physical layer",
+      "B": "data link layer",
+      "C": "both (a) and (b)",
+      "D": "none of these"
+    },
+    "answer": "C",
+    "explanation": "訊框中繼僅包含物理層與數據鏈路層 [cite: 2501, 2502]。"
+  },
+  {
+    "id": "Q04",
+    "category": "Appendix-G: ATM & Frame Relay",
+    "question": "ATM standard defines ___ layers.",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "5"
+    },
+    "answer": "B",
+    "explanation": "ATM 標準定義了 3 個層級 [cite: 2503, 2505]。"
+  },
+  {
+    "id": "Q05",
+    "category": "Appendix-G: ATM & Frame Relay",
+    "question": "To handle frames arriving from other protocols, Frame Relay uses a device called a",
+    "options": {
+      "A": "MUX",
+      "B": "VOFR",
+      "C": "FRAD",
+      "D": "none of the above"
+    },
+    "answer": "C",
+    "explanation": "為了處理來自其他協定的訊框，訊框中繼使用稱為 FRAD（訊框中繼存取設備）的裝置 [cite: 2507, 2509]。"
+  },
+  {
+    "id": "Q06",
+    "category": "Appendix-G: ATM & Frame Relay",
+    "question": "What are the two types of ATM switches?",
+    "options": {
+      "A": "PVC and SVC",
+      "B": "VPI and VCI",
+      "C": "VP and VPC",
+      "D": "PVC and SUV"
+    },
+    "answer": "C",
+    "explanation": "ATM 交換機主要分為 VP（虛擬路徑）與 VPC（虛擬路徑連接）兩種類型 [cite: 2510, 2511]。"
+  },
+  {
+    "id": "Q07",
+    "category": "Appendix-G: ATM & Frame Relay",
+    "question": "A non-boundary ATM switch usually uses",
+    "options": {
+      "A": "VPIS",
+      "B": "VPIs and VCIS",
+      "C": "VCIs",
+      "D": "VCRS"
+    },
+    "answer": "A",
+    "explanation": "非邊界（Non-boundary）ATM 交換機通常僅使用 VPI 進行路由 [cite: 2512, 2513]。"
+  },
+  {
+    "id": "Q08",
+    "category": "Appendix-G: ATM & Frame Relay",
+    "question": "ATM is a cell relay protocol that",
+    "options": {
+      "A": "has moved software functions to hardware",
+      "B": "is connection-oriented",
+      "C": "can interface with existing systems",
+      "D": "all of the above"
+    },
+    "answer": "D",
+    "explanation": "ATM 是一種單元中繼協定，具備硬體化功能、面向連接以及能與現有系統介接的特性 [cite: 2514, 2519]。"
+  },
+  {
+    "id": "Q09",
+    "category": "Appendix-G: ATM & Frame Relay",
+    "question": "How do protocols such as ATM and Frame-Relay support differentiating multiple customers or traffic types on the same physical wire?",
+    "options": {
+      "A": "ATM and Frame-Relay are circuit switched protocols and use Virtual Circuits to create logical separation of traffic.",
+      "B": "ATM and Frame-Relay are point-to-point protocols and do not support different customers or traffic type on the same physical wire.",
+      "C": "ATM and Frame-Relay are circuit switched protocols and use VLAN's to create logical separation of traffic.",
+      "D": "ATM and Frame-Relay are circuit switched protocols and use IP Header information to create logical separation of traffic."
+    },
+    "answer": "A",
+    "explanation": "ATM 與訊框中繼透過虛擬電路（VC）在同一實線網路上實現流量的邏輯隔離 [cite: 2521, 2527]。"
+  },
+  {
+    "id": "Q10",
+    "category": "Appendix-G: ATM & Frame Relay",
+    "question": "Frame Relay Networks offer an option called",
+    "options": {
+      "A": "Voice Over for Relay",
+      "B": "Voice Over Fin Relay",
+      "C": "Voice On frame Relay",
+      "D": "Voice Over frame Relay"
+    },
+    "answer": "D",
+    "explanation": "訊框中繼網路提供稱為 Voice Over frame Relay (VoFR) 的選項 [cite: 2528, 2529]。"
+  },
+  {
+    "id": "001",
+    "category": "Appendix-H: WiMAX",
+    "question": "Devices that provide the connectivity to a WiMAX network are known as",
+    "options": {
+      "A": "subscriber stations",
+      "B": "base stations",
+      "C": "gateway",
+      "D": "none of these"
+    },
+    "answer": "A",
+    "explanation": "提供 WiMAX 網路連接的設備稱為用戶站 (Subscriber Stations) [cite: 609-610]。"
+  },
+  {
+    "id": "002",
+    "category": "Appendix-H: WiMAX",
+    "question": "Which one of the following frequency is not used in WiMAX for communication?",
+    "options": {
+      "A": "2.3 GHz",
+      "B": "2.4 GHz",
+      "C": "2.5 GHz",
+      "D": "3.5 GHz"
+    },
+    "answer": "B",
+    "explanation": "WiMAX 通訊通常不使用 2.4 GHz 頻段（該頻段常用於 Wi-Fi） [cite: 611-613]。"
+  },
+  {
+    "id": "003",
+    "category": "Appendix-H: WiMAX",
+    "question": "Which one of the following modulation scheme is supported by WiMAX?",
+    "options": {
+      "A": "binary phase shift keying modulation",
+      "B": "quadrature phase shift keying modulation",
+      "C": "quadrature amplitude modulation",
+      "D": "all of these"
+    },
+    "answer": "D",
+    "explanation": "WiMAX 支援多種調變方案，包括 BPSK、QPSK 及 QAM [cite: 614-619]。"
+  },
+  {
+    "id": "004",
+    "category": "Appendix-H: WiMAX",
+    "question": "WiMAX MAC layer provides an interface between",
+    "options": {
+      "A": "application layer and network layer",
+      "B": "higher transport layers and physical layer",
+      "C": "data link layer and network layer",
+      "D": "none of these"
+    },
+    "answer": "B",
+    "explanation": "WiMAX 的 MAC 層提供了高層傳輸層與實體層之間的介面 [cite: 620-625]。"
+  },
+  {
+    "id": "005",
+    "category": "Appendix-H: WiMAX",
+    "question": "For encryption, WiMAX supports",
+    "options": {
+      "A": "advanced encryption standard",
+      "B": "triple data encryption standard",
+      "C": "both (a) and (b)",
+      "D": "none of these"
+    },
+    "answer": "C",
+    "explanation": "WiMAX 支援 AES（高級加密標準）與 3DES（三重資料加密標準） [cite: 626-627]。"
+  },
+  {
+    "id": "006",
+    "category": "Appendix-H: WiMAX",
+    "question": "WiMAX MAC layer provides an interface between",
+    "options": {
+      "A": "application layer and network layer",
+      "B": "higher transport layers and physical layer",
+      "C": "data link layer and network layer",
+      "D": "none of these"
+    },
+    "answer": "B",
+    "explanation": "此題與第 4 題重複，強調 MAC 層的介面功能 [cite: 628-634]。"
+  },
+  {
+    "id": "007",
+    "category": "Appendix-H: WiMAX",
+    "question": "Devices that provide the connectivity to a WiMAX network are known as",
+    "options": {
+      "A": "subscriber stations",
+      "B": "base stations",
+      "C": "gateway",
+      "D": "router",
+      "E": "none of these"
+    },
+    "answer": "A",
+    "explanation": "此題與第 1 題相似，用戶站是提供連線的主要設備 [cite: 635-636]。"
+  },
+  {
+    "id": "008",
+    "category": "Appendix-H: WiMAX",
+    "question": "WiMAX provides",
+    "options": {
+      "A": "VoIP services",
+      "B": "IPTV services",
+      "C": "both (a) and (b)",
+      "D": "none of these"
+    },
+    "answer": "C",
+    "explanation": "WiMAX 技術同時支援語音 (VoIP) 與數位電視 (IPTV) 服務 [cite: 637-639]。"
+  },
+  {
+    "id": "009",
+    "category": "Appendix-H: WiMAX",
+    "question": "WiMAX uses the",
+    "options": {
+      "A": "orthogonal frequency division multiplexing",
+      "B": "time division multiplexing",
+      "C": "space division multiplexing",
+      "D": "all of these"
+    },
+    "answer": "A",
+    "explanation": "WiMAX 使用正交分頻多工 (OFDM) 技術 [cite: 640-645]。"
+  },
+  {
+    "id": "010",
+    "category": "Appendix-H: WiMAX",
+    "question": "Which one of the following modulation scheme is supported by WiMAX?",
+    "options": {
+      "A": "binary phase shift keying modulation",
+      "B": "quadrature phase shift keying modulation",
+      "C": "quadrature amplitude modulation",
+      "D": "all of these"
+    },
+    "answer": "D",
+    "explanation": "此題與第 3 題重複，涵蓋所有提到的調變方式 [cite: 646-651]。"
+  },
+    {
+    "id": "Q002",
+    "category": "Appendix-I: Exercises for WLAN",
+    "question": "What are the advantages of infrastructure wireless LAN?",
+    "options": {
+      "A": "Any host does not need to record information about surrounding hosts",
+      "B": "The acquisition point can help the host to save power and extend the battery life"
+    },
+    "answer": "A B",
+    "explanation": "基礎設施模式的兩大優點：主機無需紀錄週邊主機資訊，且可透過 AP 協助達成省電效果 [cite: 660, 661-663]。"
+  },
+  {
+    "id": "Q003",
+    "category": "Appendix-I: Exercises for WLAN",
+    "question": "What is the physical layer of wireless LAN? (Which of the following are features?)",
+    "options": {
+      "A": "Distance between two points is limited due to signal attenuation",
+      "B": "A shared transmission medium (microwave frequency) is used",
+      "C": "Transmitted signal is susceptible to external noise interference",
+      "D": "Security of data transmission is worse than wired networks",
+      "E": "Network topology often changes"
+    },
+    "answer": "A B C D E",
+    "explanation": "無線區域網路物理層具備距離限制、共享媒體、易受干擾、安全性低及拓樸易變等特點 [cite: 666, 667-672]。"
+  },
+  {
+    "id": "Q004",
+    "category": "Appendix-I: Exercises for WLAN",
+    "question": "What physical components does a wireless LAN contain?",
+    "options": {
+      "A": "Distribution System (DS)",
+      "B": "Access Point (AP)",
+      "C": "Wireless Medium (WM)",
+      "D": "Station (STA)"
+    },
+    "answer": "A B C D",
+    "explanation": "無線區域網路包含分佈系統、存取點、無線媒體與工作站四大物理組件 [cite: 673, 674-678]。"
+  },
+  {
+    "id": "Q005",
+    "category": "Appendix-I: Exercises for WLAN",
+    "question": "Host service: enable the host to have the ability to send and receive data correctly. Which of the following services are included?",
+    "options": {
+      "A": "Authentication",
+      "B": "Deauthentication",
+      "C": "Privacy",
+      "D": "MSDU Delivery"
+    },
+    "answer": "A B C D",
+    "explanation": "主機服務包含認證、解除認證、隱私保護與 MSDU 資料遞送 [cite: 679, 681-686]。"
+  },
+  {
+    "id": "Q006",
+    "category": "Appendix-I: Exercises for WLAN",
+    "question": "Distribution system service: enables 802.11 packets to be transmitted between different BSSs. Which of the following services are included?",
+    "options": {
+      "A": "Association",
+      "B": "Reassociation",
+      "C": "Disassociation",
+      "D": "Distribution",
+      "E": "Integration"
+    },
+    "answer": "A B C D E",
+    "explanation": "分佈系統服務包含關聯 (Association)、重關聯、解除關聯、分佈與整合 [cite: 687, 690-695]。"
+  },
+  {
+    "id": "Q007",
+    "category": "Appendix-I: Exercises for WLAN",
+    "question": "According to the priority order, which of the following frame intervals are correct?",
+    "options": {
+      "A": "SIFS (Short Inter-Frame Space)",
+      "B": "PIFS (Point Coordination Function, PCF)",
+      "C": "DIFS (Distributed Coordination Function, DCF)",
+      "D": "EIFS (Extended Inter-Frame Space)"
+    },
+    "answer": "A B C D",
+    "explanation": "IEEE 802.11 定義了這四種幀間隔，優先權長度順序為 SIFS < PIFS < DIFS [cite: 696, 702-706]。"
+  },
+  {
+    "id": "Q013",
+    "category": "Appendix-I: Exercises for WLAN",
+    "question": "In the beacon frame, the value of the supported speed field is 0103040B12. What speeds can it support?",
+    "options": {
+      "A": "2 Mbps (0x04)",
+      "B": "5.5 Mbps (0x0B)",
+      "C": "9 Mbps (0x12)",
+      "D": "above of all"
+    },
+    "answer": "D",
+    "explanation": "根據欄位值，該 Beacon 訊框同時支援 2 Mbps、5.5 Mbps 與 9 Mbps [cite: 737, 738]。"
+  },
+  {
+    "id": "Question 1",
+    "category": "Appendix-J: Network Security",
+    "question": "Which statement about RADIUS security is true?",
+    "options": {
+      "A": "It supports EAP authentication for connecting to wireless networks.",
+      "B": "It provides encrypted multiprotocol support.",
+      "C": "Device-administration packets are encrypted in their entirety.",
+      "D": "It ensures that user activity is fully anonymous."
+    },
+    "answer": "A",
+    "explanation": "RADIUS 提供 AAA 服務，並支援在無線網路環境中使用 EAP 進行身分驗證 [cite: 820-827]。"
+  },
+  {
+    "id": "Question 2",
+    "category": "Appendix-J: Network Security",
+    "question": "Which condition indicates that service password-encryption is enabled?",
+    "options": {
+      "A": "The local username password is in clear text in the configuration.",
+      "B": "The enable secret is in clear text in the configuration.",
+      "C": "The local username password is encrypted in the configuration.",
+      "D": "The enable secret is encrypted in the configuration."
+    },
+    "answer": "C",
+    "explanation": "啟用該功能後，組態檔中的本地使用者密碼會以加密（非明文）形式顯示 [cite: 861-868]。"
+  },
+  {
+    "id": "Question 3",
+    "category": "Appendix-J: Network Security",
+    "question": "Which command can you enter to configure a local username with an encrypted password and EXEC mode user privileges?",
+    "options": {
+      "A": "Router(config)#username jdone privilege 1 password 7 08314D5D1A48",
+      "B": "Router(config)#username jdone privilege 1 password 7 PASSWORD1",
+      "C": "Router(config)#username jdone privilege 15 password 0 08314D5D1A48",
+      "D": "Router(config)#username jdone privilege 15 password 0 PASSWORD1"
+    },
+    "answer": "A",
+    "explanation": "選項 A 使用了 password 7 參數，代表後方接的是已雜湊處理過的密碼字串 [cite: 870-874]。"
+  },
+  {
+    "id": "Question 4",
+    "category": "Appendix-J: Network Security",
+    "question": "Which command sets and automatically encrypts the privileged enable mode password?",
+    "options": {
+      "A": "enable password cisco",
+      "B": "secret enable clsco",
+      "C": "password enable clsco",
+      "D": "enable secret cisco"
+    },
+    "answer": "D",
+    "explanation": "enable secret 命令會自動對特權模式密碼進行強加密儲存 [cite: 875-876]。"
+  },
+  {
+    "id": "Question 5",
+    "category": "Appendix-J: Network Security",
+    "question": "The enable secret command is used to secure access to which CLI mode?",
+    "options": {
+      "A": "user EXEC mode",
+      "B": "global configuration mode",
+      "C": "privileged EXEC mode",
+      "D": "auxiliary setup mode"
+    },
+    "answer": "C",
+    "explanation": "此命令專門用於保護進入特權執行模式（privileged EXEC mode）的存取權 [cite: 877-878]。"
+  },
+  {
+  "id": "Question 6",
+  "category": "Appendix-J: Network Security",
+  "question": [
+    "Refer to the exhibit. What is the result of setting the no login command?",
+    "",
+    "Router # config t",
+    "Router (config) # line vty 0 4",
+    "Router (config-line) # password c1sc0",
+    "Router (config-line) # no login"
+  ],
+  "options": {
+    "A": "Telnet access is denied.",
+    "B": "Telnet access requires a new password at the first login.",
+    "C": "Telnet access requires a new password.",
+    "D": "no password is required for telnet access."
+  },
+  "answer": "D",
+  "explanation": "在 VTY 線路設定 no login 代表遠端連線時不需要進行登入密碼驗證 [cite: 879-888]。"
+  },
+  {
+    "id": "Question 7",
+    "category": "Appendix-J: Network Security",
+    "question": "What is a difference between TACACS+ and RADIUS in AAA?",
+    "options": {
+      "A": "Only TACACS+ allows for separate authentication.",
+      "B": "Only RADIUS encrypts the entire access-request packet.",
+      "C": "Only RADIUS uses TCP.",
+      "D": "Only TACACS+ couples authentication and authorization."
+    },
+    "answer": "A",
+    "explanation": "TACACS+ 分離了 AAA 的三個元素（更靈活），且使用 TCP 49 埠並加密整個封包內容 [cite: 889-895]。"
+  },
+  {
+    "id": "Question 8",
+    "category": "Appendix-J: Network Security",
+    "question": "Which protocol authenticates connected devices before allowing them to access the LAN?",
+    "options": {
+      "A": "802.1d",
+      "B": "802.11",
+      "C": "802.1w",
+      "D": "802.1x"
+    },
+    "answer": "D",
+    "explanation": "802.1x 協定在允許裝置接入區域網路前，會先進行基於連接埠的身分驗證 [cite: 896-898]。"
+  },
+  {
+    "id": "Question 9",
+    "category": "Appendix-J: Network Security",
+    "question": "Which three options are benefits of using TACACS+ on a device? (Choose three)",
+    "options": {
+      "A": "It ensures that user activity is untraceable.",
+      "B": "It provides a secure accounting facility on the device.",
+      "C": "device-administration packets are encrypted in their entirely.",
+      "D": "It allows the user to remotely access devices from other vendors.",
+      "E": "It allows the users to be authenticated against a remote server.",
+      "F": "It supports access-level authorization for commands."
+    },
+    "answer": "C E F",
+    "explanation": "TACACS+ 的優點包含全封包加密、支援遠端伺服器驗證及指令級別的授權控制 [cite: 899-906]。"
+  },
+  {
+    "id": "Question 10",
+    "category": "Appendix-J: Network Security",
+    "question": "A security administrator wants to profile endpoints and gain visibility into attempted authentications. Which 802.1x mode allows these actions?",
+    "options": {
+      "A": "Monitor mode",
+      "B": "High-Security mode",
+      "C": "Low-impact mode",
+      "D": "Closed mode"
+    },
+    "answer": "A",
+    "explanation": "監控模式（Monitor mode）允許管理者在不阻斷存取的情況下，觀察與記錄裝置的驗證狀態 [cite: 907-909]。"
+  },
+  {
+    "id": "Question 11",
+    "category": "Appendix-J: Network Security",
+    "question": "What should be part of a comprehensive network security plan?",
+    "options": {
+      "A": "Allow users to develop their own approach to network security.",
+      "B": "Physically secure network equipment from potential access by unauthorized individuals.",
+      "C": "Encourage users to use personal information in their passwords.",
+      "D": "Delay deployment of software patches and updates.",
+      "E": "Minimize network overhead by deactivating automatic antivirus client updates."
+    },
+    "answer": "B",
+    "explanation": "完整的安全計畫應包含實體安全，防止未授權人員直接接觸網路設備 [cite: 910-915]。"
+  },
+  {
+    "id": "Question 12",
+    "category": "Appendix-J: Network Security",
+    "question": "Which password types are encrypted?(two choice)",
+    "options": {
+      "A": "SSH",
+      "B": "Telnet",
+      "C": "enable secret",
+      "D": "enable password"
+    },
+    "answer": "A C",
+    "explanation": "SSH 通訊過程經過加密，而 enable secret 指令則會加密儲存特權密碼 [cite: 916-919]。"
+  },
+  {
+    "id": "Question 13",
+    "category": "Appendix-J: Network Security",
+    "question": "How do you maintain security in multiple websites?",
+    "options": {
+      "A": "VPN",
+      "B": "DMVPN",
+      "C": "other",
+      "D": "other"
+    },
+    "answer": "A",
+    "explanation": "VPN（虛擬私人網路）可用於在不同站點間建立安全的加密連線 [cite: 920-922]。"
+  },
+  {
+    "id": "Question 14",
+    "category": "Appendix-J: Network Security",
+    "question": "Which of the following encrypts the traffic on a leased line?",
+    "options": {
+      "A": "telnet",
+      "B": "ssh",
+      "C": "vtp",
+      "D": "vpn",
+      "E": "dmvpn"
+    },
+    "answer": "B",
+    "explanation": "SSH 協定可以對線路上的所有傳輸流量進行加密處理 [cite: 923-925]。"
+  },
+  {
+    "id": "Question 15",
+    "category": "Appendix-J: Network Security",
+    "question": "Which command is necessary to permit SSH or Telnet access to a Cisco switch?",
+    "options": {
+      "A": "transport type all",
+      "B": "transport output all",
+      "C": "transport preferred all",
+      "D": "transport input all"
+    },
+    "answer": "D",
+    "explanation": "必須在 VTY 線路下使用 transport input 指令來允許特定協定的連線存取 [cite: 926-927]。"
+  },
+  {
+    "id": "Question 16",
+    "category": "Appendix-J: Network Security",
+    "question": "How to verify SSH connections were secured?",
+    "options": {
+      "A": "ssh -v 1 -1 admin IP",
+      "B": "ssh -v 2-1 admin IP",
+      "C": "ssh -1 admin IP",
+      "D": "ssh -v 2 admin IP"
+    },
+    "answer": "B",
+    "explanation": "透過指定 SSH 版本 2（較安全）來驗證加密連線的正確性 [cite: 928-929]。"
+  },
+  {
+    "id": "Q01",
+    "category": "Appendix-K: Cyber security",
+    "question": "In which of the following, a person is constantly followed/chased by another person or group of several peoples?",
+    "options": {
+      "A": "Phishing",
+      "B": "Bulling",
+      "C": "Stalking",
+      "D": "Identity theft"
+    },
+    "answer": "C",
+    "explanation": "監視（Stalking）是指由個人或群體對目標進行持續監視，而網路監視則是透過電子手段騷擾受害者的犯罪行為 [cite: 933-938]。"
+  },
+  {
+    "id": "Q02",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which one of the following can be considered as the class of computer threats?",
+    "options": {
+      "A": "Dos Attack",
+      "B": "Phishing",
+      "C": "Soliciting",
+      "D": "Both A and C",
+      "E": "Both B and C"
+    },
+    "answer": "A",
+    "explanation": "阻斷服務攻擊（DoS attack）是一種網路攻擊，旨在使機器或應用程式對其預期使用者不可用 [cite: 939-946]。"
+  },
+  {
+    "id": "Q03",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following is considered as the unsolicited commercial email?",
+    "options": {
+      "A": "Virus",
+      "B": "Malware",
+      "C": "Spam",
+      "D": "All of the above"
+    },
+    "answer": "C",
+    "explanation": "垃圾郵件（Spam）是指通常為了商業目的而大量發送給不特定收件者的未經請求的電子郵件 [cite: 947-951]。"
+  },
+  {
+    "id": "Q04",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following usually observe each activity on the internet of the victim, gather all information in the background, and send it to someone else?",
+    "options": {
+      "A": "Malware",
+      "B": "Spyware",
+      "C": "Adware",
+      "D": "All of the above"
+    },
+    "answer": "B",
+    "explanation": "間諜軟體（Spyware）被定義為旨在進入目標裝置、收集資訊、觀察使用者活動並在未經許可的情況下將資料發送給第三方的軟體 [cite: 952-955]。"
+  },
+  {
+    "id": "Q05",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following is a type of software designed to help the user's computer detect viruses and avoid them?",
+    "options": {
+      "A": "Malware",
+      "B": "Adware",
+      "C": "Antivirus",
+      "D": "Both B and C"
+    },
+    "answer": "C",
+    "explanation": "防毒軟體（Antivirus）是專門設計用於幫助電腦偵測病毒並避免其有害影響的軟體 [cite: 956-961]。"
+  },
+  {
+    "id": "Q06",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which one of the following is a type of antivirus program?",
+    "options": {
+      "A": "Quick heal",
+      "B": "Mcafee",
+      "C": "Kaspersky",
+      "D": "All of the above"
+    },
+    "answer": "D",
+    "explanation": "市場上有幾種防毒軟體，如 Kaspersky、Mcafee、Quick Heal 與 Norton 等 [cite: 962-965]。"
+  },
+  {
+    "id": "Q07",
+    "category": "Appendix-K: Cyber security",
+    "question": "It can be a software program or a hardware device that filters all data packets coming through the internet, a network, etc. it is known as the:",
+    "options": {
+      "A": "Antivirus",
+      "B": "Firewall",
+      "C": "Cookies",
+      "D": "Malware"
+    },
+    "answer": "B",
+    "explanation": "防火牆（Firewall）分為軟體和硬體兩類，其作用是過濾來自外部網路的所有數據包，以防止病毒進入系統 [cite: 966-973]。"
+  },
+  {
+    "id": "Q08",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following refers to stealing one's idea or invention of others and use it for their own benefits?",
+    "options": {
+      "A": "Piracy",
+      "B": "Plagiarism",
+      "C": "Intellectual property rights",
+      "D": "All of the above"
+    },
+    "answer": "D",
+    "explanation": "竊取他人的想法或發明並以此牟利，可以被定義為盜版（piracy）、智慧財產權（IPR）侵權或剽竊（plagiarism） [cite: 975-978]。"
+  },
+  {
+    "id": "Q09",
+    "category": "Appendix-K: Cyber security",
+    "question": "It can be possible that in some cases, hacking a computer or network can be legal.",
+    "options": {
+      "A": "No, in any situation, hacking cannot be legal",
+      "B": "It may be possible that in some cases, it can be referred to as a legal task"
+    },
+    "answer": "B",
+    "explanation": "駭客行為不一定都是非法的，現在有被稱為「道德駭客（ethical hacker）」的良好駭客，組織會聘請他們尋找系統的安全漏洞 [cite: 979-985]。"
+  },
+  {
+    "id": "Q10",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following refers to exploring the appropriate, ethical behaviors related to the online environment and digital media platform?",
+    "options": {
+      "A": "Cyber low",
+      "B": "Cyberethics",
+      "C": "Cybersecurity",
+      "D": "Cybersafety"
+    },
+    "answer": "B",
+    "explanation": "網路倫理（Cyber Ethics）是指探討與網路環境和數位媒體相關的適當且符合道德的行為 [cite: 986-989]。"
+  }
+]

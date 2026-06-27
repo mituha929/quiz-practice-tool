@@ -1,0 +1,1767 @@
+[
+  {
+    "id": "Q01",
+    "category": "Appendix-K: Cyber security",
+    "question": "In which of the following, a person is constantly followed/chased by another person or group of several peoples?",
+    "options": {
+      "A": "Phishing",
+      "B": "Bulling",
+      "C": "Stalking",
+      "D": "Identity theft"
+    },
+    "answer": "C",
+    "explanation": "Stalking（騷擾/跟監）是指個人或群體對目標進行持續性的尾隨與監視。在網路安全範疇中，Cyberstalking 則代表利用網際網路或其他電子通訊手段對受害者進行惡意騷擾、追蹤或威脅的行為。"
+  },
+  {
+    "id": "Q02",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which one of the following can be considered as the class of computer threats?",
+    "options": {
+      "A": "Dos Attack",
+      "B": "Phishing",
+      "C": "Soliciting",
+      "D": "Both A and C",
+      "E": "Both B and C"
+    },
+    "answer": "A",
+    "explanation": "阻斷服務攻擊 (DoS Attack) 是一種常見的電腦與網路威脅，攻擊者透過耗盡目標系統的資源（如頻寬或運算能力），導致正常使用者無法存取服務。"
+  },
+  {
+    "id": "Q03",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following is considered as the unsolicited commercial email?",
+    "options": {
+      "A": "Virus",
+      "B": "Malware",
+      "C": "Spam",
+      "D": "All of the above"
+    },
+    "answer": "C",
+    "explanation": "垃圾郵件 (Spam) 是指未經使用者請求，通常帶有商業宣傳、廣告或惡意連結，並以大量散播方式發送的電子郵件。"
+  },
+  {
+    "id": "Q04",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following usually observe each activity on the internet of the victim, gather all information in the background, and send it to someone else?",
+    "options": {
+      "A": "Malware",
+      "B": "Spyware",
+      "C": "Adware",
+      "D": "All of the above"
+    },
+    "answer": "B",
+    "explanation": "間諜軟體 (Spyware) 是一種惡意程式，會在使用者不知情的情況下，於背景監控其網路活動、側錄鍵盤輸入或收集個人隱私資訊，並將這些資料回傳給第三方。"
+  },
+  {
+    "id": "Q05",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following is a type of software designed to help the user's computer detect viruses and avoid them?",
+    "options": {
+      "A": "Malware",
+      "B": "Adware",
+      "C": "Antivirus",
+      "D": "Both B and C"
+    },
+    "answer": "C",
+    "explanation": "防毒軟體 (Antivirus) 是一種專門設計用來預防、偵測並移除電腦病毒及其他各類惡意軟體（如蠕蟲、木馬程式等）的安全防護程式。"
+  },
+  {
+    "id": "Q06",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which one of the following is a type of antivirus program?",
+    "options": {
+      "A": "Quick heal",
+      "B": "Mcafee",
+      "C": "Kaspersky",
+      "D": "All of the above"
+    },
+    "answer": "D",
+    "explanation": "Quick Heal、McAfee 與 Kaspersky 都是市場上知名且廣泛使用的防毒軟體品牌，提供系統掃描、即時防護與惡意威脅清除等功能。"
+  },
+  {
+    "id": "Q07",
+    "category": "Appendix-K: Cyber security",
+    "question": "It can be a software program or a hardware device that filters all data packets coming through the internet, a network, etc. it is known as the:",
+    "options": {
+      "A": "Antivirus",
+      "B": "Firewall",
+      "C": "Cookies",
+      "D": "Malware"
+    },
+    "answer": "B",
+    "explanation": "防火牆 (Firewall) 是一種網路安全系統（可為硬體或軟體），它會根據預先設定的安全規則，監控並過濾進出網路的資料封包，以阻擋未經授權的存取。"
+  },
+  {
+    "id": "Q08",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following refers to stealing one's idea or invention of others and use it for their own benefits?",
+    "options": {
+      "A": "Piracy",
+      "B": "Plagiarism",
+      "C": "Intellectual property rights",
+      "D": "All of the above"
+    },
+    "answer": "D",
+    "explanation": "竊取他人的想法、發明或創作並據為己有以牟取利益，在不同情境下皆涉及盜版 (Piracy)、剽竊 (Plagiarism) 或是侵犯智慧財產權 (Intellectual property rights) 的範疇。"
+  },
+  {
+    "id": "Q09",
+    "category": "Appendix-K: Cyber security",
+    "question": "It can be possible that in some cases, hacking a computer or network can be legal.",
+    "options": {
+      "A": "No, in any situation, hacking cannot be legal",
+      "B": "It may be possible that in some cases, it can be referred to as a legal task"
+    },
+    "answer": "B",
+    "explanation": "駭客行為並不全然是非法的。經過授權的「道德駭客 (Ethical Hacker)」或滲透測試人員，合法地探測系統漏洞以協助企業與組織提升安全性，這被稱為白帽駭客行為。"
+  },
+  {
+    "id": "Q10",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following refers to exploring the appropriate, ethical behaviors related to the online environment and digital media platform?",
+    "options": {
+      "A": "Cyber low",
+      "B": "Cyberethics",
+      "C": "Cybersecurity",
+      "D": "Cybersafety"
+    },
+    "answer": "B",
+    "explanation": "網路倫理 (Cyberethics) 探討的是使用者在數位環境、網際網路與社群媒體中，應該遵守的道德規範與適當行為準則。"
+  },
+  {
+    "id": "Q11",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following refers to the violation of the principle if a computer is no more accessible?",
+    "options": {
+      "A": "Access control",
+      "B": "Confidentiality",
+      "C": "Availability",
+      "D": "All of the above"
+    },
+    "answer": "C",
+    "explanation": "可用性（Availability）是指確保系統與資料在需要時可以被正常存取。如果電腦或系統無法再被存取，即代表違反了資安的可用性原則。"
+  },
+  {
+    "id": "Q12",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which one of the following refers to the technique used for verifying the integrity of the message?",
+    "options": {
+      "A": "Digital signature",
+      "B": "Decryption algorithm",
+      "C": "Protocol",
+      "D": "Message Digest"
+    },
+    "answer": "D",
+    "explanation": "訊息摘要（Message Digest）是一種密碼學雜湊函數，透過單向雜湊公式建立一串數字字串。它是一種用於驗證訊息、資料或媒體完整性的技術，可用來偵測資料是否遭到竄改。"
+  },
+  {
+    "id": "Q13",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which one of the following usually used in the process of Wi-Fi-hacking?",
+    "options": {
+      "A": "Aircrack-ng",
+      "B": "Norton",
+      "C": "Wireshark",
+      "D": "All of the above"
+    },
+    "answer": "A",
+    "explanation": "Aircrack-ng 是一款常在 Parrot、Kali 等 Linux 作業系統中使用的軟體工具。駭客或資安人員通常使用它來破解 Wi-Fi 網路、尋找網路漏洞，或是擷取與監控網路中傳輸的資料封包。"
+  },
+  {
+    "id": "Q14",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following port and IP address scanner famous among the users?",
+    "options": {
+      "A": "Cain and Abel",
+      "B": "Angry IP Scanner",
+      "C": "Snort",
+      "D": "Ettercap"
+    },
+    "answer": "B",
+    "explanation": "Angry IP Scanner 是一款廣受白帽與黑帽駭客歡迎的掃描工具。它能夠快速掃描 IP 位址與連接埠，幫助使用者找出網路設備中的安全弱點。"
+  },
+  {
+    "id": "Q15",
+    "category": "Appendix-K: Cyber security",
+    "question": "In ethical hacking and cyber security, there are _______ types of scanning:",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "answer": "C",
+    "explanation": "在道德駭客與網路安全領域中，掃描通常分為三種類型：漏洞掃描、連接埠掃描與網路掃描。"
+  },
+  {
+    "id": "Q16",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following is not a type of scanning?",
+    "options": {
+      "A": "Xmas Tree Scan",
+      "B": "Cloud scan",
+      "C": "Null Scan",
+      "D": "SYN Stealth",
+      "E": "FIN Scan"
+    },
+    "answer": "B",
+    "explanation": "在提供的選項中，Xmas Tree、Null、SYN Stealth 與 FIN 都是常見的網路掃描技術，唯獨「雲端掃描（Cloud scan）」不屬於標準的掃描分類。"
+  },
+  {
+    "id": "Q17",
+    "category": "Appendix-K: Cyber security",
+    "question": "In system hacking, which of the following is the most crucial activity?",
+    "options": {
+      "A": "Information gathering",
+      "B": "Covering tracks",
+      "C": "Cracking passwords",
+      "D": "None of the above"
+    },
+    "answer": "C",
+    "explanation": "在嘗試駭入系統的過程中，破解密碼（Cracking passwords）是最關鍵的活動，因為這能讓攻擊者取得系統的實質控制權與存取權限。"
+  },
+  {
+    "id": "Q18",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following are the types of scanning?",
+    "options": {
+      "A": "Network, vulnerability, and port scanning",
+      "B": "Port, network, and services",
+      "C": "Client, Server, and network",
+      "D": "None of the above"
+    },
+    "answer": "A",
+    "explanation": "網路安全中的三種主要掃描類型為：漏洞掃描（Vulnerability scanning）、連接埠掃描（Port scanning）與網路掃描（Network scanning）。"
+  },
+  {
+    "id": "Q19",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which one of the following is actually considered as the first computer virus?",
+    "options": {
+      "A": "Sasser",
+      "B": "Blaster",
+      "C": "Creeper",
+      "D": "Both A and C"
+    },
+    "answer": "C",
+    "explanation": "Creeper 被公認為世界上第一個電腦病毒，它會自我複製並在系統間傳播。該程式由 Bob Thomas 於 1971 年在 BBN 作為一項實驗性專案所建立。"
+  },
+  {
+    "id": "Q20",
+    "category": "Appendix-K: Cyber security",
+    "question": "To protect the computer system against the hacker and different kind of viruses, one must always keep _________ on in the computer system.",
+    "options": {
+      "A": "Antivirus",
+      "B": "Firewall",
+      "C": "Vlc player",
+      "D": "Script"
+    },
+    "answer": "B",
+    "explanation": "在電腦系統中保持防火牆（Firewall）開啟是至關重要的。它可以保護系統免受駭客、病毒及未知來源軟體的侵擾，通常被視為電腦系統的第一道防線。"
+  },
+  {
+    "id": "Q21",
+    "category": "Appendix-K: Cyber security",
+    "question": "Code Red is a type of ________",
+    "options": {
+      "A": "An Antivirus Program",
+      "B": "A photo editing software",
+      "C": "A computer virus",
+      "D": "A video editing software"
+    },
+    "answer": "C",
+    "explanation": "Code Red（紅色警戒）是一種電腦病毒（精確來說是蠕蟲），首次發現於 2001 年 7 月 15 日，主要攻擊微軟的伺服器，並在短短幾天內感染了近 30 萬台伺服器。"
+  },
+  {
+    "id": "Q22",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following can be considered as the elements of cyber security?",
+    "options": {
+      "A": "Application Security",
+      "B": "Operational Security",
+      "C": "Network Security",
+      "D": "All of the above"
+    },
+    "answer": "D",
+    "explanation": "應用程式安全（Application Security）、營運安全（Operational Security）與網路安全（Network Security）都是網路安全（Cyber Security）架構中不可或缺的核心元素。"
+  },
+  {
+    "id": "Q23",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following are famous and common cyber-attacks used by hackers to infiltrate the user's system?",
+    "options": {
+      "A": "DDos and Derive-by Downloads",
+      "B": "Malware & Malvertising",
+      "C": "Phishing and Password attacks",
+      "D": "All of the above"
+    },
+    "answer": "D",
+    "explanation": "分散式阻斷服務攻擊 (DDoS)、惡意軟體 (Malware)、路過式下載 (Drive-by downloads)、網路釣魚 (Phishing) 以及密碼攻擊等，都是駭客用來滲透使用者系統的常見攻擊手法。"
+  },
+  {
+    "id": "Q24",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which one of the following is also referred to as malicious software?",
+    "options": {
+      "A": "Maliciousware",
+      "B": "Badware",
+      "C": "Ilegalware",
+      "D": "Malware"
+    },
+    "answer": "D",
+    "explanation": "Malware（惡意軟體）是 Malicious software 的縮寫。駭客利用這些程式來存取敏感資料，它涵蓋了病毒、蠕蟲、木馬等多種有害程式。"
+  },
+  {
+    "id": "Q25",
+    "category": "Appendix-K: Cyber security",
+    "question": "Hackers usually used the computer virus for ______ purpose.",
+    "options": {
+      "A": "To log, monitor each and every user's stroke",
+      "B": "To gain access the sensitive information like user's Id and Passwords",
+      "C": "To corrupt the user's data stored in the computer system",
+      "D": "All of the above"
+    },
+    "answer": "D",
+    "explanation": "駭客通常利用電腦病毒執行多種任務，例如：破壞儲存的資料、竊取帳號密碼等敏感資訊，或是側錄及監控使用者的鍵盤輸入。"
+  },
+  {
+    "id": "Q26",
+    "category": "Appendix-K: Cyber security",
+    "question": "In Wi-Fi Security, which of the following protocol is more used?",
+    "options": {
+      "A": "WPA",
+      "B": "WPA2",
+      "C": "WPS",
+      "D": "Both A and C"
+    },
+    "answer": "B",
+    "explanation": "如今在 Wi-Fi 安全領域，WPA2 是最廣泛使用的協定之一，因為它提供了比 WPA 更安全的連線，是 WPA 協定的升級版本。"
+  },
+  {
+    "id": "Q27",
+    "category": "Appendix-K: Cyber security",
+    "question": "The term \"TCP/IP\" stands for_____",
+    "options": {
+      "A": "Transmission Contribution protocol/ internet protocol",
+      "B": "Transmission Control Protocol/ internet protocol",
+      "C": "Transaction Control protocol/ intarnet protocol",
+      "D": "Transmission Control Protocol/ internet protocol"
+    },
+    "answer": "B",
+    "explanation": "TCP/IP 代表「傳輸控制協定 / 網際網路協定 (Transmission Control Protocol/ Internet Protocol)」，是早期由美國政府開發的網路通訊標準。"
+  },
+  {
+    "id": "Q28",
+    "category": "Appendix-K: Cyber security",
+    "question": "The response time and transit time is used to measure the ____________ of a network.",
+    "options": {
+      "A": "Security",
+      "B": "Longevity",
+      "C": "Reliability",
+      "D": "Performance"
+    },
+    "answer": "D",
+    "explanation": "網路的效能（Performance）主要可透過回應時間（Response time）與傳輸時間（Transit time）來進行衡量。"
+  },
+  {
+    "id": "Q29",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following factor of the network gets hugely impacted when the number of users exceeds the network's limit?",
+    "options": {
+      "A": "Reliability",
+      "B": "Performance",
+      "C": "Security",
+      "D": "Longevity",
+      "E": "Transmission opportunity"
+    },
+    "answer": "B",
+    "explanation": "當網路上的使用者數量增加並超過網路的乘載限制時，網路的效能（Performance）將會受到最巨大的影響。"
+  },
+  {
+    "id": "Q30",
+    "category": "Appendix-K: Cyber security",
+    "question": "In the computer networks, the encryption techniques are primarily used for improving the ________",
+    "options": {
+      "A": "Security",
+      "B": "Performance",
+      "C": "Reliability",
+      "D": "Longevity"
+    },
+    "answer": "A",
+    "explanation": "加密技術（Encryption techniques）主要被用來提升網路的安全（Security），以防止未經授權的資料存取與竊聽。"
+  },
+  {
+    "id": "Q31",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following statements is correct about the firewall?",
+    "options": {
+      "A": "It is a device installed at the boundary of a company to prevent unauthorized physical access.",
+      "B": "It is a device installed at the boundary of an incorporate to protect it against the unauthorized access.",
+      "C": "It is a kind of wall built to prevent files form damaging the corporate.",
+      "D": "None of the above."
+    },
+    "answer": "B",
+    "explanation": "防火牆可以是一套軟體或硬體設備，安裝於企業網路邊界，負責過濾進出網路的資料封包，以保護系統免受未經授權的存取，常被視為抵禦病毒與惡意軟體的第一道防線。"
+  },
+  {
+    "id": "Q32",
+    "category": "Appendix-K: Cyber security",
+    "question": "When was the first computer virus created?",
+    "options": {
+      "A": "1970",
+      "B": "1971",
+      "C": "1972",
+      "D": "1969"
+    },
+    "answer": "B",
+    "explanation": "世界上第一個電腦病毒（Creeper）由 Robert (Bob) Thomas 於 1971 年創建，它被設計為能夠自我複製並在電腦之間傳播。"
+  },
+  {
+    "id": "Q33",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following is considered as the world's first antivirus program?",
+    "options": {
+      "A": "Creeper",
+      "B": "Reaper",
+      "C": "Tinkered",
+      "D": "Ray Tomlinson"
+    },
+    "answer": "B",
+    "explanation": "Reaper 被認為是世界上第一個防毒軟體或程式，因為它能夠偵測 Creeper（世界上第一個電腦病毒）的副本並將其刪除。"
+  },
+  {
+    "id": "Q34",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which one of the following principles of cyber security refers that the security mechanism must be as small and simple as possible?",
+    "options": {
+      "A": "Open-Design",
+      "B": "Economy of the Mechanism",
+      "C": "Least privilege",
+      "D": "Fail-safe Defaults"
+    },
+    "answer": "B",
+    "explanation": "機制經濟性（Economy of the Mechanism）原則指出，安全機制的設計必須盡可能保持簡單與小巧，以降低出錯的機率並易於檢查。"
+  },
+  {
+    "id": "Q35",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following principle of cyber security restricts how privileges are initiated whenever any object or subject is created?",
+    "options": {
+      "A": "Least privilege",
+      "B": "Open-Design",
+      "C": "Fail-safe Defaults",
+      "D": "Complete mediation",
+      "E": "None of the above"
+    },
+    "answer": "C",
+    "explanation": "預設安全失效（Fail-safe Defaults）原則限制了在建立物件時權限的初始狀態；當未明確授予權限或存取權時，系統預設應拒絕存取。"
+  },
+  {
+    "id": "Q36",
+    "category": "Appendix-K: Cyber security",
+    "question": "Suppose an employee demands the root access to a UNIX system, where you are the administrator; that right or access should not be given to the employee unless that employee has work that requires certain rights, privileges. It can be considered as a perfect example of which principle of cyber security?",
+    "options": {
+      "A": "Least privileges",
+      "B": "Open Design",
+      "C": "Separation of Privileges",
+      "D": "Both A & C"
+    },
+    "answer": "A",
+    "explanation": "這是最低權限原則（Least Privileges）的完美範例。該原則強調，除非員工為了完成特定任務而需要某些權限，否則不應賦予他們系統的存取權，以控制並限制權限的分配。"
+  },
+  {
+    "id": "Q37",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following can also consider as the instances of Open Design?",
+    "options": {
+      "A": "CSS",
+      "B": "DVD Player",
+      "C": "Only A",
+      "D": "Both A and B"
+    },
+    "answer": "D",
+    "explanation": "開放設計（Open Design）是指其文件與設計公開可用，任何人皆可研究或修改。CSS（內容加擾系統）及 DVD 播放器技術架構在某種程度上常被作為討論開放設計與安全性的範例。"
+  },
+  {
+    "id": "Q38",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which one of the following principles states that sometimes it is become more desirable to rescored the details of intrusion that to adopt more efficient measure to avoid it?",
+    "options": {
+      "A": "Least common mechanism",
+      "B": "Compromise recording",
+      "C": "Psychological acceptability",
+      "D": "Work factor"
+    },
+    "answer": "B",
+    "explanation": "妥協紀錄（Compromise recording）原則指出，在某些情況下，比起採取更嚴格或更高效的防禦措施來避免入侵，詳細紀錄入侵的細節會更有價值且更為可取。"
+  },
+  {
+    "id": "Q39",
+    "category": "Appendix-K: Cyber security",
+    "question": "The web application like banking websites should ask its users to log-in again after some specific period of time, let say 30 min. It can be considered as an example of which cybersecurity principle?",
+    "options": {
+      "A": "Compromise recording",
+      "B": "Psychological acceptability",
+      "C": "Complete mediation",
+      "D": "None of the above"
+    },
+    "answer": "C",
+    "explanation": "完全仲裁（Complete Mediation）原則要求所有的存取動作都必須受到檢查以確認其合法性。銀行網站要求逾時重新登入，就是為了確保每次的存取會話都經過再次驗證。"
+  },
+  {
+    "id": "Q40",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which one of the following statements is correct about Email security in the network security methods?",
+    "options": {
+      "A": "One has to deploy hardware, software, and security procedures to lock those apps down.",
+      "B": "One should know about what the normal behavior of a network look likes so that he/she can spot any changes, breaches in the behavior of the network.",
+      "C": "Phishing is one of the most commonly used methods that are used by hackers to gain access to the network.",
+      "D": "All of the above."
+    },
+    "answer": "C",
+    "explanation": "在電子郵件安全方面，網路釣魚（Phishing）是駭客最常用來獲取網路存取權的標準方法之一。良好的郵件安全工具能防範這類入站攻擊並保護出站敏感資料。"
+  },
+  {
+    "id": "Q41",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following statements is true about the VPN in Network security?",
+    "options": {
+      "A": "It is a type of device that helps to ensure that communication between a device and a network is secure.",
+      "B": "It is usually based on the IPsec ( IP Security) or SSL (Secure Sockets Layer).",
+      "C": "It typically creates a secure, encrypted virtual \"tunnel\" over the open internet.",
+      "D": "All of the above."
+    },
+    "answer": "D",
+    "explanation": "虛擬私人網路（VPN）是一種增強網路安全的工具。它透過建立加密的虛擬「隧道」，並利用 IPsec 或 SSL 等協定，來驗證並確保裝置與網路間的通訊安全。"
+  },
+  {
+    "id": "Q42",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following type of text is transformed with the help of a cipher algorithm?",
+    "options": {
+      "A": "Transformed text",
+      "B": "Complex text",
+      "C": "Scalar text",
+      "D": "Plain text",
+      "E": "Compress text"
+    },
+    "answer": "D",
+    "explanation": "加密演算法是透過將人類可讀的「明文 (Plain text)」作為輸入，並將其轉換成不可讀的「密文 (Cipher text)」來保護資料在傳輸過程中的安全。"
+  },
+  {
+    "id": "Q43",
+    "category": "Appendix-K: Cyber security",
+    "question": "The term \"CHAP\" stands for __________",
+    "options": {
+      "A": "Circuit Hardware Authentication Protocols",
+      "B": "Challenge Hardware Authentication Protocols",
+      "C": "Challenge Handshake Authentication Protocols",
+      "D": "Circuit Handshake Authentication Protocols"
+    },
+    "answer": "C",
+    "explanation": "CHAP 全名為「挑戰握手驗證協定 (Challenge Handshake Authentication Protocol)」。它是一種避免在網路上傳輸未加密密碼的驗證機制，常被點對點協定（PPP）所使用。"
+  },
+  {
+    "id": "Q44",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which type of the following malware does not replicate or clone them self's through infection?",
+    "options": {
+      "A": "Rootkits",
+      "B": "Trojans",
+      "C": "Worms",
+      "D": "Viruses"
+    },
+    "answer": "B",
+    "explanation": "木馬程式（Trojans）不會自我複製或產生副本。其命名源自希臘神話的特洛伊木馬，意指它會偽裝成合法軟體誘騙使用者執行，從而在未被察覺的情況下潛入系統。"
+  },
+  {
+    "id": "Q45",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following malware's type allows the attacker to access the administrative controls and enables his/or her to do almost anything he wants to do with the infected computers.",
+    "options": {
+      "A": "RATs",
+      "B": "Botnets",
+      "C": "Worms",
+      "D": "Rootkits"
+    },
+    "answer": "A",
+    "explanation": "RAT（遠端存取木馬或遠端管理工具）允許攻擊者取得受感染設備的最高管理權限，使其能夠像親自接觸設備一樣，遠端執行任何操作。"
+  },
+  {
+    "id": "Q46",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following statements is true about the Trojans?",
+    "options": {
+      "A": "Trojans perform tasks for which they are designed or programmed",
+      "B": "Trojans replicates them self's or clone them self's through an infections",
+      "C": "Trojans do nothing harmful to the user's computer systems",
+      "D": "None of the above"
+    },
+    "answer": "A",
+    "explanation": "木馬程式是一種惡意軟體，會執行其被設計或編程的特定破壞任務。使用者通常在木馬開始發作時，才意識到系統已遭到感染。"
+  },
+  {
+    "id": "Q47",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following is just opposite to the Open Design principle?",
+    "options": {
+      "A": "Security through obscurity",
+      "B": "Least common mechanism",
+      "C": "Least privileges",
+      "D": "Work factor"
+    },
+    "answer": "A",
+    "explanation": "「隱晦式安全（Security through obscurity）」依賴設計的保密來維持安全性，這與主張設計架構應公開透明的「開放設計（Open Design）」原則恰好相反。"
+  },
+  {
+    "id": "Q48",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following is a type of independent malicious program that never required any host program?",
+    "options": {
+      "A": "Trojan Horse",
+      "B": "Worm",
+      "C": "Trap Door",
+      "D": "Virus"
+    },
+    "answer": "B",
+    "explanation": "蠕蟲（Worm）是一種獨立的惡意程式，不需要依附於任何主機程式或人類觸發即可執行。它們通常透過消耗頻寬與使伺服器過載來對系統造成損害。"
+  },
+  {
+    "id": "Q49",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following usually considered as the default port number of apache and several other web servers?",
+    "options": {
+      "A": "20",
+      "B": "40",
+      "C": "80",
+      "D": "87",
+      "E": "92"
+    },
+    "answer": "C",
+    "explanation": "Apache 以及其他許多網頁伺服器（Web servers）處理未加密的 HTTP 流量時，預設使用的連接埠號碼為 80。"
+  },
+  {
+    "id": "Q50",
+    "category": "Appendix-K: Cyber security",
+    "question": "DNS translates a Domain name into _________",
+    "options": {
+      "A": "Hex",
+      "B": "Binary",
+      "C": "IP",
+      "D": "URL"
+    },
+    "answer": "C",
+    "explanation": "DNS 代表網域名稱系統，其主要功能是將人類易讀的網域名稱（Domain name）轉換為電腦可以理解的 IP 位址。"
+  },
+  {
+    "id": "Q51",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which one of the following systems cannot be considered as an example of the operating systems?",
+    "options": {
+      "A": "Windows 10",
+      "B": "Red Hat Linux",
+      "C": "Microsoft Office",
+      "D": "BSD Linux"
+    },
+    "answer": "C",
+    "explanation": "Microsoft Office 是一套用於建立與管理文件的應用軟體，而非負責管理硬體資源的作業系統（如 Windows 或 Linux）。"
+  },
+  {
+    "id": "Q52",
+    "category": "Appendix-K: Cyber security",
+    "question": "In the CIA Triad, which one of the following is not involved?",
+    "options": {
+      "A": "Availability",
+      "B": "Confidentiality",
+      "C": "Authenticity",
+      "D": "Integrity"
+    },
+    "answer": "C",
+    "explanation": "資安領域的 CIA 三要素（CIA Triad）包含機密性（Confidentiality）、完整性（Integrity）與可用性（Availability），並不包含真實性（Authenticity）。"
+  },
+  {
+    "id": "Q53",
+    "category": "Appendix-K: Cyber security",
+    "question": "In an any organization, company or firm the policies of information security come under__________",
+    "options": {
+      "A": "CIA Triad",
+      "B": "Confidentiality",
+      "C": "Authenticity",
+      "D": "None of the above"
+    },
+    "answer": "A",
+    "explanation": "機密性、完整性與可用性構成的 CIA 三要素，被視為任何組織或企業建立資訊安全架構與政策的核心基石。"
+  },
+  {
+    "id": "Q54",
+    "category": "Appendix-K: Cyber security",
+    "question": "Why are the factors like Confidentiality, Integrity, Availability, and Authenticity considered as the fundamentals?",
+    "options": {
+      "A": "They help in understanding the hacking process",
+      "B": "These are the main elements for any security breach",
+      "C": "They help to understand the security and its components in a better manner",
+      "D": "All of the above"
+    },
+    "answer": "C",
+    "explanation": "將機密性、完整性、可用性與真實性視為基礎元素，是因為它們能幫助我們以更全面且系統化的方式，理解安全防護的本質及其各個組成部分。"
+  },
+  {
+    "id": "Q55",
+    "category": "Appendix-K: Cyber security",
+    "question": "In order to ensure the security of the data/ information, we need to ____________ the data:",
+    "options": {
+      "A": "Encrypt",
+      "B": "Decrypt",
+      "C": "Delete",
+      "D": "Storage",
+      "E": "Compression."
+    },
+    "answer": "A",
+    "explanation": "為了確保資料與資訊的安全及機密性，我們需要對資料進行加密（Encrypt），將明文轉換為密文，確保只有持有正確金鑰的授權使用者才能解密讀取。"
+  },
+  {
+    "id": "Q56",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which one of the following is considered as the most secure Linux operating system that also provides anonymity and the incognito option for securing the user's information?",
+    "options": {
+      "A": "Ubuntu",
+      "B": "Tails",
+      "C": "Fedora",
+      "D": "All of the above"
+    },
+    "answer": "B",
+    "explanation": "Tails 是一款基於 Linux 的作業系統，被認為是世上最安全的系統之一。它透過強制所有的網路連線都經過 Tor 網路來確保使用者的匿名性與隱私。"
+  },
+  {
+    "id": "Q57",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which type following UNIX account provides all types of privileges and rights which one can perform administrative functions?",
+    "options": {
+      "A": "Client",
+      "B": "Guest",
+      "C": "Root",
+      "D": "Administrative"
+    },
+    "answer": "D",
+    "explanation": "在 UNIX 作業系統中，使用 Root 帳戶可以執行所有類型的系統管理功能，因為它賦予了使用者最高級別的所有必要權限與權利。"
+  },
+  {
+    "id": "Q58",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following is considered as the first hacker's conference?",
+    "options": {
+      "A": "OSCON",
+      "B": "DEVON",
+      "C": "DEFCON",
+      "D": "SECTION",
+      "E": "CONDEF"
+    },
+    "answer": "C",
+    "explanation": "DEFCON 是全球規模最大、最知名的駭客與資安顧問大會之一，每年在內華達州拉斯維加斯舉行，吸引了各種類型的駭客、政府特工與資安專家參與。"
+  },
+  {
+    "id": "Q59",
+    "category": "Appendix-K: Cyber security",
+    "question": "Which of the following known as the oldest phone hacking techniques used by hackers to make free calls?",
+    "options": {
+      "A": "Phreaking",
+      "B": "Phishing",
+      "C": "Cracking",
+      "D": "Spraining"
+    },
+    "answer": "A",
+    "explanation": "飛客（Phreaking）被認為是駭客用來撥打免費電話的最古老的電話駭客技術之一，主要透過操縱電信網路的音頻訊號來達成。"
+  },
+  {
+    "id": "Q60",
+    "category": "Appendix-K: Cyber security",
+    "question": "Name of the Hacker who breaks the SIPRNET system?",
+    "options": {
+      "A": "John Draper",
+      "B": "Kevin Mitnick",
+      "C": "John von Neumann",
+      "D": "Kevin Poulsen"
+    },
+    "answer": "D",
+    "explanation": "駭客 Kevin Poulsen 曾成功駭入五角大廈網路，並破解了 SIPRNET（機密網際網路協定路由器網路）系統。"
+  },  
+  {
+    "id": "Q001",
+    "category": "Appendix-L: QoS Questions with Answers",
+    "question": "Which option describes the purpose of traffic policing?",
+    "options": {
+      "A": "It prioritizes routing protocol traffic.",
+      "B": "It remarks traffic that is below the CIR",
+      "C": "It drops traffic that exceeds the CIR.",
+      "D": "It queues and then transmits traffic that exceeds the CIR.",
+      "E": "Ensures traffic adheres to agreed-upon bandwidth limits or \"traffic contracts\"."
+    },
+    "answer": "C",
+    "explanation": "流量監管 (Traffic Policing) 的主要目的是在流量達到配置的最大速率 (CIR) 時，直接丟棄或重新標記超出的流量，這與會將超出流量進行緩衝的流量整形 (Traffic Shaping) 不同。"
+  },
+  {
+    "id": "Q002",
+    "category": "Appendix-L: QoS Questions with Answers",
+    "question": "Which statement about QoS default behavior is true?",
+    "options": {
+      "A": "Ports are untrusted by default.",
+      "B": "VoIP traffic is passed without being tagged.",
+      "C": "Video traffic is passed with a well-known DSCP value of 46.",
+      "D": "Packets are classified internally with an environment.",
+      "E": "Packets that arrive with a tag are untagged at the edge of an administrative domain."
+    },
+    "answer": "E",
+    "explanation": "預設的 QoS 行為中，當帶有標籤的封包抵達管理網域的邊界時，其標籤預設會被移除 (untagged)。"
+  },
+  {
+    "id": "Q003",
+    "category": "Appendix-L: QoS Questions with Answers",
+    "question": "What 8-bit field exists in IP packet for QoS?",
+    "options": {
+      "A": "Tos Field",
+      "B": "DSCP",
+      "C": "IP Precedence",
+      "D": "Cos",
+      "E": "?"
+    },
+    "answer": "A",
+    "explanation": "IP 封包標頭中包含一個 8 位元的服務類型 (ToS, Type of Service) 欄位用於 QoS。CoS 僅存在於 802.1Q 訊框標頭中，而 DSCP 則是使用 ToS 欄位的前 6 個位元。"
+  },
+  {
+    "id": "Q004",
+    "category": "Appendix-L: QoS Questions with Answers",
+    "question": "Which feature can you implement to reserve bandwidth for VoIP calls across the call path?",
+    "options": {
+      "A": "Round robin",
+      "B": "CBWFQ (Class-Based Weighted Fair Queuing)",
+      "C": "PQ (Priority Queuing)",
+      "D": "Quality of Service",
+      "E": "RSVP (Resource Reservation Protocol)"
+    },
+    "answer": "E",
+    "explanation": "資源保留協定 (RSVP) 允許應用程式為其資料流預留頻寬，常用於在通話路徑上確保特定的 VoIP 頻寬量。"
+  },
+  {
+    "id": "Q005",
+    "category": "Appendix-L: QoS Questions with Answers",
+    "question": "What does traffic shaping do to reduce congestion in a network?(choose two)",
+    "options": {
+      "A": "buffers and queues packets",
+      "B": "buffers without queuing packets",
+      "C": "queues without buffering packets",
+      "D": "drops packets",
+      "E": "rate limiting"
+    },
+    "answer": "A E",
+    "explanation": "流量整形 (Traffic Shaping) 透過緩衝並將超出的封包放入佇列 (queues) 中，延遲其傳輸以平滑封包的輸出速率，從而減少網路壅塞並達到速率限制 (Rate limiting) 的效果。"
+  },
+  {
+    "id": "Q006",
+    "category": "Appendix-L: QoS Questions with Answers",
+    "question": "In which byte of an IP packet can traffic be marked?",
+    "options": {
+      "A": "The CoS byte (Class of Service)",
+      "B": "The ToS byte (Type of Service)",
+      "C": "The DSCP byte (Differentiated Service Code Point)",
+      "D": "The QoS byte (Quality of Service)",
+      "E": "The BSS byte (Basic service set)"
+    },
+    "answer": "B",
+    "explanation": "第三層的標記是透過 IP 標頭中 8 位元的服務類型 (ToS) 位元組來完成。IP 優先權與 DSCP 都是基於這個 ToS 位元組來進行標記。"
+  },
+  {
+    "id": "Q007",
+    "category": "Appendix-L: QoS Questions with Answers",
+    "question": "Which function does traffic shaping perform?",
+    "options": {
+      "A": "It buffers and queues excess packets",
+      "B": "It buffers traffic without queuing it",
+      "C": "It queues traffic without buffering it",
+      "D": "It drops packets to control the output rate"
+    },
+    "answer": "A",
+    "explanation": "流量整形 (Traffic Shaping) 的功能是緩衝並將超額的封包放入佇列中，以便在後續的時間點進行傳輸，這會產生平穩順暢的封包輸出速率。"
+  },
+  {
+    "id": "Q008",
+    "category": "Appendix-L: QoS Questions with Answers",
+    "question": "Which option is the main function of congestion management?",
+    "options": {
+      "A": "discarding excess traffic",
+      "B": "queuing traffic based on priority",
+      "C": "classifying traffic",
+      "D": "queuing traffic based on priority",
+      "E": "providing long-term storage of buffered data"
+    },
+    "answer": "B",
+    "explanation": "壅塞管理 (Congestion Management) 的主要功能是根據優先權將流量排入佇列 (Queuing traffic based on priority)，例如使用 PQ 或 CBWFQ 來決定封包的轉發順序。"
+  },
+  {
+    "id": "Q009",
+    "category": "Appendix-L: QoS Questions with Answers",
+    "question": "Which QoS tool can you use to optimize voice traffic on a network that is primarily intended for data traffic?",
+    "options": {
+      "A": "WRED: Weighted random early detection",
+      "B": "FIFO",
+      "C": "PQ",
+      "D": "WFQ",
+      "E": "LILO"
+    },
+    "answer": "C",
+    "explanation": "優先權佇列 (PQ) 會將流量分為高、中、一般與低優先權，並強制優先處理高優先權佇列。對於主要傳輸數據的網路，使用 PQ 可以為資料量較少但對延遲極度敏感的語音流量提供頻寬保證。"
+  },
+  {
+    "id": "Q010",
+    "category": "Appendix-L: QoS Questions with Answers",
+    "question": "Which two QoS tools can provide congestion management? (Choose two)",
+    "options": {
+      "A": "CBWFQ",
+      "B": "FRTS",
+      "C": "CAR",
+      "D": "PQ",
+      "E": "PBR"
+    },
+    "answer": "A D",
+    "explanation": "CBWFQ (基於類別的加權公平佇列) 與 PQ (優先權佇列) 都是提供壅塞管理的 QoS 工具。CAR 主要用於頻寬限制，而 WRED 則屬於壅塞避免 (Congestion Avoidance) 機制。"
+  },
+  {
+    "id": "Q01",
+    "category": "Appendix-M: WLANs-Physical layer ",
+    "question": "The physical layer is concerned with ___________.",
+    "options": {
+      "A": "bit-by-bit delivery",
+      "B": "process to process delivery",
+      "C": "application to application delivery",
+      "D": "port to port delivery",
+      "E": "access to access control"
+    },
+    "answer": "A",
+    "explanation": "實體層（Physical Layer）位於 OSI 模型的最低層，其主要功能與責任是負責在傳輸媒體上進行原始位元（bit-by-bit）的傳輸與接收。"
+  },
+  {
+    "id": "Q02",
+    "category": "Appendix-M: WLANs-Physical layer ",
+    "question": "Which transmission media provides the highest transmission speed in a network?",
+    "options": {
+      "A": "coaxial cable",
+      "B": "twisted pair cable",
+      "C": "optical fiber",
+      "D": "electrical cable"
+    },
+    "answer": "C",
+    "explanation": "光纖（Optical Fiber）利用光訊號來傳輸資料，相較於同軸電纜與雙絞線，它具備極高的頻寬與抗電磁干擾能力，能提供網路中最高的傳輸速度。"
+  },
+  {
+    "id": "Q03",
+    "category": "Appendix-M: WLANs-Physical layer ",
+    "question": "Bits can be sent over guided and unguided media as analog signal by ___________",
+    "options": {
+      "A": "digital modulation",
+      "B": "amplitude modulation",
+      "C": "frequency modulation",
+      "D": "phase modulation",
+      "E": "digital encoding"
+    },
+    "answer": "A",
+    "explanation": "透過數位調變（Digital Modulation）技術，可以將數位資料（位元 0 與 1）轉換為適合在有線（guided）或無線（unguided）媒體上傳輸的類比訊號。"
+  },
+  {
+    "id": "Q04",
+    "category": "Appendix-M: WLANs-Physical layer ",
+    "question": "The portion of physical layer that interfaces with the media access control sublayer is called ___________.",
+    "options": {
+      "A": "physical signaling sublayer",
+      "B": "physical data sublayer",
+      "C": "physical address sublayer",
+      "D": "physical transport sublayer"
+    },
+    "answer": "A",
+    "explanation": "實體層中負責與上方媒介存取控制（MAC）子層介接的部分稱為實體訊號子層（Physical Signaling Sublayer, PLS），主要處理邏輯位元與實體訊號間的轉換。"
+  },
+  {
+    "id": "Q05",
+    "category": "Appendix-M: WLANs-Physical layer ",
+    "question": "The physical layer provides __________.",
+    "options": {
+      "A": "mechanical specifications of electrical connectors and cables",
+      "B": "electrical specification of transmission line signal level",
+      "C": "specification for IR over optical fiber",
+      "D": "all of the mentioned"
+    },
+    "answer": "D",
+    "explanation": "實體層定義了硬體介面的所有細節，包含了接頭形狀的機械規格、電壓位準的電氣規格，以及光學或紅外線特性的傳輸規格。"
+  },
+  {
+    "id": "Q06",
+    "category": "Appendix-M: WLANs-Physical layer ",
+    "question": "In asynchronous serial communication the physical layer provides ___________.",
+    "options": {
+      "A": "start and stop signaling",
+      "B": "flow control",
+      "C": "both start & stop signalling and flow control",
+      "D": "only start signalling"
+    },
+    "answer": "C",
+    "explanation": "在非同步串列通訊（如 RS-232）中，實體層不僅利用起始位元與停止位元（Start and stop signaling）來達成訊框同步，也常透過硬體腳位提供基礎的流量控制（Flow control）。"
+  },
+  {
+    "id": "Q07",
+    "category": "Appendix-M: WLANs-Physical layer ",
+    "question": "The physical layer is responsible for __________.",
+    "options": {
+      "A": "line coding",
+      "B": "channel coding",
+      "C": "modulation",
+      "D": "all of the mentioned"
+    },
+    "answer": "D",
+    "explanation": "實體層的責任涵蓋了線路編碼（數位轉數位）、通道編碼（用於錯誤控制），以及調變技術（數位轉類比），以確保訊號能在實體媒體上有效傳輸。"
+  },
+  {
+    "id": "Q08",
+    "category": "Appendix-M: WLANs-Physical layer ",
+    "question": "The physical layer translates logical communication requests from the ______ into hardware specific operations.",
+    "options": {
+      "A": "data link layer",
+      "B": "network layer",
+      "C": "trasnport layer",
+      "D": "application layer"
+    },
+    "answer": "A",
+    "explanation": "實體層直接服務於它上方的資料鏈結層（Data Link Layer），接收來自資料鏈結層的邏輯通訊請求，並將其轉換為實際的硬體與電子操作。"
+  },
+  {
+    "id": "Q09",
+    "category": "Appendix-M: WLANs-Physical layer ",
+    "question": "A single channel is shared by multiple signals by ___________.",
+    "options": {
+      "A": "analog modulation",
+      "B": "digital modulation",
+      "C": "multiplexing",
+      "D": "phase modulation",
+      "E": "digital coding"
+    },
+    "answer": "C",
+    "explanation": "多工（Multiplexing）技術允許在單一的實體通訊通道上，同時傳輸多個不同的資料訊號（如分頻多工 FDM 或分時多工 TDM），以最大化頻寬使用率。"
+  },
+  {
+    "id": "Q10",
+    "category": "Appendix-M: WLANs-Physical layer ",
+    "question": "Wireless transmission of signals can be done via ___________.",
+    "options": {
+      "A": "radio waves",
+      "B": "microwaves",
+      "C": "infrared",
+      "D": "all of the mentioned"
+    },
+    "answer": "D",
+    "explanation": "無線通訊可以利用多種頻段的電磁波來傳輸訊號，包含廣播與通訊常用的無線電波（Radio waves）、高頻率的微波（Microwaves）以及短距離傳輸的紅外線（Infrared）。"
+  },
+  {
+    "id": "Q11",
+    "category": "Appendix-M: WLANs-Physical layer ",
+    "question": "The original 802.11 standard proposed three modulation methods for wireless media transmission. Which of the following is correct?(choose three)",
+    "options": {
+      "A": "Amplitude Shift Keying",
+      "B": "Infrared Ray",
+      "C": "Direct Sequence",
+      "D": "Frequency Hopping",
+      "E": "Frequency Shift Keying"
+    },
+    "answer": "B C D",
+    "explanation": "根據原始的 IEEE 802.11 標準，共提出了三種無線媒介傳送方式：跳頻展頻（FHSS, Frequency Hopping）、直接序列展頻（DSSS, Direct Sequence）與紅外線（Infrared Ray）。"
+  },
+  {
+    "id": "Q01",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "What are the functions of the MAC sublayer?",
+    "options": {
+      "A": "It resolves contention for shared media and contains synchronization, flag, flow, and error control specifications.",
+      "B": "It translates logical domain names into physical IP addresses.",
+      "C": "It routes packets across different wide area networks using IP addresses.",
+      "D": "It establishes, maintains, and terminates end-to-end connections between applications."
+    },
+    "answer": "A",
+    "explanation": "媒介存取控制 (MAC) 子層主要負責解決共享媒體的爭用問題，並包含同步、標記、流量與錯誤控制等規範，同時提供實體位址以便將封包傳送至下一個站點。"
+  },
+  {
+    "id": "Q02",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "What are the functions of Logical Link Control (LLC)?",
+    "options": {
+      "A": "It defines the electrical and mechanical specifications of the transmission medium.",
+      "B": "It routes packets between different heterogeneous networks.",
+      "C": "It handles the end-user portion of the HDLC frame, including logical address, control information, and data.",
+      "D": "It provides collision detection and carrier sensing for Ethernet networks."
+    },
+    "answer": "C",
+    "explanation": "IEEE 802.2 邏輯鏈結控制 (LLC) 協定處理 HDLC 訊框中屬於終端使用者的部分，包含邏輯位址、控制資訊與實際資料。"
+  },
+  {
+    "id": "Q03",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "What is Ethernet?",
+    "options": {
+      "A": "A point-to-point network connecting only two dedicated hosts.",
+      "B": "A multiple-access network where a set of nodes send and receive frames over a shared link.",
+      "C": "A wireless wide-area network protocol used for cellular communication.",
+      "D": "A centralized network where a single master node controls all transmissions."
+    },
+    "answer": "B",
+    "explanation": "乙太網路 (Ethernet) 是一種多重存取網路，意味著多個節點會在一個共享的鏈路上發送與接收訊框。"
+  },
+  {
+    "id": "Q04",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "Define the term 'carrier sense' in CSMA/CD?",
+    "options": {
+      "A": "Nodes use tokens to determine who can transmit data over the network.",
+      "B": "Nodes dynamically assign IP addresses to prevent conflicts.",
+      "C": "All nodes can distinguish between an idle and a busy link.",
+      "D": "Nodes encrypt their transmission to sense malicious carriers."
+    },
+    "answer": "C",
+    "explanation": "在 CSMA/CD 中，「載波感測 (Carrier Sense)」代表網路上所有的節點都有能力分辨目前的傳輸鏈路是處於閒置還是忙碌狀態。"
+  },
+  {
+    "id": "Q05",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "Define Repeater?",
+    "options": {
+      "A": "A device that routes packets based on IP addresses.",
+      "B": "A device that filters frames based on MAC addresses to reduce collisions.",
+      "C": "A device that converts digital signals into analog frequencies.",
+      "D": "A device that forwards digital signals, much like an amplifier forwards analog signals."
+    },
+    "answer": "D",
+    "explanation": "中繼器 (Repeater) 是一種轉發數位訊號的設備，作用類似於放大類比訊號的放大器。在傳統乙太網路中，主機之間最多只能放置四個中繼器。"
+  },
+  {
+    "id": "Q06",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "Define collision detection in the context of Ethernet?",
+    "options": {
+      "A": "A node listens as it transmits to detect when its frame has interfered with a frame from another node.",
+      "B": "A firewall detects malicious packets trying to collide with the server.",
+      "C": "A router avoids sending packets to the same destination simultaneously.",
+      "D": "A token is used to ensure collisions never happen on the network."
+    },
+    "answer": "A",
+    "explanation": "碰撞偵測 (Collision Detection) 是指節點在傳輸資料的同時進行監聽，以偵測自己發送的訊框是否與其他節點的訊框發生干擾（碰撞）。"
+  },
+  {
+    "id": "Q07",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "Why is Ethernet said to be a 1-persistent protocol?",
+    "options": {
+      "A": "Because it waits 1 second before every transmission.",
+      "B": "An adaptor with a frame to send transmits with probability '1' whenever a busy line goes idle.",
+      "C": "It uses 1 persistent connection for all application data.",
+      "D": "It attempts to transmit only 1 time before dropping the frame."
+    },
+    "answer": "B",
+    "explanation": "乙太網路被稱為 1-persistent (1-持續) 協定，是因為當有訊框要傳送的網卡偵測到忙碌的線路變為閒置時，會以機率 1 (即 100%) 立刻進行傳輸。"
+  },
+  {
+    "id": "Q08",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "What is exponential back off?",
+    "options": {
+      "A": "A routing algorithm that finds the shortest path exponentially fast.",
+      "B": "Halving the transmission speed after every successful packet delivery.",
+      "C": "Doubling the delay interval between each transmission attempt after failing to transmit due to a collision.",
+      "D": "Increasing the packet size exponentially to improve network throughput."
+    },
+    "answer": "C",
+    "explanation": "指數退避 (Exponential back off) 是一種當偵測到碰撞時的處理策略：網卡每次傳輸失敗後，都會將下一次嘗試重傳前的等待時間加倍。"
+  },
+  {
+    "id": "Q09",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "What is token holding time (THT)?",
+    "options": {
+      "A": "How long it takes for a token to travel a full circle around the ring network.",
+      "B": "How much data or how long a given node is allowed to transmit each time it possesses the token.",
+      "C": "The time it takes to generate a new token if the original one is lost.",
+      "D": "The minimum delay required between receiving and forwarding a token."
+    },
+    "answer": "B",
+    "explanation": "權杖持有時間 (Token Holding Time, THT) 定義了一個節點在取得權杖時，被允許傳輸多少資料或能持有多長時間的權杖。"
+  },
+  {
+    "id": "Q10",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "What are the two classes of traffic in FDDI?",
+    "options": {
+      "A": "TCP and UDP",
+      "B": "Unicast and Broadcast",
+      "C": "Synchronous and Asynchronous",
+      "D": "Encrypted and Plaintext"
+    },
+    "answer": "C",
+    "explanation": "光纖分散式資料介面 (FDDI) 將網路流量分為兩大類：同步 (Synchronous) 與非同步 (Asynchronous) 流量。"
+  },
+  {
+    "id": "Q11",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "What are the four prominent wireless technologies mentioned?",
+    "options": {
+      "A": "Bluetooth, Wi-Fi, WiMAX, and 3G cellular wireless.",
+      "B": "Ethernet, Token Ring, FDDI, and ATM.",
+      "C": "IrDA, NFC, RFID, and Zigbee.",
+      "D": "Satellite, Microwave, Radio, and Infrared."
+    },
+    "answer": "A",
+    "explanation": "文中提到的四項主要無線技術為：藍牙 (Bluetooth)、Wi-Fi (802.11)、WiMAX (802.16) 以及第三代 (3G) 行動通訊。"
+  },
+  {
+    "id": "Q12",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "Define Bluetooth?",
+    "options": {
+      "A": "A long-range wireless protocol designed for internet backbones.",
+      "B": "A technology for very short-range communication between mobile phones, PDAs, notebooks, and peripheral devices.",
+      "C": "A fiber-optic standard used in metropolitan area networks.",
+      "D": "A satellite communication protocol used globally for GPS tracking."
+    },
+    "answer": "B",
+    "explanation": "藍牙主要填補了極短距離通訊的利基市場，常用於連接手機、筆記型電腦與個人周邊設備（如耳機或印表機）。"
+  },
+  {
+    "id": "Q13",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "What are the four steps involved in scanning?",
+    "options": {
+      "A": "SYN, SYN-ACK, ACK, FIN.",
+      "B": "Discover, Offer, Request, Acknowledge.",
+      "C": "RTS, CTS, Data, ACK.",
+      "D": "Probe, Probe Response, Association Request, Association Response."
+    },
+    "answer": "D",
+    "explanation": "無線網路主動掃描與關聯的四個步驟為：發送探測請求 (Probe)、收到探測回應 (Probe Response)、發送關聯請求 (Association Request)、收到關聯回應 (Association Response)。"
+  },
+  {
+    "id": "Q14",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "Explain the term 'handoff'?",
+    "options": {
+      "A": "Dropping a phone call when the signal is completely lost.",
+      "B": "Passing a token from one computer to the next in a token ring network.",
+      "C": "Transferring a call to a new base station when the phone moves out of the current station's range.",
+      "D": "Manually switching a device from mobile data to Wi-Fi."
+    },
+    "answer": "C",
+    "explanation": "換手 (Handoff 或 Handover) 是指當行動裝置在通話時移動到不同區域，必須將通話連接無縫轉移到新基地台的過程。"
+  },
+  {
+    "id": "Q15",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "Define satphones?",
+    "options": {
+      "A": "Phones that rely exclusively on local Wi-Fi hotspots.",
+      "B": "Phones that use communication satellites as base stations on internationally reserved frequency bands.",
+      "C": "Wired phones that transmit data underground using fiber optics.",
+      "D": "Phones designed specifically for short-range Bluetooth communication."
+    },
+    "answer": "B",
+    "explanation": "衛星電話 (Satphones) 是一種使用通訊衛星作為基地台的行動電話，運作於國際保留給衛星通訊使用的專屬頻段。"
+  },
+  {
+    "id": "Q16",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "How is media access in wireless networks made more complicated compared to Ethernet or token ring?",
+    "options": {
+      "A": "Wireless networks require a central administrator to manually assign IP addresses to every node.",
+      "B": "Some nodes may be hidden from each other due to the range limitations of radio transmission.",
+      "C": "Wireless signals cannot be encrypted, making collision detection impossible.",
+      "D": "Wireless devices are too fast for traditional collision detection algorithms to process."
+    },
+    "answer": "B",
+    "explanation": "乙太網路或權杖環沒有中央仲裁者；而無線網路的媒介存取更為複雜，因為受限於無線電傳輸範圍，節點之間可能會互相隱藏，進而引發「隱藏終端問題」。"
+  },
+  {
+    "id": "Q17",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "Define Aggregation points?",
+    "options": {
+      "A": "Points where multiple fiber optic cables are physically spliced together.",
+      "B": "Nodes that collect and process data incrementally from neighboring nodes before transmitting, reducing network traffic.",
+      "C": "Servers dedicated to storing all network passwords securely.",
+      "D": "Access points that only broadcast the network's SSID without transferring data."
+    },
+    "answer": "B",
+    "explanation": "聚合點 (Aggregation points) 會收集並處理來自鄰近節點的資料後再行傳送。透過這種漸進式的處理，能有效減少傳送至基地台的原始資料量，進而降低網路流量。"
+  },
+  {
+    "id": "Q18",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "Define Beacons in the context of localization?",
+    "options": {
+      "A": "Nodes that determine their absolute location so other nodes can derive their relative position.",
+      "B": "Signals sent continuously to wake up sleeping nodes to save power.",
+      "C": "Packets used exclusively to test the connection speed between a client and a server.",
+      "D": "Hardware devices used to jam unauthorized radio frequencies."
+    },
+    "answer": "A",
+    "explanation": "信標 (Beacons) 是透過 GPS 或手動設定來確定自身絕對位置的節點。其他節點可以藉由估算與信標的相對距離，推導出自己的絕對位置。"
+  },
+  {
+    "id": "Q19",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "What is the use of a Switch?",
+    "options": {
+      "A": "To convert analog signals to digital signals.",
+      "B": "To forward packets between shared media LANs, such as Ethernet.",
+      "C": "To route IP packets between different wide area networks.",
+      "D": "To assign dynamic IP addresses to new devices on the network."
+    },
+    "answer": "B",
+    "explanation": "交換器 (Switch) 主要用於在共享媒體區域網路（如乙太網路）之間轉發封包，因此這類設備常被稱為區域網路交換器 (LAN switches)。"
+  },
+  {
+    "id": "Q20",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "Explain the function of a Bridge?",
+    "options": {
+      "A": "It filters traffic exclusively based on Layer 3 IP addresses.",
+      "B": "It translates IPv4 addresses to IPv6 addresses.",
+      "C": "It connects LANs to form an extended LAN by accepting frames and forwarding them out on other outputs.",
+      "D": "It amplifies wireless signals to increase the coverage area of a Wi-Fi network."
+    },
+    "answer": "C",
+    "explanation": "橋接器 (Bridge) 用於連接多個區域網路形成一個延伸的 LAN。在其最簡單的型態中，橋接器會接收輸入的區域網路訊框，並將其轉發至其他所有輸出埠。"
+  },
+  {
+    "id": "Q21",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "What is the Spanning tree algorithm used for?",
+    "options": {
+      "A": "To map out the physical layout of all devices on a graphical interface.",
+      "B": "For bridges to select the active ports over which they will forward frames, preventing loops.",
+      "C": "To determine the fastest routing path for IP packets across the internet.",
+      "D": "To organize files hierarchically within a network server."
+    },
+    "answer": "B",
+    "explanation": "生成樹 (Spanning tree) 演算法是讓橋接器用來決定哪些連接埠應處於活動狀態以轉發訊框，從而在網路中避免產生無窮迴圈。"
+  },
+  {
+    "id": "Q22",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "What are the three pieces of information in spanning tree configuration messages?",
+    "options": {
+      "A": "Source IP address, Destination IP address, and Time To Live (TTL).",
+      "B": "MAC address, IP address, and Port number.",
+      "C": "SSID, BSSID, and Channel frequency.",
+      "D": "The sending bridge ID, the believed root bridge ID, and the hop distance to the root bridge."
+    },
+    "answer": "D",
+    "explanation": "生成樹組態訊息包含三大資訊：發送端橋接器的 ID、發送端認為的根橋接器 (Root Bridge) ID，以及發送端到根橋接器的距離（以 hop 數計算）。"
+  },
+  {
+    "id": "Q23",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "What is broadcast in the context of bridging?",
+    "options": {
+      "A": "Forwarding a frame with a broadcast address out on each active port other than the receiving port.",
+      "B": "Sending a frame only directly to the root bridge of the network.",
+      "C": "Discarding frames that contain unknown destination MAC addresses.",
+      "D": "Transmitting video streams to a specific set of subscribed users."
+    },
+    "answer": "A",
+    "explanation": "在橋接網路中，廣播 (Broadcast) 是指橋接器將帶有廣播目的地位址的訊框，從除了接收該訊框的連接埠之外的所有活動連接埠轉發出去。"
+  },
+  {
+    "id": "Q24",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "What is multicast?",
+    "options": {
+      "A": "Sending a message to exactly one specific host on the network.",
+      "B": "Sending a message back to the source device to test connectivity.",
+      "C": "A transmission implemented with each host deciding for itself whether or not to accept the message.",
+      "D": "Sending a message to every single host on the network and forcing them to process it."
+    },
+    "answer": "C",
+    "explanation": "群播 (Multicast) 的實作方式是將訊息發送給一組特定的對象，而網路上收到該訊息的主機將自行決定是否要接收並處理該訊息。"
+  },
+  {
+    "id": "Q25",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "How does a given bridge learn whether it should forward a multicast frame over a given port?",
+    "options": {
+      "A": "By observing the source addresses that it receives over that port.",
+      "B": "By asking the root bridge for a forwarding table update.",
+      "C": "By broadcasting a query packet to all connected devices.",
+      "D": "By performing a DNS lookup on the multicast address."
+    },
+    "answer": "A",
+    "explanation": "橋接器學習是否要在特定連接埠上轉發群播訊框的方式，與學習單播 (Unicast) 訊框的方式完全相同：藉由觀察並記錄從該連接埠接收到的來源 MAC 位址。"
+  },
+  {
+    "id": "Q26",
+    "category": "Appendix-N: WLANs Media Access Control",
+    "question": "What are the limitations of bridges?",
+    "options": {
+      "A": "Security and encryption capabilities.",
+      "B": "Speed and maximum bandwidth support.",
+      "C": "Scale and heterogeneity.",
+      "D": "Cost and power consumption."
+    },
+    "answer": "C",
+    "explanation": "橋接器的主要限制在於「規模 (Scale)」與「異質性 (Heterogeneity)」。它們無法有效處理極大規模的網路拓樸，也不善於連接協定完全不同的網路架構。"
+  },
+  {
+    "id": "Q01",
+    "category": "Appendix-O: WLAN-802.11 Frame Type",
+    "question": "Which 802.11 frame type is Association Response?",
+    "options": {
+      "A": "management",
+      "B": "protected frame",
+      "C": "action",
+      "D": "control"
+    },
+    "answer": "A",
+    "explanation": "Association Response 屬於 802.11 的 Management Frame。802.11 主要包含 Data Frame、Management Frame 與 Control Frame，而 Association Response 是用於連線管理的訊框。"
+  },
+  {
+    "id": "Q02",
+    "category": "Appendix-O: WLAN-802.11 Frame Type",
+    "question": "The IEEE802.11 wireless LANs use ________ types of frames.",
+    "options": {
+      "A": "four",
+      "B": "five",
+      "C": "six",
+      "D": "none of the above"
+    },
+    "answer": "A",
+    "explanation": "IEEE 802.11 支援四種類型的 MAC frame，包含 Management、Control、Data 與 Extension frames。"
+  },
+  {
+    "id": "Q03",
+    "category": "Appendix-O: WLAN-802.11 Frame Type",
+    "question": "What 802.11 frame type is involved in association and reassociation, including probe and beacon frames?",
+    "options": {
+      "A": "management frames",
+      "B": "extended frames",
+      "C": "data frames",
+      "D": "control frames",
+      "E": "probe frames"
+    },
+    "answer": "A",
+    "explanation": "Association、Reassociation、Probe 與 Beacon frame 都與無線網路的連線建立、探索與管理有關，因此屬於 Management Frames。"
+  },
+  {
+    "id": "Q04",
+    "category": "Appendix-O: WLAN-802.11 Frame Type",
+    "question": "A wireless node that is in active scanning mode transmits what special type of frame in order to find available access points?",
+    "options": {
+      "A": "probe frame",
+      "B": "extended frames",
+      "C": "data frames",
+      "D": "control frames",
+      "E": "management frames"
+    },
+    "answer": "A",
+    "explanation": "在 Active Scanning 模式中，無線節點會主動送出 Probe Request Frame，用來尋找附近可用的 Access Points。"
+  },
+  {
+    "id": "Q05",
+    "category": "Appendix-O: WLAN-802.11 Frame Type",
+    "question": "Which Bluetooth power class allows for a maximum power output of 100 mW and a range of up to 100 m?",
+    "options": {
+      "A": "Class 4",
+      "B": "Class 3",
+      "C": "Class 2",
+      "D": "Class 1"
+    },
+    "answer": "D",
+    "explanation": "Bluetooth Class 1 的最大輸出功率為 100 mW，傳輸距離可達約 100 公尺，因此正確答案是 Class 1。"
+  },
+  {
+    "id": "Q01",
+    "category": "Appendix-P: WLANs-Power Management",
+    "question": "In the IEEE 802.11 MAC packet structure, what does the Power Management field indicate?",
+    "options": {
+      "A": "The transmission speed of the station.",
+      "B": "The mode of a station after successful transmission of a frame.",
+      "C": "The MAC address of the access point.",
+      "D": "The channel number used by the wireless LAN."
+    },
+    "answer": "B",
+    "explanation": "Power Management 欄位用來表示 STA 在成功傳送一個 frame 之後的狀態。如果此欄位設為 1，代表 STA 會進入 power-save mode；如果設為 0，代表 STA 會保持 active 狀態。"
+  },
+  {
+    "id": "Q02",
+    "category": "Appendix-P: WLANs-Power Management",
+    "question": "Which of the following is NOT one of the functional groups controlled by MAC management in IEEE 802.11?",
+    "options": {
+      "A": "Synchronization.",
+      "B": "Power management.",
+      "C": "Roaming.",
+      "D": "IP fragmentation."
+    },
+    "answer": "D",
+    "explanation": "IEEE 802.11 的 MAC management 主要負責 Synchronization、Power management、Roaming 與 Management Information Base (MIB) 等功能。IP fragmentation 屬於網路層相關功能，不是 802.11 MAC management 的主要功能群組。"
+  },
+  {
+    "id": "Q03",
+    "category": "Appendix-P: WLANs-Power Management",
+    "question": "When a mobile STA wakes up from power saving mode, it sends a PS-Poll frame to the AP to request the buffered frame. Since the PS-Poll frame does not contain duration information, all STAs receiving the PS-Poll frame must update their NAV value. If the data frame NAV value = X × SIFS + Y × ACK transmission time, what are the values of X and Y?",
+    "options": {
+      "A": "(2, 3)",
+      "B": "(2, 2)",
+      "C": "(2, 1)",
+      "D": "(1, 2)",
+      "E": "(1, 1)"
+    },
+    "answer": "E",
+    "explanation": "當行動 STA 從省電模式醒來後，會傳送 PS-Poll frame 給 AP，要求 AP 傳送暫存的資料。因為 PS-Poll frame 本身不包含 duration information，所以其他接收到 PS-Poll 的 STA 必須更新 NAV。此時資料訊框的 NAV 值為 1 × SIFS + 1 × ACK 所需傳輸時間，因此 X = 1、Y = 1。"
+  },
+  {
+    "id": "Q01",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "What is the primary pair key (in 802.11i RSN architecture)?",
+    "options": {
+      "A": "Master Key (MK)",
+      "B": "Pairwise Master Key (PMK)",
+      "C": "Pairwise Transient Key (PTK)",
+      "D": "Group Temporal Key (GTK)"
+    },
+    "answer": "B",
+    "explanation": "在 802.11i 強健安全網路 (RSN) 架構中，主要的成對金鑰為 Pairwise Master Key (PMK)。認證中心與工作站會先產生 Master Key (MK)，再透過 MK 的運算產生 PMK，作為後續通訊的基礎。"
+  },
+  {
+    "id": "Q02",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "Please explain the WEP operation process for encryption.",
+    "options": {
+      "A": "It uses the AES algorithm and CCMP to encrypt data into blocks.",
+      "B": "It uses the RSA algorithm for public-key encryption.",
+      "C": "It mainly uses the RC4 algorithm to perform an exclusive OR (XOR) operation on the keystream and data content to generate an encrypted file.",
+      "D": "It encrypts the data by scrambling the bit order completely without a key."
+    },
+    "answer": "C",
+    "explanation": "WEP 主要是利用 RC4 演算法對資料進行加密。傳送端會產生金鑰串流 (keystream)，將其與原始資料內容進行互斥或 (XOR) 運算來產生加密檔案。"
+  },
+  {
+    "id": "Q03",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "What is the decryption process on the WEP?",
+    "options": {
+      "A": "Use an AES key to directly reverse the block cipher.",
+      "B": "Obtain the initial vector from the header, retrieve the WEP key, generate a 64-bit RC4 key to create a keystream, and restore the data via XOR operation.",
+      "C": "Send a decryption request to the central server to obtain the plaintext.",
+      "D": "Compare the digital signature with the MAC address to decrypt the payload."
+    },
+    "answer": "B",
+    "explanation": "WEP 接收端的解密過程為：從標頭取得初始向量，根據金鑰識別碼找出 WEP 金鑰，產生 64 位元的 RC4 金鑰與金鑰串流，最後透過 XOR 運算還原出原始資料。"
+  },
+  {
+    "id": "Q04",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "What are the disadvantages of using WEP?",
+    "options": {
+      "A": "The problem of key stream reuse",
+      "B": "Problems with the RC4 algorithm",
+      "C": "Integrity issues of data content",
+      "D": "Key management issues",
+      "E": "No complete identity authentication mechanism"
+    },
+    "answer": "A B C D E",
+    "explanation": "WEP 的缺點非常多，包含：金鑰串流重複使用的問題、RC4 演算法本身的弱點、資料內容完整性不足、金鑰管理不易，以及沒有建立完整的身分認證機制 [cite: 811-817]。"
+  },
+  {
+    "id": "Q05",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "What is a transmission opportunity (TXOP) in 802.11e?",
+    "options": {
+      "A": "A period of time during which a workstation can continuously transmit one or more frames after obtaining channel rights.",
+      "B": "The chance to transmit only a single frame after winning contention.",
+      "C": "The opportunity to send a probe request to an access point.",
+      "D": "A dedicated frequency channel assigned permanently to a workstation."
+    },
+    "answer": "A",
+    "explanation": "在 802.11e HCF 模式中，取得頻道傳輸權相當於取得一個「傳輸機會 (TXOP)」。這代表一段時間，工作站可以在這段時間內連續傳輸一個或多個訊框，直到時間耗盡為止。"
+  },
+  {
+    "id": "Q06",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "What is priority QoS?",
+    "options": {
+      "A": "It ensures that every device gets an equal amount of transmission time.",
+      "B": "It randomizes the order of packet delivery to prevent network starvation.",
+      "C": "Data transmission order is determined by the priority of its data flow, with higher priority frames sent first (e.g., 802.11e defines eight user priorities).",
+      "D": "It focuses solely on extending the battery life of wireless devices."
+    },
+    "answer": "C",
+    "explanation": "優先權 QoS (Priority-based QoS) 是一種根據資料流的優先級來決定傳輸順序的機制。例如 IEEE 802.11e 定義了 8 種使用者優先權，具有最高優先權的資料訊框將會被優先傳送出。"
+  },
+  {
+    "id": "Q07",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "To identify the type of data flow and achieve transmission scheduling based on it, 802.11e has added what four important new definitions?",
+    "options": {
+      "A": "RTS, CTS, ACK, and DATA",
+      "B": "IP Address, MAC Address, BSSID, and SSID",
+      "C": "User Priority (UP), Access Category (AC), Traffic Specification (TSPEC), and Traffic Classification (TCLAS)",
+      "D": "PMK, PTK, MK, and GTK"
+    },
+    "answer": "C",
+    "explanation": "為了識別資料流類型並達成媒體存取競爭與排程，802.11e 新增了四個重要定義：使用者優先權 (UP)、存取類別 (Access Category)、流量規格 (TSPEC) 與流量分類 (TCLAS)。"
+  },
+  {
+    "id": "Q08",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "Please explain why PCF cannot achieve QoS effectively?",
+    "options": {
+      "A": "Because the access point completely lacks knowledge of the audio/video characteristics and can only transmit at most one frame per turn.",
+      "B": "Because PCF causes too many collisions on the network.",
+      "C": "Because PCF uses the CSMA/CD protocol which is strictly for wired networks.",
+      "D": "Because PCF forces all workstations to stay in sleep mode continuously."
+    },
+    "answer": "A",
+    "explanation": "在 PCF 模式下，存取點完全無法得知影音資料流的特性，且每次輪到工作站傳輸時最多只能傳送一個訊框，這對於滿足延遲與抖動 (Jitter) 的 QoS 需求效果非常有限。"
+  },
+  {
+    "id": "Q09",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "What is the biggest difference between EDCA and DCF?",
+    "options": {
+      "A": "EDCA uses wired connections while DCF relies on wireless connections.",
+      "B": "EDCA does not require an access point to function.",
+      "C": "In EDCA, channel competitors changed to 'Access Categories' (AC), and the winner obtains a 'transmission opportunity' (TXOP) to transmit over a period of time.",
+      "D": "EDCA completely eliminates the need for collision avoidance mechanisms."
+    },
+    "answer": "C",
+    "explanation": "EDCA 與 DCF 最大的區別在於：頻道競爭者由「工作站」變為「存取類別 (AC)」，且競爭獲勝後取得的是一段時間的「傳輸機會 (TXOP)」，允許連續傳送多個訊框。"
+  },
+  {
+    "id": "Q10",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "Please describe the 'Automatic Power-Save Delivery' (APSD) of 802.11e?",
+    "options": {
+      "A": "A protocol that automatically shuts down the access point to save power.",
+      "B": "A mode where the access point directly starts transmitting frames to a power-saving workstation at a pre-arranged time, without requiring a PS-Poll frame.",
+      "C": "A method to wirelessly charge the battery of workstations.",
+      "D": "A mechanism that requires the workstation to stay awake permanently to receive QoS data."
+    },
+    "answer": "B",
+    "explanation": "APSD (自動省電傳輸) 允許存取點在預定時間直接向省電模式的工作站發送訊框，工作站也會在預定時間醒來接收。這省去了 802.11 傳統省電模式中需要定期發送 PS-Poll 訊框的步驟。"
+  },
+  {
+    "id": "Q11",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "What is the main purpose of Source Coding?",
+    "options": {
+      "A": "To add encryption algorithms to the source data.",
+      "B": "To remove redundant information from the source signal and generate a streamlined digital sequence, commonly known as 'data compression'.",
+      "C": "To amplify the signal for longer distance transmission.",
+      "D": "To assign an IP address to the data packet."
+    },
+    "answer": "B",
+    "explanation": "來源編碼 (Source Coding) 的主要目的是移除來源訊號中的冗餘資訊，產生更精簡的數位資料序列，也就是俗稱的「資料壓縮」，以節省頻寬浪費。"
+  },
+  {
+    "id": "Q12",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "What is the purpose of Channel Coding?",
+    "options": {
+      "A": "To compress the data further and save network bandwidth.",
+      "B": "To select the best wireless channel frequency for transmission.",
+      "C": "To add additional information to the digital data sequence to increase the probability of correct decoding and reduce the error rate.",
+      "D": "To synchronize the internal clocks between devices."
+    },
+    "answer": "C",
+    "explanation": "通道編碼 (Channel Coding) 主要是基於輸入的數位資料再進行一次編碼。加入額外的容錯訊息，讓接收端可以根據這些訊息提升正確解碼的機率，進而降低資料錯誤率。"
+  },
+  {
+    "id": "Q13",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "What characterizes Frequency-hopping Transmission?",
+    "options": {
+      "A": "It transmits all data continuously on a single, fixed frequency band.",
+      "B": "It uses pseudo-noise sequences to randomly 'hop' between different frequency slots over time, making eavesdropping difficult.",
+      "C": "It uses infrared light to transmit signals over short distances.",
+      "D": "It relies exclusively on amplitude modulation to carry data."
+    },
+    "answer": "B",
+    "explanation": "跳頻展頻 (FHSS) 系統在傳輸時會隨時間更換載波頻率，根據偽雜訊序列 (PN Sequence) 決定要在哪個「頻隙 (Frequency slot)」之間隨機跳躍，這種特性使其難以被竊聽。"
+  },
+  {
+    "id": "Q14",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "In an OFDM communication system, what is the 'Cyclic Prefix Extension' used for?",
+    "options": {
+      "A": "To encrypt the header of the data packet.",
+      "B": "To extend the physical range of the wireless signal.",
+      "C": "To continuously send the signal of the previous modulation symbol during the guard time to avoid Inter-Carrier Interference (ICI).",
+      "D": "To increase the data rate by completely removing the guard time."
+    },
+    "answer": "C",
+    "explanation": "為了避免空白防護時間 (Guard Time) 造成的載波間干擾 (ICI)，循環字首擴展 (Cyclic Prefix Extension) 會在防護時間內連續發送前一個調變符號的訊號結尾，讓延遲訊號維持整數倍的週期。"
+  },
+  {
+    "id": "Q15",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "How does Convolution Coding work?",
+    "options": {
+      "A": "It converts analog voice signals directly into digital sequences.",
+      "B": "It relies entirely on simple parity bits to correct a single-bit error.",
+      "C": "It uses a shift register coupled with a predefined linear function to produce a code of output bit values in each shift cycle.",
+      "D": "It assigns a unique MAC address for each packet being transmitted."
+    },
+    "answer": "C",
+    "explanation": "迴旋編碼 (Convolution Coding) 利用移位暫存器 (shift register) 與預先定義的線性函數，在每一次位元平移時計算出對應的輸出編碼位元，為每個原始資料產生具有相依性的輸出碼。"
+  },
+  {
+    "id": "Q16",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "What causes Multipath Interference in wireless communications?",
+    "options": {
+      "A": "Hackers intentionally injecting noise into the frequency band.",
+      "B": "The reflection of electromagnetic signals off physical objects, causing signals from the same source to reach the receiver via different paths.",
+      "C": "Using too many access points on the same channel in a small area.",
+      "D": "A mismatch between the encryption keys of the transmitter and receiver."
+    },
+    "answer": "B",
+    "explanation": "多重路徑干擾 (Multipath Interference) 主要是由於電磁波傳輸時被建築物或樹木等障礙物反射，導致同一個訊號源的電磁波經由不同路徑到達接收端，產生疊加或抵消的干擾現象。"
+  },
+  {
+    "id": "Q17",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "What is the function of 'Whitening' in data transmission?",
+    "options": {
+      "A": "It scrambles the bit order in the original data sequence, making the transmitted data look closer to a randomly generated sequence.",
+      "B": "It increases the brightness of the infrared transmission signal.",
+      "C": "It clears the memory buffer of the network interface card.",
+      "D": "It removes all ones (1s) from the data stream."
+    },
+    "answer": "A",
+    "explanation": "白化 (Whitening) 處理會打亂原始資料序列中的位元順序，使得傳送的資料序列看起來更像是由隨機產生的序列（即白雜訊），有助於頻譜分佈更為均勻。"
+  },
+  {
+    "id": "Q18",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "What is the principle of Direct Sequence Transmission (DSSS)?",
+    "options": {
+      "A": "Hopping between frequencies at a very high rate.",
+      "B": "Sending the original data bit-by-bit over a narrow frequency band without modification.",
+      "C": "Converting a data sequence with an original data rate into a pseudo-random code sequence with a much higher data rate before modulating and transmitting it.",
+      "D": "Using multiple antennas to send different parts of the data simultaneously."
+    },
+    "answer": "C",
+    "explanation": "直接序列展頻 (DSSS) 的原理是將原本傳輸速率 (R) 較低的資料序列，透過與高倍速率 (W) 的偽亂數碼序列轉換與擴展，調變後再進行傳送，藉此大幅提升抗干擾能力。"
+  },
+  {
+    "id": "Q19",
+    "category": "Appendix-Q: Exercise for WLAN(CH05-08)",
+    "question": "Assume that the input bit sequence is 10100, and use the convolution coding method described in the text to find the output bit sequence after encoding.",
+    "options": {
+      "A": "0101010101",
+      "B": "1101010110",
+      "C": "1000100010",
+      "D": "1111000011"
+    },
+    "answer": "B",
+    "explanation": "根據原文件解說的迴旋編碼器與格狀圖 (Trellis diagram) 的推導，路徑為 ACFINP。當輸入序列為 10100 時，經過函數運算，其編碼後的輸出位元序列為 1101010110。"
+  }
+]
