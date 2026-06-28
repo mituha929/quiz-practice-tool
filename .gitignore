@@ -33,8 +33,12 @@ htmlcov/
 Thumbs.db
 desktop.ini
 
-# Local runtime data
+# User generated data
+user_data/
+錯誤題目/
 wrong_questions_record.json
+quiz_history.json
+favorite_questions.json
 
 # Local secrets and environment overrides
 .env

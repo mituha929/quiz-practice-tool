@@ -3,6 +3,19 @@ import os
 import random
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
+from datetime import datetime
+
+from core.export_manager import export_quiz_questions
+from core.favorite_manager import FavoriteManager
+from core.question_loader import (
+    import_question_bank,
+    index_categories,
+    load_json_file,
+    validate_choice_question_bank,
+)
+from core.quiz_engine import QuizEngine
+from core.quiz_history_manager import QuizHistoryManager
+from core.wrong_record_manager import WrongRecordManager
 
 
 class QuizGUI:
@@ -34,8 +47,10 @@ class QuizGUI:
         self.reverse_option_mapping = {}  # 記錄「原始 JSON 字母」對應到「目前顯示字母」
         self.saved_answers = {}
         self.question_option_orders = {}
-        self.wrong_record_path = "wrong_questions_record.json"
-        self.wrong_records = self._load_wrong_records()
+        self.wrong_manager = WrongRecordManager()
+        self.history_manager = QuizHistoryManager()
+        self.favorite_manager = FavoriteManager()
+        self.wrong_records = self.wrong_manager.load_wrong_records()
 
         # 問答題複習狀態
         self.qa_selected_questions = []
@@ -50,6 +65,8 @@ class QuizGUI:
         self.show_correct_answer_var = tk.BooleanVar(value=True)
         self.auto_add_wrong_var = tk.BooleanVar(value=True)
         self.theme_var = tk.StringVar(value="淺色")
+        self.wrong_output_dir_var = tk.StringVar(value=str(self.wrong_manager.output_dir))
+        self.wrong_output_file_var = tk.StringVar(value=self.wrong_manager.file_name)
 
         self.setup_main_menu()
 
@@ -87,28 +104,7 @@ class QuizGUI:
 ]"""
 
     def _validate_question_bank(self, data):
-        if not isinstance(data, list):
-            raise ValueError("JSON 最外層必須是 list")
-        if not data:
-            raise ValueError("題庫不可為空")
-
-        for idx, q in enumerate(data, start=1):
-            if not isinstance(q, dict):
-                raise ValueError(f"第 {idx} 題必須是 object")
-            for field in ["category", "question", "options", "answer"]:
-                if field not in q:
-                    raise ValueError(f"第 {idx} 題缺少必要欄位：{field}")
-            if not isinstance(q["options"], dict) or not q["options"]:
-                raise ValueError(f"第 {idx} 題的 options 必須是非空 object")
-
-            option_keys = {str(key).upper() for key in q["options"].keys()}
-            answers = set(self._normalize_answer(q["answer"]))
-            if not answers:
-                raise ValueError(f"第 {idx} 題的 answer 不可為空")
-            invalid_answers = answers - option_keys
-            if invalid_answers:
-                invalid = ", ".join(sorted(invalid_answers))
-                raise ValueError(f"第 {idx} 題的 answer 包含不存在於 options 的選項：{invalid}")
+        validate_choice_question_bank(data)
 
     def import_question_bank(self):
         import_path = filedialog.askopenfilename(
@@ -119,9 +115,7 @@ class QuizGUI:
             return
 
         try:
-            with open(import_path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-            self._validate_question_bank(data)
+            data = import_question_bank(import_path)
         except Exception as e:
             messagebox.showerror("匯入失敗", f"題庫格式不符合要求：\n{e}")
             return
@@ -141,8 +135,7 @@ class QuizGUI:
     def _load_json(self, file_path, destroy_on_error=False):
         """讀取 JSON 檔案。destroy_on_error=True 時代表主題庫讀不到就結束程式。"""
         try:
-            with open(file_path, "r", encoding="utf-8") as f:
-                data = json.load(f)
+            data = load_json_file(file_path)
             if not isinstance(data, list):
                 raise ValueError("JSON 最外層必須是 list")
             return data
@@ -156,35 +149,10 @@ class QuizGUI:
             return []
 
     def _load_wrong_records(self):
-        if not os.path.exists(self.wrong_record_path):
-            return []
-        try:
-            with open(self.wrong_record_path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-            return data if isinstance(data, list) else []
-        except Exception as e:
-            print(f"[提醒] 無法讀取錯題紀錄：{self.wrong_record_path}，錯誤：{e}")
-            return []
+        return self.wrong_manager.load_wrong_records()
 
     def _save_wrong_records(self, wrong_questions):
-        records_by_key = {}
-
-        for record in self.wrong_records:
-            question_data = record.get("question_data", record)
-            records_by_key[self._question_key(question_data)] = record
-
-        for item in wrong_questions:
-            q = item["question"]
-            records_by_key[self._question_key(q)] = {
-                "question_data": q,
-                "last_user_answer": item["user_answer"],
-                "correct_answer": item["correct_answer"],
-                "explanation": q.get("explanation", "無")
-            }
-
-        self.wrong_records = list(records_by_key.values())
-        with open(self.wrong_record_path, "w", encoding="utf-8") as f:
-            json.dump(self.wrong_records, f, ensure_ascii=False, indent=2)
+        self.wrong_records = self.wrong_manager.save_wrong_records(wrong_questions, self.wrong_records)
 
     def _question_key(self, q):
         return str(q.get("id") or f"{q.get('category', '')}|{q.get('question', '')}")
@@ -205,17 +173,119 @@ class QuizGUI:
                 "muted": "#CBD5E1",
                 "sidebar": "#020617",
                 "sidebar_text": "#CBD5E1",
-                "active": "#2563EB",
+                "active": "#2B6CB0",
+                "primary": "#2B6CB0",
+                "primary_hover": "#245A96",
+                "danger": "#E53E3E",
+                "danger_hover": "#C53030",
+                "border": "#4A5568",
+                "secondary_bg": "#1F2937",
             }
         return {
             "bg": "#F4F7FB",
             "card": "white",
-            "text": "#0F172A",
-            "muted": "#64748B",
+            "text": "#2D3748",
+            "muted": "#718096",
             "sidebar": "#0F172A",
             "sidebar_text": "#CBD5E1",
-            "active": "#2563EB",
+            "active": "#2B6CB0",
+            "primary": "#2B6CB0",
+            "primary_hover": "#245A96",
+            "danger": "#E53E3E",
+            "danger_hover": "#C53030",
+            "border": "#CBD5E0",
+            "secondary_bg": "#F7FAFC",
         }
+
+    # Centralized component styling keeps UI colors and button hierarchy consistent.
+    def _style_button(self, button, style="primary"):
+        colors = self._theme_colors()
+        if style == "danger":
+            bg = colors["danger"]
+            fg = "white"
+            active_bg = colors["danger_hover"]
+            relief = "flat"
+            borderwidth = 0
+        elif style == "secondary":
+            bg = colors["secondary_bg"]
+            fg = colors["text"]
+            active_bg = "#E2E8F0" if self.theme_var.get() != "深色" else "#374151"
+            relief = "solid"
+            borderwidth = 1
+        else:
+            bg = colors["primary"]
+            fg = "white"
+            active_bg = colors["primary_hover"]
+            relief = "flat"
+            borderwidth = 0
+
+        button.configure(
+            bg=bg,
+            fg=fg,
+            activebackground=active_bg,
+            activeforeground=fg,
+            relief=relief,
+            bd=borderwidth,
+            highlightthickness=0,
+            padx=12,
+            pady=6,
+            cursor="hand2"
+        )
+        button.bind("<Enter>", lambda event: button.configure(bg=active_bg))
+        button.bind("<Leave>", lambda event: button.configure(bg=bg))
+        return button
+
+    def _button(self, parent, text, command, style="primary", font_size=11, **kwargs):
+        button = tk.Button(
+            parent,
+            text=text,
+            font=self._font(font_size, "bold"),
+            command=command,
+            **kwargs
+        )
+        return self._style_button(button, style)
+
+    def _style_listbox(self, listbox):
+        colors = self._theme_colors()
+        listbox.configure(
+            bg=colors["card"],
+            fg=colors["text"],
+            selectbackground=colors["primary"],
+            selectforeground="white",
+            bd=1,
+            relief="solid",
+            highlightthickness=1,
+            highlightbackground=colors["border"],
+            highlightcolor=colors["border"],
+            activestyle="none",
+            font=self._font(11),
+        )
+        return listbox
+
+    def _style_entry(self, entry):
+        colors = self._theme_colors()
+        entry.configure(
+            bd=1,
+            relief="solid",
+            highlightthickness=1,
+            highlightbackground=colors["border"],
+            highlightcolor=colors["primary"],
+            insertbackground=colors["text"],
+        )
+        return entry
+
+    def _style_textbox(self, textbox):
+        colors = self._theme_colors()
+        textbox.configure(
+            bd=1,
+            relief="solid",
+            highlightthickness=1,
+            highlightbackground=colors["border"],
+            highlightcolor=colors["primary"],
+            padx=10,
+            pady=10,
+        )
+        return textbox
 
     def clear_wrong_records(self):
         if not self.wrong_records:
@@ -225,8 +295,7 @@ class QuizGUI:
         if not confirm:
             return
         self.wrong_records = []
-        with open(self.wrong_record_path, "w", encoding="utf-8") as f:
-            json.dump([], f, ensure_ascii=False, indent=2)
+        self.wrong_manager.clear_wrong_records()
         messagebox.showinfo("清除錯題紀錄", "錯題紀錄已清除")
         self.show_settings_page()
 
@@ -241,16 +310,26 @@ class QuizGUI:
         )
         if not export_path:
             return
-        with open(export_path, "w", encoding="utf-8") as f:
-            json.dump(self.wrong_records, f, ensure_ascii=False, indent=2)
+        output_dir = os.path.dirname(export_path) or "."
+        file_name = os.path.basename(export_path)
+        self.wrong_manager.export_wrong_records(output_dir, file_name)
         messagebox.showinfo("匯出錯題紀錄", f"已匯出到：\n{export_path}")
 
+    def choose_wrong_output_folder(self):
+        folder = filedialog.askdirectory(title="選擇錯題輸出資料夾")
+        if folder:
+            self.wrong_output_dir_var.set(folder)
+
+    def apply_wrong_output_settings(self):
+        self.wrong_manager.set_output_folder(self.wrong_output_dir_var.get())
+        self.wrong_manager.set_output_file_name(self.wrong_output_file_var.get())
+        self.wrong_output_file_var.set(self.wrong_manager.file_name)
+        self.wrong_records = self.wrong_manager.load_wrong_records()
+        messagebox.showinfo("錯題輸出設定", f"已套用：\n{self.wrong_manager.get_output_path()}")
+        self.show_wrong_home()
+
     def _index_categories(self):
-        indexed = {}
-        for q in self.all_questions:
-            cat = q.get("category", "未分類")
-            indexed.setdefault(cat, []).append(q)
-        return indexed
+        return index_categories(self.all_questions)
 
     def _reset_quiz_state(self, clear_selected=False):
         if clear_selected:
@@ -352,15 +431,9 @@ class QuizGUI:
         header_actions = tk.Frame(container, bg=colors["bg"])
         header_actions.pack(fill="x", pady=(0, 10))
 
-        tk.Button(
+        self._button(
             header_actions,
             text="匯入題庫 JSON",
-            font=self._font(11, "bold"),
-            bg="#2563EB",
-            fg="white",
-            activebackground="#1D4ED8",
-            activeforeground="white",
-            relief="flat",
             command=self.import_question_bank,
             height=2
         ).pack(side="left")
@@ -398,11 +471,9 @@ class QuizGUI:
             card,
             selectmode=tk.MULTIPLE,
             height=10,
-            font=("Microsoft JhengHei UI", 10),
             exportselection=False,
-            bd=1,
-            relief="solid"
         )
+        self._style_listbox(self.listbox)
         self.listbox.insert(tk.END, "0. [全題庫] 包含所有章節題目")
         for cat in sorted_cats:
             self.listbox.insert(tk.END, f"{cat} (共 {len(self.categories[cat])} 題)")
@@ -458,27 +529,48 @@ class QuizGUI:
         range_frame.pack(anchor="w", pady=(4, 14))
 
         self.start_entry = tk.Entry(range_frame, width=6, justify="center", font=self._font(11))
+        self._style_entry(self.start_entry)
         self.start_entry.insert(0, "1")
         self.start_entry.pack(side="left")
 
         tk.Label(range_frame, text=" 到 ", bg=colors["card"], fg=colors["text"], font=self._font(11)).pack(side="left")
 
         self.end_entry = tk.Entry(range_frame, width=6, justify="center", font=self._font(11))
+        self._style_entry(self.end_entry)
         self.end_entry.insert(0, "10")
         self.end_entry.pack(side="left")
 
-        tk.Button(
+        self._button(
             card,
             text="確認並開始測驗",
-            font=("Microsoft JhengHei UI", 13, "bold"),
-            bg="#22C55E",
-            fg="white",
-            activebackground="#16A34A",
-            activeforeground="white",
-            relief="flat",
             command=lambda: self.prepare_quiz(sorted_cats),
+            font_size=13,
             height=2
         ).pack(fill="x", pady=(12, 0))
+
+        history = self.history_manager.load_history()
+        if history:
+            tk.Label(
+                card,
+                text="最近刷題紀錄",
+                font=self._font(13, "bold"),
+                fg=colors["text"],
+                bg=colors["card"]
+            ).pack(anchor="w", pady=(18, 6))
+            for record in history[:10]:
+                text = (
+                    f"{record.get('quiz_date', '')} | {record.get('question_bank_name', '')} | "
+                    f"{record.get('correct_count', 0)}/{record.get('total_questions', 0)} | "
+                    f"{record.get('accuracy', 0):.1f}%"
+                )
+                tk.Label(
+                    card,
+                    text=text,
+                    font=self._font(10),
+                    fg=colors["muted"],
+                    bg=colors["card"],
+                    anchor="w"
+                ).pack(fill="x", pady=1)
 
     def show_wrong_home(self):
         self.setup_layout(active_page="wrong")
@@ -516,19 +608,58 @@ class QuizGUI:
             bg=colors["card"]
         ).pack(anchor="w", pady=(0, 12))
 
-        tk.Button(
+        self._button(
             card,
             text="開始錯題紀錄模式",
-            font=("Microsoft JhengHei UI", 13, "bold"),
-            bg="#EF4444",
-            fg="white",
-            activebackground="#DC2626",
-            activeforeground="white",
-            relief="flat",
             command=self.start_wrong_record_quiz,
+            font_size=13,
             height=2,
             state=tk.NORMAL if wrong_count else tk.DISABLED
         ).pack(fill="x")
+
+        settings_card = tk.Frame(container, bg=colors["card"], padx=22, pady=20)
+        settings_card.pack(fill="x", pady=(16, 0))
+
+        tk.Label(
+            settings_card,
+            text="錯題輸出設定",
+            font=self._font(14, "bold"),
+            fg=colors["text"],
+            bg=colors["card"]
+        ).pack(anchor="w", pady=(0, 8))
+
+        folder_frame = tk.Frame(settings_card, bg=colors["card"])
+        folder_frame.pack(fill="x", pady=4)
+        tk.Label(folder_frame, text="輸出資料夾", font=self._font(10, "bold"), fg=colors["text"], bg=colors["card"]).pack(anchor="w")
+        folder_input_frame = tk.Frame(folder_frame, bg=colors["card"])
+        folder_input_frame.pack(fill="x", pady=(2, 0))
+        folder_entry = tk.Entry(folder_input_frame, textvariable=self.wrong_output_dir_var, font=self._font(10))
+        self._style_entry(folder_entry)
+        folder_entry.pack(side="left", fill="x", expand=True)
+        self._button(folder_input_frame, text="選擇資料夾", font_size=10, command=self.choose_wrong_output_folder, style="secondary").pack(side="left", padx=(8, 0))
+
+        file_frame = tk.Frame(settings_card, bg=colors["card"])
+        file_frame.pack(fill="x", pady=4)
+        tk.Label(file_frame, text="輸出檔名", font=self._font(10, "bold"), fg=colors["text"], bg=colors["card"]).pack(anchor="w")
+        file_entry = tk.Entry(file_frame, textvariable=self.wrong_output_file_var, font=self._font(10))
+        self._style_entry(file_entry)
+        file_entry.pack(fill="x", pady=(2, 0))
+
+        tk.Label(
+            settings_card,
+            text=f"目前輸出路徑：{self.wrong_manager.get_output_path()}",
+            font=self._font(10),
+            fg=colors["muted"],
+            bg=colors["card"],
+            wraplength=760,
+            justify="left"
+        ).pack(anchor="w", pady=(6, 8))
+
+        action_frame = tk.Frame(settings_card, bg=colors["card"])
+        action_frame.pack(fill="x")
+        self._button(action_frame, text="套用設定", font_size=10, command=self.apply_wrong_output_settings, style="secondary").pack(side="left", fill="x", expand=True, padx=(0, 4))
+        self._button(action_frame, text="匯出錯題紀錄", font_size=10, command=self.export_wrong_records, style="secondary", state=tk.NORMAL if wrong_count else tk.DISABLED).pack(side="left", fill="x", expand=True, padx=4)
+        self._button(action_frame, text="清除錯題紀錄", font_size=10, command=self.clear_wrong_records, style="danger", state=tk.NORMAL if wrong_count else tk.DISABLED).pack(side="left", fill="x", expand=True, padx=(4, 0))
 
     def show_qa_home(self):
         self.setup_layout(active_page="qa")
@@ -585,16 +716,11 @@ class QuizGUI:
             font=self._font(10)
         ).pack(anchor="w", pady=(0, 12))
 
-        tk.Button(
+        self._button(
             card,
             text="開始複習問答題",
-            font=("Microsoft JhengHei UI", 13, "bold"),
-            bg="#F97316",
-            fg="white",
-            activebackground="#EA580C",
-            activeforeground="white",
-            relief="flat",
             command=self.start_qa_review,
+            font_size=13,
             height=2
         ).pack(fill="x")
 
@@ -752,30 +878,20 @@ class QuizGUI:
         action_frame = tk.Frame(card, bg=colors["card"])
         action_frame.pack(fill="x")
 
-        tk.Button(
+        self._button(
             action_frame,
             text="清除錯題紀錄",
-            font=self._font(11, "bold"),
-            bg="#EF4444",
-            fg="white",
-            activebackground="#DC2626",
-            activeforeground="white",
-            relief="flat",
             command=self.clear_wrong_records,
+            style="danger",
             height=2,
             state=tk.NORMAL if wrong_count else tk.DISABLED
         ).pack(side="left", fill="x", expand=True, padx=(0, 6))
 
-        tk.Button(
+        self._button(
             action_frame,
             text="匯出錯題紀錄",
-            font=self._font(11, "bold"),
-            bg="#2563EB",
-            fg="white",
-            activebackground="#1D4ED8",
-            activeforeground="white",
-            relief="flat",
             command=self.export_wrong_records,
+            style="secondary",
             height=2,
             state=tk.NORMAL if wrong_count else tk.DISABLED
         ).pack(side="left", fill="x", expand=True, padx=(6, 0))
@@ -804,29 +920,18 @@ class QuizGUI:
         import_action_frame = tk.Frame(import_card, bg=colors["card"])
         import_action_frame.pack(fill="x", pady=(0, 10))
 
-        tk.Button(
+        self._button(
             import_action_frame,
             text="匯入題庫 JSON",
-            font=self._font(11, "bold"),
-            bg="#22C55E",
-            fg="white",
-            activebackground="#16A34A",
-            activeforeground="white",
-            relief="flat",
             command=self.import_question_bank,
             height=2
         ).pack(side="left", fill="x", expand=True, padx=(0, 6))
 
-        tk.Button(
+        self._button(
             import_action_frame,
             text="複製 JSON 範例",
-            font=self._font(11, "bold"),
-            bg="#2563EB",
-            fg="white",
-            activebackground="#1D4ED8",
-            activeforeground="white",
-            relief="flat",
             command=self.copy_question_bank_template,
+            style="secondary",
             height=2
         ).pack(side="left", fill="x", expand=True, padx=(6, 0))
 
@@ -838,10 +943,9 @@ class QuizGUI:
             bg="#0F172A",
             fg="#E5E7EB",
             insertbackground="#E5E7EB",
-            relief="flat",
-            padx=10,
-            pady=10
+            relief="flat"
         )
+        self._style_textbox(template_text)
         template_text.insert("1.0", self._question_bank_template())
         template_text.configure(state="disabled")
         template_text.pack(fill="both", expand=True)
@@ -959,6 +1063,7 @@ class QuizGUI:
             width=3,
             command=self.prev_quiz_question
         )
+        self._style_button(self.prev_button, "secondary")
         self.prev_button.pack(side="left", fill="y", padx=(0, 8))
 
         content_frame = tk.Frame(nav_content_frame)
@@ -991,6 +1096,7 @@ class QuizGUI:
             width=3,
             command=self.next_quiz_question
         )
+        self._style_button(self.next_button, "secondary")
         self.next_button.pack(side="left", fill="y", padx=(8, 0))
 
         self.q_text = tk.Label(
@@ -1009,33 +1115,33 @@ class QuizGUI:
         quiz_btn_frame = tk.Frame(self.quiz_frame)
         quiz_btn_frame.pack(fill="x", side="bottom", pady=20)
 
-        tk.Button(
+        self._button(
             quiz_btn_frame,
             text="儲存本題答案",
-            font=self._font(11, "bold"),
-            bg="#2196F3",
-            fg="white",
             command=self.save_current_answer,
             height=2
         ).pack(side="left", fill="x", expand=True, padx=(0, 5))
 
-        tk.Button(
+        self._button(
+            quiz_btn_frame,
+            text="收藏本題",
+            command=self.add_current_question_to_favorites,
+            style="secondary",
+            height=2
+        ).pack(side="left", fill="x", expand=True, padx=5)
+
+        self._button(
             quiz_btn_frame,
             text="交卷並查看結果",
-            font=self._font(11, "bold"),
-            bg="#4CAF50",
-            fg="white",
             command=self.submit_quiz,
             height=2
         ).pack(side="left", fill="x", expand=True, padx=5)
 
-        tk.Button(
+        self._button(
             quiz_btn_frame,
             text="結束測驗 / 返回主選單",
-            font=self._font(11, "bold"),
-            bg="#607D8B",
-            fg="white",
             command=self.exit_quiz_to_menu,
+            style="secondary",
             height=2
         ).pack(side="left", fill="x", expand=True, padx=(5, 0))
 
@@ -1186,6 +1292,23 @@ class QuizGUI:
             self.current_q_idx += 1
             self.load_next_question()
 
+    def add_current_question_to_favorites(self):
+        if not self.selected_questions:
+            return
+        question = self.selected_questions[self.current_q_idx]
+        _, added = self.favorite_manager.add_favorite(question)
+        if added:
+            messagebox.showinfo("收藏題目", "已收藏本題")
+        else:
+            messagebox.showinfo("收藏題目", "本題已在收藏清單中")
+
+    def export_current_quiz_questions(self):
+        if not self.selected_questions:
+            messagebox.showinfo("下載本次題目", "目前沒有可下載的題目")
+            return
+        output_path = export_quiz_questions(self.selected_questions, os.path.basename(self.file_path))
+        messagebox.showinfo("下載本次題目", f"已匯出：\n{output_path}")
+
     def submit_quiz(self):
         self.save_current_answer(show_message=False)
         unanswered = len(self.selected_questions) - len(self.saved_answers)
@@ -1202,25 +1325,32 @@ class QuizGUI:
                 return
 
         results = self._build_quiz_results()
-        self.score = sum(1 for item in results if item["is_correct"])
+        self.score = QuizEngine(self.selected_questions).calculate_score(results)
         wrong_questions = [item for item in results if not item["is_correct"]]
         if self.auto_add_wrong_var.get():
             self._save_wrong_records(wrong_questions)
+        self._save_quiz_history(results, wrong_questions)
         self.show_quiz_results(results)
 
+    def _save_quiz_history(self, results, wrong_questions):
+        total = len(results)
+        correct_count = sum(1 for item in results if item["is_correct"])
+        accuracy = (correct_count / total) * 100 if total else 0
+        wrong_question_ids = [
+            str(item["question"].get("id") or self._question_key(item["question"]))
+            for item in wrong_questions
+        ]
+        self.history_manager.add_history({
+            "quiz_date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "question_bank_name": os.path.basename(self.file_path),
+            "total_questions": total,
+            "correct_count": correct_count,
+            "wrong_question_ids": wrong_question_ids,
+            "accuracy": accuracy,
+        })
+
     def _build_quiz_results(self):
-        results = []
-        for idx, q in enumerate(self.selected_questions):
-            user_answer = self.saved_answers.get(idx, [])
-            correct_answer = sorted(list(self._normalize_answer(q.get("answer", ""))))
-            results.append({
-                "index": idx,
-                "question": q,
-                "user_answer": user_answer,
-                "correct_answer": correct_answer,
-                "is_correct": user_answer == correct_answer
-            })
-        return results
+        return QuizEngine(self.selected_questions).build_results(self.selected_questions, self.saved_answers)
 
     def _add_result_options(self, parent, q, user_answer, correct_answer):
         options = q.get("options", {})
@@ -1346,21 +1476,22 @@ class QuizGUI:
 
         btn_frame = tk.Frame(result_frame)
         btn_frame.pack(fill="x", pady=(12, 0))
-        tk.Button(
+        self._button(
             btn_frame,
             text="返回主選單",
-            font=self._font(11, "bold"),
-            bg="#607D8B",
-            fg="white",
             command=self.setup_main_menu,
+            style="secondary",
             height=2
         ).pack(side="left", fill="x", expand=True, padx=(0, 5))
-        tk.Button(
+        self._button(
+            btn_frame,
+            text="下載本次題目 JSON",
+            command=self.export_current_quiz_questions,
+            height=2
+        ).pack(side="left", fill="x", expand=True, padx=5)
+        self._button(
             btn_frame,
             text="進入錯題紀錄模式",
-            font=self._font(11, "bold"),
-            bg="#B71C1C",
-            fg="white",
             command=self.start_wrong_record_quiz,
             height=2,
             state=tk.NORMAL if self.wrong_records else tk.DISABLED
@@ -1454,9 +1585,9 @@ class QuizGUI:
         btn_frame = tk.Frame(self.qa_frame)
         btn_frame.pack(fill="x", pady=(12, 0))
 
-        tk.Button(btn_frame, text="上一題", font=("Arial", 11, "bold"), command=self.prev_qa_question).pack(side="left", fill="x", expand=True, padx=4)
-        tk.Button(btn_frame, text="下一題", font=("Arial", 11, "bold"), command=self.next_qa_question).pack(side="left", fill="x", expand=True, padx=4)
-        tk.Button(btn_frame, text="返回主選單", font=("Arial", 11, "bold"), bg="#607D8B", fg="white", command=self.setup_main_menu).pack(side="left", fill="x", expand=True, padx=4)
+        self._button(btn_frame, text="上一題", font_size=11, command=self.prev_qa_question, style="secondary").pack(side="left", fill="x", expand=True, padx=4)
+        self._button(btn_frame, text="下一題", font_size=11, command=self.next_qa_question).pack(side="left", fill="x", expand=True, padx=4)
+        self._button(btn_frame, text="返回主選單", font_size=11, command=self.setup_main_menu, style="secondary").pack(side="left", fill="x", expand=True, padx=4)
 
         self.load_qa_question()
 
