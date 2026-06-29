@@ -22,7 +22,7 @@ class QuizGUI:
     def __init__(self, root, file_path, qa_file_path="wlan_qa_review_N_Q.json"):
         self.root = root
         self.app_name = "複題機"
-        self.root.title(f"{self.app_name} v1.0")
+        self.root.title(f"{self.app_name} v2.0")
         self.root.geometry("1080x760")
         self.root.minsize(980, 680)
 
@@ -178,6 +178,8 @@ class QuizGUI:
                 "primary_hover": "#245A96",
                 "danger": "#E53E3E",
                 "danger_hover": "#C53030",
+                "success": "#38A169",
+                "success_hover": "#2F855A",
                 "border": "#4A5568",
                 "secondary_bg": "#1F2937",
             }
@@ -193,6 +195,8 @@ class QuizGUI:
             "primary_hover": "#245A96",
             "danger": "#E53E3E",
             "danger_hover": "#C53030",
+            "success": "#38A169",
+            "success_hover": "#2F855A",
             "border": "#CBD5E0",
             "secondary_bg": "#F7FAFC",
         }
@@ -204,6 +208,12 @@ class QuizGUI:
             bg = colors["danger"]
             fg = "white"
             active_bg = colors["danger_hover"]
+            relief = "flat"
+            borderwidth = 0
+        elif style == "success":
+            bg = colors["success"]
+            fg = "white"
+            active_bg = colors["success_hover"]
             relief = "flat"
             borderwidth = 0
         elif style == "secondary":
@@ -315,6 +325,22 @@ class QuizGUI:
         self.wrong_manager.export_wrong_records(output_dir, file_name)
         messagebox.showinfo("匯出錯題紀錄", f"已匯出到：\n{export_path}")
 
+    def export_favorite_questions(self):
+        favorites = self.favorite_manager.load_favorites()
+        if not favorites:
+            messagebox.showinfo("匯出收藏題目", "目前沒有收藏題目可匯出")
+            return
+        export_path = filedialog.asksaveasfilename(
+            title="匯出收藏題目",
+            defaultextension=".json",
+            filetypes=[("JSON files", "*.json"), ("All files", "*.*")]
+        )
+        if not export_path:
+            return
+        with open(export_path, "w", encoding="utf-8") as f:
+            json.dump(favorites, f, ensure_ascii=False, indent=2)
+        messagebox.showinfo("匯出收藏題目", f"已匯出到：\n{export_path}")
+
     def choose_wrong_output_folder(self):
         folder = filedialog.askdirectory(title="選擇錯題輸出資料夾")
         if folder:
@@ -377,6 +403,7 @@ class QuizGUI:
         menu_items = [
             ("quiz", "📘  選擇題測驗", self.show_quiz_home),
             ("wrong", "❌  錯題紀錄", self.show_wrong_home),
+            ("favorite", "⭐  收藏題目", self.show_favorite_home),
             ("qa", "💬  問答題複習", self.show_qa_home),
             ("settings", "⚙️  系統設定", self.show_settings_page),
             ("about", "ℹ️  關於說明", self.show_about_page),
@@ -405,7 +432,7 @@ class QuizGUI:
 
         footer = tk.Label(
             self.sidebar,
-            text="v1.0\n通用題庫複習",
+            text="v2.0\n通用題庫複習",
             font=("Microsoft JhengHei UI", 9),
             fg="#94A3B8",
             bg=colors["sidebar"],
@@ -420,55 +447,77 @@ class QuizGUI:
         container = tk.Frame(self.main_area, bg=colors["bg"], padx=28, pady=24)
         container.pack(expand=True, fill="both")
 
+        canvas = tk.Canvas(container, bg=colors["bg"], highlightthickness=0)
+        scrollbar = ttk.Scrollbar(container, orient="vertical", command=canvas.yview)
+        content = tk.Frame(canvas, bg=colors["bg"])
+        content.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
+        window = canvas.create_window((0, 0), window=content, anchor="nw")
+        canvas.configure(yscrollcommand=scrollbar.set)
+        canvas.bind("<Configure>", lambda e: canvas.itemconfigure(window, width=e.width))
+        canvas.pack(side="left", fill="both", expand=True)
+        scrollbar.pack(side="right", fill="y")
+        canvas.bind("<Enter>", lambda event: canvas.bind_all("<MouseWheel>", lambda e: canvas.yview_scroll(int(-1 * (e.delta / 120)), "units")))
+        canvas.bind("<Leave>", lambda event: canvas.unbind_all("<MouseWheel>"))
+
         tk.Label(
-            container,
+            content,
             text="選擇題測驗",
             font=self._font(24, "bold"),
             fg=colors["text"],
             bg=colors["bg"]
         ).pack(anchor="w")
 
-        header_actions = tk.Frame(container, bg=colors["bg"])
+        header_actions = tk.Frame(content, bg=colors["bg"])
         header_actions.pack(fill="x", pady=(0, 10))
-
-        self._button(
-            header_actions,
-            text="匯入題庫 JSON",
-            command=self.import_question_bank,
-            height=2
-        ).pack(side="left")
 
         tk.Label(
             header_actions,
             text=f"目前題庫：{os.path.basename(self.file_path)}",
-            font=self._font(10),
-            fg=colors["muted"],
+            font=self._font(13, "bold"),
+            fg=colors["text"],
             bg=colors["bg"]
-        ).pack(side="left", padx=(12, 0))
+        ).pack(side="left")
+
+        import_button = tk.Button(
+            header_actions,
+            text="匯入題庫 JSON",
+            font=self._font(11, "bold"),
+            command=self.import_question_bank,
+            height=2
+        )
+        self._style_button(import_button, "success")
+        import_button.pack(side="right")
 
         tk.Label(
-            container,
+            content,
             text="選擇要練習的大題、設定出題方式，並開始測驗。",
             font=self._font(11),
             fg=colors["muted"],
             bg=colors["bg"]
         ).pack(anchor="w", pady=(4, 18))
 
-        card = tk.Frame(container, bg=colors["card"], padx=22, pady=20)
+        card = tk.Frame(content, bg=colors["card"], padx=22, pady=20)
         card.pack(fill="both", expand=True)
 
+        section_bg_1 = "#F8FAFC" if self.theme_var.get() != "深色" else "#243244"
+        section_bg_2 = "#F1F5F9" if self.theme_var.get() != "深色" else "#1F2A3A"
+        section_bg_3 = "#F7F7F7" if self.theme_var.get() != "深色" else "#263241"
+
+        category_section = tk.Frame(card, bg=section_bg_1, padx=14, pady=12)
+        category_section.pack(fill="x", pady=(0, 12))
+
         tk.Label(
-            card,
-            text="1. 選擇大題（按住 Ctrl 可多選）",
+            category_section,
+            text="1. 選擇大題",
             font=self._font(13, "bold"),
             fg=colors["text"],
-            bg=colors["card"]
+            bg=section_bg_1
         ).pack(anchor="w")
 
         sorted_cats = sorted(self.categories.keys(), key=lambda x: x.replace(" ", "-"))
 
         self.listbox = tk.Listbox(
-            card,
+            category_section,
             selectmode=tk.MULTIPLE,
             height=10,
             exportselection=False,
@@ -478,54 +527,61 @@ class QuizGUI:
         for cat in sorted_cats:
             self.listbox.insert(tk.END, f"{cat} (共 {len(self.categories[cat])} 題)")
         self.listbox.pack(fill="x", pady=(8, 8))
-        self.listbox.bind("<<ListboxSelect>>", lambda event: self.update_pool_info(sorted_cats))
+        self._last_category_selection = ()
+        self.listbox.bind("<<ListboxSelect>>", lambda event: self.on_category_select(sorted_cats))
 
         self.pool_info_label = tk.Label(
-            card,
+            category_section,
             text=f"目前題目池：尚未選擇（全題庫共 {len(self.all_questions)} 題）",
             fg=colors["muted"],
-            bg=colors["card"],
+            bg=section_bg_1,
             font=self._font(10)
         )
         self.pool_info_label.pack(anchor="w", pady=(0, 14))
 
+        display_section = tk.Frame(card, bg=section_bg_2, padx=14, pady=12)
+        display_section.pack(fill="x", pady=(0, 12))
+
         tk.Label(
-            card,
+            display_section,
             text="2. 出題與顯示設定",
             font=self._font(13, "bold"),
             fg=colors["text"],
-            bg=colors["card"]
-        ).pack(anchor="w", pady=(6, 4))
+            bg=section_bg_2
+        ).pack(anchor="w", pady=(0, 4))
 
         tk.Checkbutton(
-            card,
+            display_section,
             text="開啟「題目」亂數排序",
             variable=self.shuffle_q_var,
-            bg=colors["card"],
+            bg=section_bg_2,
             fg=colors["text"],
-            selectcolor=colors["card"],
+            selectcolor=section_bg_2,
             font=self._font(10)
         ).pack(anchor="w")
 
         tk.Checkbutton(
-            card,
+            display_section,
             text="開啟「選項」亂數排序（防止死背位置）",
             variable=self.shuffle_opt_var,
-            bg=colors["card"],
+            bg=section_bg_2,
             fg=colors["text"],
-            selectcolor=colors["card"],
+            selectcolor=section_bg_2,
             font=self._font(10)
         ).pack(anchor="w")
 
+        range_section = tk.Frame(card, bg=section_bg_3, padx=14, pady=12)
+        range_section.pack(fill="x", pady=(0, 12))
+
         tk.Label(
-            card,
+            range_section,
             text="3. 選擇範圍（選定題目池編號）",
             font=self._font(13, "bold"),
             fg=colors["text"],
-            bg=colors["card"]
-        ).pack(anchor="w", pady=(14, 4))
+            bg=section_bg_3
+        ).pack(anchor="w", pady=(0, 4))
 
-        range_frame = tk.Frame(card, bg=colors["card"])
+        range_frame = tk.Frame(range_section, bg=section_bg_3)
         range_frame.pack(anchor="w", pady=(4, 14))
 
         self.start_entry = tk.Entry(range_frame, width=6, justify="center", font=self._font(11))
@@ -533,7 +589,7 @@ class QuizGUI:
         self.start_entry.insert(0, "1")
         self.start_entry.pack(side="left")
 
-        tk.Label(range_frame, text=" 到 ", bg=colors["card"], fg=colors["text"], font=self._font(11)).pack(side="left")
+        tk.Label(range_frame, text=" 到 ", bg=section_bg_3, fg=colors["text"], font=self._font(11)).pack(side="left")
 
         self.end_entry = tk.Entry(range_frame, width=6, justify="center", font=self._font(11))
         self._style_entry(self.end_entry)
@@ -550,27 +606,40 @@ class QuizGUI:
 
         history = self.history_manager.load_history()
         if history:
-            tk.Label(
+            history_frame = tk.Frame(
                 card,
+                bg=colors["card"],
+                bd=1,
+                relief="solid",
+                highlightthickness=1,
+                highlightbackground=colors["border"],
+                padx=12,
+                pady=10
+            )
+            history_frame.pack(fill="x", pady=(18, 0))
+
+            tk.Label(
+                history_frame,
                 text="最近刷題紀錄",
                 font=self._font(13, "bold"),
                 fg=colors["text"],
                 bg=colors["card"]
-            ).pack(anchor="w", pady=(18, 6))
+            ).pack(anchor="w", pady=(0, 6))
             for record in history[:10]:
                 text = (
-                    f"{record.get('quiz_date', '')} | {record.get('question_bank_name', '')} | "
-                    f"{record.get('correct_count', 0)}/{record.get('total_questions', 0)} | "
-                    f"{record.get('accuracy', 0):.1f}%"
+                    f"{record.get('quiz_date', '')}  |  {record.get('question_bank_name', '')}\n"
+                    f"測驗結果：{record.get('correct_count', 0)} / {record.get('total_questions', 0)}，"
+                    f"正確率 {record.get('accuracy', 0):.1f}%"
                 )
                 tk.Label(
-                    card,
+                    history_frame,
                     text=text,
                     font=self._font(10),
                     fg=colors["muted"],
                     bg=colors["card"],
-                    anchor="w"
-                ).pack(fill="x", pady=1)
+                    anchor="w",
+                    justify="left"
+                ).pack(fill="x", pady=(4, 6))
 
     def show_wrong_home(self):
         self.setup_layout(active_page="wrong")
@@ -660,6 +729,91 @@ class QuizGUI:
         self._button(action_frame, text="套用設定", font_size=10, command=self.apply_wrong_output_settings, style="secondary").pack(side="left", fill="x", expand=True, padx=(0, 4))
         self._button(action_frame, text="匯出錯題紀錄", font_size=10, command=self.export_wrong_records, style="secondary", state=tk.NORMAL if wrong_count else tk.DISABLED).pack(side="left", fill="x", expand=True, padx=4)
         self._button(action_frame, text="清除錯題紀錄", font_size=10, command=self.clear_wrong_records, style="danger", state=tk.NORMAL if wrong_count else tk.DISABLED).pack(side="left", fill="x", expand=True, padx=(4, 0))
+
+    def show_favorite_home(self):
+        self.setup_layout(active_page="favorite")
+        colors = self._theme_colors()
+        favorites = self.favorite_manager.load_favorites()
+
+        container = tk.Frame(self.main_area, bg=colors["bg"], padx=28, pady=24)
+        container.pack(expand=True, fill="both")
+
+        tk.Label(
+            container,
+            text="收藏題目",
+            font=self._font(24, "bold"),
+            fg=colors["text"],
+            bg=colors["bg"]
+        ).pack(anchor="w")
+
+        tk.Label(
+            container,
+            text=f"目前共有 {len(favorites)} 題收藏，可匯出作為個人複習清單。",
+            font=self._font(11),
+            fg=colors["muted"],
+            bg=colors["bg"]
+        ).pack(anchor="w", pady=(4, 18))
+
+        action_card = tk.Frame(container, bg=colors["card"], padx=22, pady=20)
+        action_card.pack(fill="x")
+
+        tk.Label(
+            action_card,
+            text=f"收藏題目數：{len(favorites)} 題",
+            font=self._font(16, "bold"),
+            fg=colors["text"],
+            bg=colors["card"]
+        ).pack(anchor="w", pady=(0, 12))
+
+        self._button(
+            action_card,
+            text="匯出收藏題目 JSON",
+            command=self.export_favorite_questions,
+            style="secondary",
+            height=2,
+            state=tk.NORMAL if favorites else tk.DISABLED
+        ).pack(fill="x")
+
+        list_card = tk.Frame(container, bg=colors["card"], padx=22, pady=20)
+        list_card.pack(fill="both", expand=True, pady=(16, 0))
+
+        tk.Label(
+            list_card,
+            text="收藏清單",
+            font=self._font(14, "bold"),
+            fg=colors["text"],
+            bg=colors["card"]
+        ).pack(anchor="w", pady=(0, 8))
+
+        if not favorites:
+            tk.Label(
+                list_card,
+                text="目前尚未收藏題目。測驗時可按「收藏本題」加入收藏。",
+                font=self._font(10),
+                fg=colors["muted"],
+                bg=colors["card"]
+            ).pack(anchor="w")
+            return
+
+        canvas = tk.Canvas(list_card, bg=colors["card"], highlightthickness=0)
+        scrollbar = ttk.Scrollbar(list_card, orient="vertical", command=canvas.yview)
+        content = tk.Frame(canvas, bg=colors["card"])
+        content.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
+        window = canvas.create_window((0, 0), window=content, anchor="nw")
+        canvas.configure(yscrollcommand=scrollbar.set)
+        canvas.bind("<Configure>", lambda e: canvas.itemconfigure(window, width=e.width))
+        canvas.pack(side="left", fill="both", expand=True)
+        scrollbar.pack(side="right", fill="y")
+
+        for item in favorites:
+            q = item.get("question_data", {})
+            question_text = q.get("question", "")
+            if isinstance(question_text, list):
+                question_text = "\n".join(question_text)
+            row = tk.Frame(content, bg=colors["card"], bd=1, relief="solid", padx=10, pady=8)
+            row.pack(fill="x", pady=4)
+            tk.Label(row, text=item.get("category", "未分類"), font=self._font(10, "bold"), fg=colors["text"], bg=colors["card"], anchor="w").pack(fill="x")
+            tk.Label(row, text=question_text, font=self._font(10), fg=colors["muted"], bg=colors["card"], wraplength=760, justify="left", anchor="w").pack(fill="x", pady=(4, 0))
 
     def show_qa_home(self):
         self.setup_layout(active_page="qa")
@@ -982,6 +1136,15 @@ class QuizGUI:
             justify="left",
             wraplength=720
         ).pack(anchor="w")
+
+    def on_category_select(self, sorted_cats):
+        indices = tuple(self.listbox.curselection())
+        if 0 in indices and 0 not in self._last_category_selection:
+            self.listbox.selection_clear(1, tk.END)
+        elif 0 in indices and len(indices) > 1:
+            self.listbox.selection_clear(0)
+        self._last_category_selection = tuple(self.listbox.curselection())
+        self.update_pool_info(sorted_cats)
 
     def update_pool_info(self, sorted_cats):
         indices = self.listbox.curselection()
