@@ -22,7 +22,7 @@ class QuizGUI:
     def __init__(self, root, file_path, qa_file_path="wlan_qa_review_N_Q.json"):
         self.root = root
         self.app_name = "複題機"
-        self.root.title(f"{self.app_name} v2.0")
+        self.root.title(f"{self.app_name} v2.1")
         self.root.geometry("1080x760")
         self.root.minsize(980, 680)
 
@@ -67,6 +67,8 @@ class QuizGUI:
         self.theme_var = tk.StringVar(value="淺色")
         self.wrong_output_dir_var = tk.StringVar(value=str(self.wrong_manager.output_dir))
         self.wrong_output_file_var = tk.StringVar(value=self.wrong_manager.file_name)
+        self.favorite_category_var = tk.StringVar(value=self.favorite_manager.DEFAULT_CATEGORY)
+        self.new_favorite_category_var = tk.StringVar(value="")
 
         self.setup_main_menu()
 
@@ -180,6 +182,8 @@ class QuizGUI:
                 "danger_hover": "#C53030",
                 "success": "#38A169",
                 "success_hover": "#2F855A",
+                "tertiary": "#805AD5",
+                "tertiary_hover": "#6B46C1",
                 "border": "#4A5568",
                 "secondary_bg": "#1F2937",
             }
@@ -197,6 +201,8 @@ class QuizGUI:
             "danger_hover": "#C53030",
             "success": "#38A169",
             "success_hover": "#2F855A",
+            "tertiary": "#805AD5",
+            "tertiary_hover": "#6B46C1",
             "border": "#CBD5E0",
             "secondary_bg": "#F7FAFC",
         }
@@ -205,29 +211,47 @@ class QuizGUI:
     def _style_button(self, button, style="primary"):
         colors = self._theme_colors()
         if style == "danger":
+            bg = colors["card"]
+            fg = colors["danger"]
+            active_bg = "#FFF5F5" if self.theme_var.get() != "深色" else "#3B1D1D"
+            relief = "flat"
+            borderwidth = 0
+            outline = colors["danger"]
+        elif style == "danger-solid":
             bg = colors["danger"]
             fg = "white"
             active_bg = colors["danger_hover"]
             relief = "flat"
             borderwidth = 0
+            outline = colors["danger"]
         elif style == "success":
             bg = colors["success"]
             fg = "white"
             active_bg = colors["success_hover"]
             relief = "flat"
             borderwidth = 0
+            outline = colors["success"]
+        elif style == "tertiary":
+            bg = colors["tertiary"]
+            fg = "white"
+            active_bg = colors["tertiary_hover"]
+            relief = "flat"
+            borderwidth = 0
+            outline = colors["tertiary"]
         elif style == "secondary":
             bg = colors["secondary_bg"]
             fg = colors["text"]
             active_bg = "#E2E8F0" if self.theme_var.get() != "深色" else "#374151"
-            relief = "solid"
-            borderwidth = 1
+            relief = "flat"
+            borderwidth = 0
+            outline = colors["border"]
         else:
             bg = colors["primary"]
             fg = "white"
             active_bg = colors["primary_hover"]
             relief = "flat"
             borderwidth = 0
+            outline = colors["primary"]
 
         button.configure(
             bg=bg,
@@ -236,7 +260,9 @@ class QuizGUI:
             activeforeground=fg,
             relief=relief,
             bd=borderwidth,
-            highlightthickness=0,
+            highlightthickness=1 if style in ("secondary", "danger") else 0,
+            highlightbackground=outline,
+            highlightcolor=outline,
             padx=12,
             pady=6,
             cursor="hand2"
@@ -262,8 +288,8 @@ class QuizGUI:
             fg=colors["text"],
             selectbackground=colors["primary"],
             selectforeground="white",
-            bd=1,
-            relief="solid",
+            bd=0,
+            relief="flat",
             highlightthickness=1,
             highlightbackground=colors["border"],
             highlightcolor=colors["border"],
@@ -275,8 +301,8 @@ class QuizGUI:
     def _style_entry(self, entry):
         colors = self._theme_colors()
         entry.configure(
-            bd=1,
-            relief="solid",
+            bd=0,
+            relief="flat",
             highlightthickness=1,
             highlightbackground=colors["border"],
             highlightcolor=colors["primary"],
@@ -287,8 +313,8 @@ class QuizGUI:
     def _style_textbox(self, textbox):
         colors = self._theme_colors()
         textbox.configure(
-            bd=1,
-            relief="solid",
+            bd=0,
+            relief="flat",
             highlightthickness=1,
             highlightbackground=colors["border"],
             highlightcolor=colors["primary"],
@@ -313,9 +339,12 @@ class QuizGUI:
         if not self.wrong_records:
             messagebox.showinfo("匯出錯題紀錄", "目前沒有錯題可匯出")
             return
+        self.wrong_manager.set_output_file_name(self.wrong_output_file_var.get())
+        self.wrong_output_file_var.set(self.wrong_manager.file_name)
         export_path = filedialog.asksaveasfilename(
             title="匯出錯題紀錄",
             defaultextension=".json",
+            initialfile=self.wrong_manager.file_name,
             filetypes=[("JSON files", "*.json"), ("All files", "*.*")]
         )
         if not export_path:
@@ -341,18 +370,33 @@ class QuizGUI:
             json.dump(favorites, f, ensure_ascii=False, indent=2)
         messagebox.showinfo("匯出收藏題目", f"已匯出到：\n{export_path}")
 
+    def add_favorite_category_from_settings(self):
+        category_name = self.new_favorite_category_var.get().strip()
+        if not category_name:
+            messagebox.showinfo("新增收藏分類", "請先輸入分類名稱")
+            return
+        _, added = self.favorite_manager.add_category(category_name)
+        if added:
+            self.favorite_category_var.set(category_name)
+            self.new_favorite_category_var.set("")
+            messagebox.showinfo("新增收藏分類", f"已新增分類：{category_name}")
+            self.show_settings_page()
+        else:
+            messagebox.showinfo("新增收藏分類", "此分類已存在")
+
     def choose_wrong_output_folder(self):
         folder = filedialog.askdirectory(title="選擇錯題輸出資料夾")
         if folder:
             self.wrong_output_dir_var.set(folder)
+            self.wrong_manager.set_output_folder(folder)
+            self.wrong_records = self.wrong_manager.load_wrong_records()
+            self.show_wrong_home()
 
     def apply_wrong_output_settings(self):
         self.wrong_manager.set_output_folder(self.wrong_output_dir_var.get())
         self.wrong_manager.set_output_file_name(self.wrong_output_file_var.get())
         self.wrong_output_file_var.set(self.wrong_manager.file_name)
         self.wrong_records = self.wrong_manager.load_wrong_records()
-        messagebox.showinfo("錯題輸出設定", f"已套用：\n{self.wrong_manager.get_output_path()}")
-        self.show_wrong_home()
 
     def _index_categories(self):
         return index_categories(self.all_questions)
@@ -432,7 +476,7 @@ class QuizGUI:
 
         footer = tk.Label(
             self.sidebar,
-            text="v2.0\n通用題庫複習",
+            text="v2.1\n通用題庫複習",
             font=("Microsoft JhengHei UI", 9),
             fg="#94A3B8",
             bg=colors["sidebar"],
@@ -673,7 +717,7 @@ class QuizGUI:
             card,
             text=f"目前錯題數：{wrong_count} 題",
             font=self._font(16, "bold"),
-            fg="#B91C1C",
+            fg=colors["text"],
             bg=colors["card"]
         ).pack(anchor="w", pady=(0, 12))
 
@@ -705,7 +749,7 @@ class QuizGUI:
         folder_entry = tk.Entry(folder_input_frame, textvariable=self.wrong_output_dir_var, font=self._font(10))
         self._style_entry(folder_entry)
         folder_entry.pack(side="left", fill="x", expand=True)
-        self._button(folder_input_frame, text="選擇資料夾", font_size=10, command=self.choose_wrong_output_folder, style="secondary").pack(side="left", padx=(8, 0))
+        self._button(folder_input_frame, text="選擇資料夾", font_size=10, command=self.choose_wrong_output_folder, style="tertiary").pack(side="left", padx=(8, 0))
 
         file_frame = tk.Frame(settings_card, bg=colors["card"])
         file_frame.pack(fill="x", pady=4)
@@ -716,7 +760,7 @@ class QuizGUI:
 
         tk.Label(
             settings_card,
-            text=f"目前輸出路徑：{self.wrong_manager.get_output_path()}",
+            text=f"目前輸出路徑：{os.path.join(self.wrong_output_dir_var.get(), self.wrong_output_file_var.get())}",
             font=self._font(10),
             fg=colors["muted"],
             bg=colors["card"],
@@ -726,14 +770,14 @@ class QuizGUI:
 
         action_frame = tk.Frame(settings_card, bg=colors["card"])
         action_frame.pack(fill="x")
-        self._button(action_frame, text="套用設定", font_size=10, command=self.apply_wrong_output_settings, style="secondary").pack(side="left", fill="x", expand=True, padx=(0, 4))
-        self._button(action_frame, text="匯出錯題紀錄", font_size=10, command=self.export_wrong_records, style="secondary", state=tk.NORMAL if wrong_count else tk.DISABLED).pack(side="left", fill="x", expand=True, padx=4)
-        self._button(action_frame, text="清除錯題紀錄", font_size=10, command=self.clear_wrong_records, style="danger", state=tk.NORMAL if wrong_count else tk.DISABLED).pack(side="left", fill="x", expand=True, padx=(4, 0))
+        self._button(action_frame, text="匯出錯題紀錄", font_size=10, command=self.export_wrong_records, style="success", state=tk.NORMAL if wrong_count else tk.DISABLED).pack(side="left", fill="x", expand=True, padx=(0, 6))
+        self._button(action_frame, text="清除錯題紀錄", font_size=10, command=self.clear_wrong_records, style="danger-solid", state=tk.NORMAL if wrong_count else tk.DISABLED).pack(side="left", fill="x", expand=True, padx=(6, 0))
 
-    def show_favorite_home(self):
+    def show_favorite_home(self, selected_category=None):
         self.setup_layout(active_page="favorite")
         colors = self._theme_colors()
         favorites = self.favorite_manager.load_favorites()
+        grouped_favorites = self.favorite_manager.group_favorites_by_category(favorites)
 
         container = tk.Frame(self.main_area, bg=colors["bg"], padx=28, pady=24)
         container.pack(expand=True, fill="both")
@@ -769,7 +813,7 @@ class QuizGUI:
             action_card,
             text="匯出收藏題目 JSON",
             command=self.export_favorite_questions,
-            style="secondary",
+            style="success",
             height=2,
             state=tk.NORMAL if favorites else tk.DISABLED
         ).pack(fill="x")
@@ -795,6 +839,38 @@ class QuizGUI:
             ).pack(anchor="w")
             return
 
+        category_bar = tk.Frame(list_card, bg=colors["card"])
+        category_bar.pack(fill="x", pady=(0, 12))
+
+        for category, items in grouped_favorites.items():
+            style = "primary" if category == selected_category else "secondary"
+            self._button(
+                category_bar,
+                text=f"{category}（{len(items)}）",
+                command=lambda name=category: self.show_favorite_home(name),
+                style=style,
+                font_size=10
+            ).pack(side="left", padx=(0, 8), pady=(0, 6))
+
+        if not selected_category:
+            tk.Label(
+                list_card,
+                text="請選擇上方分類查看收藏題目內容。",
+                font=self._font(10),
+                fg=colors["muted"],
+                bg=colors["card"]
+            ).pack(anchor="w")
+            return
+
+        selected_items = grouped_favorites.get(selected_category, [])
+        tk.Label(
+            list_card,
+            text=f"{selected_category}：共 {len(selected_items)} 題",
+            font=self._font(12, "bold"),
+            fg=colors["text"],
+            bg=colors["card"]
+        ).pack(anchor="w", pady=(0, 8))
+
         canvas = tk.Canvas(list_card, bg=colors["card"], highlightthickness=0)
         scrollbar = ttk.Scrollbar(list_card, orient="vertical", command=canvas.yview)
         content = tk.Frame(canvas, bg=colors["card"])
@@ -805,15 +881,36 @@ class QuizGUI:
         canvas.pack(side="left", fill="both", expand=True)
         scrollbar.pack(side="right", fill="y")
 
-        for item in favorites:
+        for idx, item in enumerate(selected_items, start=1):
             q = item.get("question_data", {})
             question_text = q.get("question", "")
             if isinstance(question_text, list):
                 question_text = "\n".join(question_text)
-            row = tk.Frame(content, bg=colors["card"], bd=1, relief="solid", padx=10, pady=8)
-            row.pack(fill="x", pady=4)
-            tk.Label(row, text=item.get("category", "未分類"), font=self._font(10, "bold"), fg=colors["text"], bg=colors["card"], anchor="w").pack(fill="x")
-            tk.Label(row, text=question_text, font=self._font(10), fg=colors["muted"], bg=colors["card"], wraplength=760, justify="left", anchor="w").pack(fill="x", pady=(4, 0))
+            block = tk.Frame(content, bg="#F8FAFC", bd=1, relief="solid", padx=12, pady=10)
+            block.pack(fill="x", pady=6)
+            tk.Label(
+                block,
+                text=f"Q{idx}｜原題庫分類：{item.get('category', '未分類')}",
+                font=self._font(11, "bold"),
+                fg=colors["text"],
+                bg="#F8FAFC",
+                anchor="w"
+            ).pack(fill="x")
+            tk.Label(
+                block,
+                text=question_text,
+                font=self._font(11, "bold"),
+                fg=colors["text"],
+                bg="#F8FAFC",
+                wraplength=760,
+                justify="left",
+                anchor="w"
+            ).pack(fill="x", pady=(4, 6))
+            correct_answer = self._normalize_answer(q.get("answer", ""))
+            self._add_result_options(block, q, [], correct_answer)
+            if self.show_explanation_var.get():
+                tk.Label(block, text="題目解析：", font=self._font(10, "bold"), fg="#0D47A1", bg="#F8FAFC", anchor="w").pack(fill="x", pady=(6, 0))
+                tk.Label(block, text=q.get("explanation", "無"), font=self._font(10), fg=colors["text"], bg="#F8FAFC", wraplength=700, justify="left", anchor="w").pack(fill="x")
 
     def show_qa_home(self):
         self.setup_layout(active_page="qa")
@@ -1049,6 +1146,53 @@ class QuizGUI:
             height=2,
             state=tk.NORMAL if wrong_count else tk.DISABLED
         ).pack(side="left", fill="x", expand=True, padx=(6, 0))
+
+        favorite_card = tk.Frame(settings_content, bg=colors["card"], padx=22, pady=20)
+        favorite_card.pack(fill="x", pady=(16, 0))
+
+        tk.Label(
+            favorite_card,
+            text="收藏分類設定",
+            font=self._font(14, "bold"),
+            fg=colors["text"],
+            bg=colors["card"]
+        ).pack(anchor="w", pady=(0, 8))
+
+        tk.Label(
+            favorite_card,
+            text="收藏題目時可選擇要加入的分類，預設分類為「已收藏的題目」。",
+            font=self._font(10),
+            fg=colors["muted"],
+            bg=colors["card"],
+            wraplength=760,
+            justify="left"
+        ).pack(anchor="w", pady=(0, 10))
+
+        categories = self.favorite_manager.load_categories()
+        category_list = tk.Frame(favorite_card, bg=colors["card"])
+        category_list.pack(fill="x", pady=(0, 10))
+        for category in categories:
+            tk.Label(
+                category_list,
+                text=f"• {category}",
+                font=self._font(10),
+                fg=colors["text"],
+                bg=colors["card"],
+                anchor="w"
+            ).pack(anchor="w", pady=1)
+
+        add_category_frame = tk.Frame(favorite_card, bg=colors["card"])
+        add_category_frame.pack(fill="x")
+        category_entry = tk.Entry(add_category_frame, textvariable=self.new_favorite_category_var, font=self._font(10))
+        self._style_entry(category_entry)
+        category_entry.pack(side="left", fill="x", expand=True, padx=(0, 8))
+        self._button(
+            add_category_frame,
+            text="新增收藏分類",
+            command=self.add_favorite_category_from_settings,
+            style="secondary",
+            font_size=10
+        ).pack(side="left")
 
         import_card = tk.Frame(settings_content, bg=colors["card"], padx=22, pady=20)
         import_card.pack(fill="x", pady=(16, 0))
@@ -1455,15 +1599,74 @@ class QuizGUI:
             self.current_q_idx += 1
             self.load_next_question()
 
+    def choose_favorite_category_dialog(self):
+        categories = self.favorite_manager.load_categories()
+        current_category = self.favorite_category_var.get()
+        if current_category not in categories:
+            current_category = self.favorite_manager.DEFAULT_CATEGORY
+
+        dialog = tk.Toplevel(self.root)
+        dialog.title("選擇收藏分類")
+        dialog.geometry("360x190")
+        dialog.resizable(False, False)
+        dialog.transient(self.root)
+        dialog.grab_set()
+
+        colors = self._theme_colors()
+        dialog.configure(bg=colors["bg"])
+        selected = tk.StringVar(value=current_category)
+        result = {"category": None}
+
+        frame = tk.Frame(dialog, bg=colors["card"], padx=22, pady=18)
+        frame.pack(expand=True, fill="both", padx=14, pady=14)
+
+        tk.Label(
+            frame,
+            text="收藏到哪個分類？",
+            font=self._font(13, "bold"),
+            fg=colors["text"],
+            bg=colors["card"]
+        ).pack(anchor="w", pady=(0, 10))
+
+        menu = tk.OptionMenu(frame, selected, *categories)
+        menu.configure(
+            font=self._font(10),
+            bg=colors["secondary_bg"],
+            fg=colors["text"],
+            activebackground=colors["border"],
+            activeforeground=colors["text"],
+            relief="flat",
+            highlightthickness=1,
+            highlightbackground=colors["border"]
+        )
+        menu.pack(fill="x", pady=(0, 14))
+
+        action_frame = tk.Frame(frame, bg=colors["card"])
+        action_frame.pack(fill="x")
+
+        def confirm():
+            result["category"] = selected.get()
+            self.favorite_category_var.set(selected.get())
+            dialog.destroy()
+
+        self._button(action_frame, text="取消", command=dialog.destroy, style="secondary", font_size=10).pack(side="left", fill="x", expand=True, padx=(0, 6))
+        self._button(action_frame, text="加入收藏", command=confirm, style="success", font_size=10).pack(side="left", fill="x", expand=True, padx=(6, 0))
+
+        dialog.wait_window()
+        return result["category"]
+
     def add_current_question_to_favorites(self):
         if not self.selected_questions:
             return
         question = self.selected_questions[self.current_q_idx]
-        _, added = self.favorite_manager.add_favorite(question)
+        favorite_category = self.choose_favorite_category_dialog()
+        if not favorite_category:
+            return
+        _, added = self.favorite_manager.add_favorite(question, favorite_category)
         if added:
-            messagebox.showinfo("收藏題目", "已收藏本題")
+            messagebox.showinfo("收藏題目", f"已收藏本題到「{favorite_category}」")
         else:
-            messagebox.showinfo("收藏題目", "本題已在收藏清單中")
+            messagebox.showinfo("收藏題目", f"本題已在「{favorite_category}」分類中")
 
     def export_current_quiz_questions(self):
         if not self.selected_questions:
