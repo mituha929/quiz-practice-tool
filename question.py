@@ -69,6 +69,7 @@ class QuizGUI:
         self.wrong_output_file_var = tk.StringVar(value=self.wrong_manager.file_name)
         self.favorite_category_var = tk.StringVar(value=self.favorite_manager.DEFAULT_CATEGORY)
         self.new_favorite_category_var = tk.StringVar(value="")
+        self.expanded_favorite_categories = set()
 
         self.setup_main_menu()
 
@@ -182,6 +183,8 @@ class QuizGUI:
                 "danger_hover": "#C53030",
                 "success": "#38A169",
                 "success_hover": "#2F855A",
+                "warning": "#DD6B20",
+                "warning_hover": "#C05621",
                 "tertiary": "#805AD5",
                 "tertiary_hover": "#6B46C1",
                 "border": "#4A5568",
@@ -201,6 +204,8 @@ class QuizGUI:
             "danger_hover": "#C53030",
             "success": "#38A169",
             "success_hover": "#2F855A",
+            "warning": "#DD6B20",
+            "warning_hover": "#C05621",
             "tertiary": "#805AD5",
             "tertiary_hover": "#6B46C1",
             "border": "#CBD5E0",
@@ -231,6 +236,13 @@ class QuizGUI:
             relief = "flat"
             borderwidth = 0
             outline = colors["success"]
+        elif style == "warning":
+            bg = colors["warning"]
+            fg = "white"
+            active_bg = colors["warning_hover"]
+            relief = "flat"
+            borderwidth = 0
+            outline = colors["warning"]
         elif style == "tertiary":
             bg = colors["tertiary"]
             fg = "white"
@@ -839,37 +851,8 @@ class QuizGUI:
             ).pack(anchor="w")
             return
 
-        category_bar = tk.Frame(list_card, bg=colors["card"])
-        category_bar.pack(fill="x", pady=(0, 12))
-
-        for category, items in grouped_favorites.items():
-            style = "primary" if category == selected_category else "secondary"
-            self._button(
-                category_bar,
-                text=f"{category}（{len(items)}）",
-                command=lambda name=category: self.show_favorite_home(name),
-                style=style,
-                font_size=10
-            ).pack(side="left", padx=(0, 8), pady=(0, 6))
-
-        if not selected_category:
-            tk.Label(
-                list_card,
-                text="請選擇上方分類查看收藏題目內容。",
-                font=self._font(10),
-                fg=colors["muted"],
-                bg=colors["card"]
-            ).pack(anchor="w")
-            return
-
-        selected_items = grouped_favorites.get(selected_category, [])
-        tk.Label(
-            list_card,
-            text=f"{selected_category}：共 {len(selected_items)} 題",
-            font=self._font(12, "bold"),
-            fg=colors["text"],
-            bg=colors["card"]
-        ).pack(anchor="w", pady=(0, 8))
+        if selected_category:
+            self.expanded_favorite_categories.add(selected_category)
 
         canvas = tk.Canvas(list_card, bg=colors["card"], highlightthickness=0)
         scrollbar = ttk.Scrollbar(list_card, orient="vertical", command=canvas.yview)
@@ -880,37 +863,70 @@ class QuizGUI:
         canvas.bind("<Configure>", lambda e: canvas.itemconfigure(window, width=e.width))
         canvas.pack(side="left", fill="both", expand=True)
         scrollbar.pack(side="right", fill="y")
+        canvas.bind("<Enter>", lambda event: canvas.bind_all("<MouseWheel>", lambda e: canvas.yview_scroll(int(-1 * (e.delta / 120)), "units")))
+        canvas.bind("<Leave>", lambda event: canvas.unbind_all("<MouseWheel>"))
 
-        for idx, item in enumerate(selected_items, start=1):
-            q = item.get("question_data", {})
-            question_text = q.get("question", "")
-            if isinstance(question_text, list):
-                question_text = "\n".join(question_text)
-            block = tk.Frame(content, bg="#F8FAFC", bd=1, relief="solid", padx=12, pady=10)
-            block.pack(fill="x", pady=6)
-            tk.Label(
-                block,
-                text=f"Q{idx}｜原題庫分類：{item.get('category', '未分類')}",
-                font=self._font(11, "bold"),
-                fg=colors["text"],
-                bg="#F8FAFC",
-                anchor="w"
-            ).pack(fill="x")
-            tk.Label(
-                block,
-                text=question_text,
-                font=self._font(11, "bold"),
-                fg=colors["text"],
-                bg="#F8FAFC",
-                wraplength=760,
-                justify="left",
-                anchor="w"
-            ).pack(fill="x", pady=(4, 6))
-            correct_answer = self._normalize_answer(q.get("answer", ""))
-            self._add_result_options(block, q, [], correct_answer)
-            if self.show_explanation_var.get():
-                tk.Label(block, text="題目解析：", font=self._font(10, "bold"), fg="#0D47A1", bg="#F8FAFC", anchor="w").pack(fill="x", pady=(6, 0))
-                tk.Label(block, text=q.get("explanation", "無"), font=self._font(10), fg=colors["text"], bg="#F8FAFC", wraplength=700, justify="left", anchor="w").pack(fill="x")
+        for category, items in grouped_favorites.items():
+            is_expanded = category in self.expanded_favorite_categories
+            folder_frame = tk.Frame(content, bg=colors["secondary_bg"], padx=12, pady=10)
+            folder_frame.pack(fill="x", pady=6)
+
+            status = "[-]" if is_expanded else "[+]"
+            folder_button = self._button(
+                folder_frame,
+                text=f"{status} {category}    {len(items)} 題",
+                command=lambda name=category: self.toggle_favorite_category(name),
+                style="secondary",
+                font_size=12
+            )
+            folder_button.configure(anchor="w", justify="left")
+            folder_button.pack(fill="x")
+
+            if not is_expanded:
+                continue
+
+            for idx, item in enumerate(items, start=1):
+                self._add_favorite_question_block(folder_frame, item, idx, colors)
+
+    def toggle_favorite_category(self, category):
+        if category in self.expanded_favorite_categories:
+            self.expanded_favorite_categories.remove(category)
+        else:
+            self.expanded_favorite_categories.add(category)
+        self.show_favorite_home()
+
+    def _add_favorite_question_block(self, parent, item, idx, colors):
+        q = item.get("question_data", {})
+        question_text = q.get("question", "")
+        if isinstance(question_text, list):
+            question_text = "\n".join(question_text)
+
+        block_bg = "#F8FAFC" if self.theme_var.get() != "深色" else "#111827"
+        block = tk.Frame(parent, bg=block_bg, bd=1, relief="solid", padx=12, pady=10)
+        block.pack(fill="x", pady=(10, 0))
+        tk.Label(
+            block,
+            text=f"Q{idx}｜原題庫分類：{item.get('category', '未分類')}",
+            font=self._font(11, "bold"),
+            fg=colors["text"],
+            bg=block_bg,
+            anchor="w"
+        ).pack(fill="x")
+        tk.Label(
+            block,
+            text=question_text,
+            font=self._font(11, "bold"),
+            fg=colors["text"],
+            bg=block_bg,
+            wraplength=760,
+            justify="left",
+            anchor="w"
+        ).pack(fill="x", pady=(4, 6))
+        correct_answer = self._normalize_answer(q.get("answer", ""))
+        self._add_result_options(block, q, [], correct_answer)
+        if self.show_explanation_var.get():
+            tk.Label(block, text="題目解析：", font=self._font(10, "bold"), fg="#0D47A1", bg=block_bg, anchor="w").pack(fill="x", pady=(6, 0))
+            tk.Label(block, text=q.get("explanation", "無"), font=self._font(10), fg=colors["text"], bg=block_bg, wraplength=700, justify="left", anchor="w").pack(fill="x")
 
     def show_qa_home(self):
         self.setup_layout(active_page="qa")
@@ -1007,6 +1023,8 @@ class QuizGUI:
         canvas.bind("<Configure>", lambda e: canvas.itemconfigure(window, width=e.width))
         canvas.pack(side="left", fill="both", expand=True)
         scrollbar.pack(side="right", fill="y")
+        canvas.bind("<Enter>", lambda event: canvas.bind_all("<MouseWheel>", lambda e: canvas.yview_scroll(int(-1 * (e.delta / 120)), "units")))
+        canvas.bind("<Leave>", lambda event: canvas.unbind_all("<MouseWheel>"))
 
         card = tk.Frame(settings_content, bg=colors["card"], padx=22, pady=20)
         card.pack(fill="x")
@@ -1357,10 +1375,12 @@ class QuizGUI:
 
     def show_question_ui(self):
         self.clear_frame()
-        self.quiz_frame = tk.Frame(self.root, padx=30, pady=20)
+        colors = self._theme_colors()
+        quiz_bg = colors["bg"]
+        self.quiz_frame = tk.Frame(self.root, padx=30, pady=20, bg=quiz_bg)
         self.quiz_frame.pack(expand=True, fill="both")
 
-        nav_content_frame = tk.Frame(self.quiz_frame)
+        nav_content_frame = tk.Frame(self.quiz_frame, bg=quiz_bg)
         nav_content_frame.pack(expand=True, fill="both")
 
         self.prev_button = tk.Button(
@@ -1370,29 +1390,35 @@ class QuizGUI:
             width=3,
             command=self.prev_quiz_question
         )
-        self._style_button(self.prev_button, "secondary")
+        self.prev_button.configure(
+            bg=quiz_bg,
+            fg=colors["muted"],
+            activebackground=quiz_bg,
+            activeforeground=colors["primary"],
+            relief="flat",
+            bd=0,
+            highlightthickness=0,
+            cursor="hand2"
+        )
         self.prev_button.pack(side="left", fill="y", padx=(0, 8))
 
-        content_frame = tk.Frame(nav_content_frame)
+        content_frame = tk.Frame(nav_content_frame, bg=quiz_bg)
         content_frame.pack(side="left", expand=True, fill="both")
 
-        self.quiz_canvas = tk.Canvas(content_frame, highlightthickness=0)
-        quiz_scrollbar = ttk.Scrollbar(content_frame, orient="vertical", command=self.quiz_canvas.yview)
-        self.quiz_content = tk.Frame(self.quiz_canvas)
+        self.quiz_canvas = tk.Canvas(content_frame, bg=quiz_bg, highlightthickness=0)
+        self.quiz_content = tk.Frame(self.quiz_canvas, bg=quiz_bg)
 
         self.quiz_content.bind(
             "<Configure>",
             lambda e: self.quiz_canvas.configure(scrollregion=self.quiz_canvas.bbox("all"))
         )
         self.quiz_window = self.quiz_canvas.create_window((0, 0), window=self.quiz_content, anchor="nw")
-        self.quiz_canvas.configure(yscrollcommand=quiz_scrollbar.set)
         self.quiz_canvas.bind(
             "<Configure>",
             lambda e: self.quiz_canvas.itemconfigure(self.quiz_window, width=e.width)
         )
 
         self.quiz_canvas.pack(side="left", fill="both", expand=True)
-        quiz_scrollbar.pack(side="right", fill="y")
         self.quiz_canvas.bind("<Enter>", lambda event: self.quiz_canvas.bind_all("<MouseWheel>", self._on_quiz_mousewheel))
         self.quiz_canvas.bind("<Leave>", lambda event: self.quiz_canvas.unbind_all("<MouseWheel>"))
 
@@ -1403,7 +1429,16 @@ class QuizGUI:
             width=3,
             command=self.next_quiz_question
         )
-        self._style_button(self.next_button, "secondary")
+        self.next_button.configure(
+            bg=quiz_bg,
+            fg=colors["muted"],
+            activebackground=quiz_bg,
+            activeforeground=colors["primary"],
+            relief="flat",
+            bd=0,
+            highlightthickness=0,
+            cursor="hand2"
+        )
         self.next_button.pack(side="left", fill="y", padx=(8, 0))
 
         self.q_text = tk.Label(
@@ -1411,31 +1446,26 @@ class QuizGUI:
             text="",
             wraplength=700,
             justify="left",
-            font=self._font(12, "bold")
+            font=self._font(12, "bold"),
+            bg=quiz_bg,
+            fg=colors["text"]
         )
         self.q_text.pack(pady=20, anchor="w")
 
-        self.options_container = tk.Frame(self.quiz_content)
+        self.options_container = tk.Frame(self.quiz_content, bg=quiz_bg)
         self.options_container.pack(fill="x", pady=10)
 
-        # 測驗模式按鈕列：先暫存答案，最後統一交卷
-        quiz_btn_frame = tk.Frame(self.quiz_frame)
+        # 測驗模式按鈕列：切換題目或交卷時自動暫存答案
+        quiz_btn_frame = tk.Frame(self.quiz_frame, bg=quiz_bg)
         quiz_btn_frame.pack(fill="x", side="bottom", pady=20)
-
-        self._button(
-            quiz_btn_frame,
-            text="儲存本題答案",
-            command=self.save_current_answer,
-            height=2
-        ).pack(side="left", fill="x", expand=True, padx=(0, 5))
 
         self._button(
             quiz_btn_frame,
             text="收藏本題",
             command=self.add_current_question_to_favorites,
-            style="secondary",
+            style="warning",
             height=2
-        ).pack(side="left", fill="x", expand=True, padx=5)
+        ).pack(side="left", fill="x", expand=True, padx=(0, 5))
 
         self._button(
             quiz_btn_frame,
@@ -1448,13 +1478,13 @@ class QuizGUI:
             quiz_btn_frame,
             text="結束測驗 / 返回主選單",
             command=self.exit_quiz_to_menu,
-            style="secondary",
+            style="danger-solid",
             height=2
         ).pack(side="left", fill="x", expand=True, padx=(5, 0))
 
         self.progress_bar = ttk.Progressbar(self.quiz_frame, mode="determinate")
         self.progress_bar.pack(fill="x", side="bottom", pady=5)
-        self.info_label = tk.Label(self.quiz_frame, text="", fg="#757575")
+        self.info_label = tk.Label(self.quiz_frame, text="", fg=colors["muted"], bg=quiz_bg)
         self.info_label.pack(side="bottom")
 
         self.load_next_question()
@@ -1521,7 +1551,11 @@ class QuizGUI:
                         font=self._font(11),
                         anchor="w",
                         wraplength=680,
-                        justify="left"
+                        justify="left",
+                        bg=self.quiz_frame.cget("bg"),
+                        fg=self._theme_colors()["text"],
+                        selectcolor=self.quiz_frame.cget("bg"),
+                        command=lambda: self.save_current_answer(show_message=False)
                     ).pack(fill="x", pady=4)
                 else:
                     var = tk.BooleanVar(value=normalized_orig_key in saved_original)
@@ -1533,11 +1567,15 @@ class QuizGUI:
                         font=self._font(11),
                         anchor="w",
                         wraplength=680,
-                        justify="left"
+                        justify="left",
+                        bg=self.quiz_frame.cget("bg"),
+                        fg=self._theme_colors()["text"],
+                        selectcolor=self.quiz_frame.cget("bg"),
+                        command=lambda: self.save_current_answer(show_message=False)
                     ).pack(fill="x", pady=4)
 
             answered = len(self.saved_answers)
-            self.info_label.config(text=f"進度：{self.current_q_idx + 1} / {len(self.selected_questions)}，已儲存：{answered} / {len(self.selected_questions)}")
+            self.info_label.config(text=f"進度：{self.current_q_idx + 1} / {len(self.selected_questions)}，已作答：{answered} / {len(self.selected_questions)}")
             self.progress_bar["value"] = (self.current_q_idx / len(self.selected_questions)) * 100
             self.prev_button.config(state=tk.NORMAL if self.current_q_idx > 0 else tk.DISABLED)
             self.next_button.config(state=tk.NORMAL if self.current_q_idx < len(self.selected_questions) - 1 else tk.DISABLED)
@@ -1570,7 +1608,7 @@ class QuizGUI:
         if not selected_display:
             self.saved_answers.pop(self.current_q_idx, None)
             if show_message:
-                messagebox.showinfo("儲存答案", "本題目前未選擇答案，已清除暫存答案")
+                messagebox.showinfo("作答狀態", "本題目前未選擇答案")
             self._refresh_quiz_info()
             return False
 
@@ -1578,14 +1616,14 @@ class QuizGUI:
         selected_original.sort()
         self.saved_answers[self.current_q_idx] = selected_original
         if show_message:
-            messagebox.showinfo("儲存答案", "本題答案已儲存")
+            messagebox.showinfo("作答狀態", "本題答案已記錄")
         self._refresh_quiz_info()
         return True
 
     def _refresh_quiz_info(self):
         if hasattr(self, "info_label"):
             answered = len(self.saved_answers)
-            self.info_label.config(text=f"進度：{self.current_q_idx + 1} / {len(self.selected_questions)}，已儲存：{answered} / {len(self.selected_questions)}")
+            self.info_label.config(text=f"進度：{self.current_q_idx + 1} / {len(self.selected_questions)}，已作答：{answered} / {len(self.selected_questions)}")
 
     def prev_quiz_question(self):
         self.save_current_answer(show_message=False)
@@ -1607,7 +1645,7 @@ class QuizGUI:
 
         dialog = tk.Toplevel(self.root)
         dialog.title("選擇收藏分類")
-        dialog.geometry("360x190")
+        dialog.geometry("420x270")
         dialog.resizable(False, False)
         dialog.transient(self.root)
         dialog.grab_set()
@@ -1640,6 +1678,41 @@ class QuizGUI:
             highlightbackground=colors["border"]
         )
         menu.pack(fill="x", pady=(0, 14))
+
+        add_frame = tk.Frame(frame, bg=colors["card"])
+        add_frame.pack(fill="x", pady=(0, 14))
+
+        new_category_var = tk.StringVar(value="")
+        new_category_entry = tk.Entry(add_frame, textvariable=new_category_var, font=self._font(10))
+        self._style_entry(new_category_entry)
+        new_category_entry.pack(side="left", fill="x", expand=True, padx=(0, 8))
+
+        def refresh_category_menu(updated_categories):
+            menu_widget = menu["menu"]
+            menu_widget.delete(0, "end")
+            for category in updated_categories:
+                menu_widget.add_command(label=category, command=lambda value=category: selected.set(value))
+
+        def add_category_in_dialog():
+            category_name = new_category_var.get().strip()
+            if not category_name:
+                messagebox.showinfo("新增收藏分類", "請先輸入分類名稱", parent=dialog)
+                return
+            updated_categories, added = self.favorite_manager.add_category(category_name)
+            refresh_category_menu(updated_categories)
+            selected.set(category_name)
+            self.favorite_category_var.set(category_name)
+            new_category_var.set("")
+            if not added:
+                messagebox.showinfo("新增收藏分類", "此分類已存在，已為你選取此分類", parent=dialog)
+
+        self._button(
+            add_frame,
+            text="新增分類",
+            command=add_category_in_dialog,
+            style="secondary",
+            font_size=10
+        ).pack(side="left")
 
         action_frame = tk.Frame(frame, bg=colors["card"])
         action_frame.pack(fill="x")
@@ -1681,7 +1754,7 @@ class QuizGUI:
         if unanswered:
             confirm = messagebox.askyesno(
                 "交卷確認",
-                f"目前還有 {unanswered} 題未儲存答案，確定要交卷嗎？"
+                f"目前還有 {unanswered} 題未作答，確定要交卷嗎？"
             )
             if not confirm:
                 return
